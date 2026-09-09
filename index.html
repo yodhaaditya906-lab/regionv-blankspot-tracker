@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Mandiri Region V - Blank Spot & Branch Coverage Dashboard</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Dashboard Tracking Blank Spot, Coverage Wilayah, & Live Master KCP Database Bank Mandiri Region V (Jakarta Selatan, Depok, Bogor).">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Custom App Styles -->
+  <link rel="stylesheet" href="styles.css?v=1789880000000">
+</head>
+<body>
+
+  <!-- Unified Single Top Header -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="logo-wrapper">
+        <div class="mandiri-logo-badge">
+          <img src="assets/mandiri_logo_clean.png" alt="Bank Mandiri Logo" class="mandiri-logo-img">
+        </div>
+      </div>
+      <div class="brand-divider"></div>
+      <div class="header-title-group">
+        <h1>Dashboard Tracking Region V / Jakarta 3</h1>
+      </div>
+    </div>
+
+    <!-- Right Header Actions (Thin Outlined Buttons) -->
+    <div class="header-actions">
+      <!-- Sync Live Sheet Button -->
+      <button class="btn-header-outlined" id="btn-sync-sheet">
+        <i class="fa-solid fa-arrows-rotate"></i> Sync Live Sheet
+      </button>
+
+      <!-- Database Explorer Button -->
+      <button class="btn-header-outlined" id="btn-open-db">
+        <i class="fa-solid fa-database"></i> Database Profil Unit
+      </button>
+
+      <!-- Excel Export Dropdown Button -->
+      <div class="excel-dropdown">
+        <button class="btn-header-outlined" id="btn-excel-menu">
+          <i class="fa-solid fa-file-excel"></i> Download <i class="fa-solid fa-chevron-down" style="font-size: 9px; margin-left: 2px;"></i>
+        </button>
+        <div class="excel-dropdown-content" id="excel-menu-content">
+          <a href="#" id="btn-export-excel-blankspots">
+            <i class="fa-solid fa-file-excel" style="color: #107C41;"></i>
+            <div>
+              <strong>1. Excel Coverage & Blank Spot</strong>
+              <small>Daftar Kecamatan & Kelurahan (Terjangkau vs Blank Spot)</small>
+            </div>
+          </a>
+          <a href="#" id="btn-export-excel-branches">
+            <i class="fa-solid fa-file-excel" style="color: #107C41;"></i>
+            <div>
+              <strong>2. Excel Database Master Unit</strong>
+              <small>Daftar 93 Unit Operasional & Koordinat Presisi</small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Summary Stats Bar (Slate-900 Dark Navy Ribbon) -->
+  <div class="metrics-ribbon">
+    <div class="metric-chip">
+      <span class="chip-dot blue"></span>
+      <span><strong>13</strong> Area Kerja</span>
+    </div>
+    <div class="metric-chip">
+      <span class="chip-dot yellow"></span>
+      <span><strong id="stat-total-branches-chip">93 Unit Operasional</strong></span>
+    </div>
+    <div class="metric-chip">
+      <span class="chip-dot red"></span>
+      <span><strong id="stat-total-blankspots-chip">20</strong> Titik Blank Spot</span>
+    </div>
+    <div class="metric-chip">
+      <span class="chip-dot green"></span>
+      <span><strong>3</strong> Wilayah Kota (Jaksel, Depok, Bogor)</span>
+    </div>
+    <div class="metric-chip" style="margin-left: auto;">
+      <span id="sheet-status-badge" style="font-size: 11px; font-weight: 600; color: #34D399;">
+        <i class="fa-solid fa-spinner fa-spin"></i> Syncing Live Sheet...
+      </span>
+    </div>
+  </div>
+
+  <!-- App Main Content Area -->
+  <main class="app-container">
+    
+    <!-- Left Sidebar: Filters & Seamless Flat Location List -->
+    <aside class="sidebar-left">
+      <div class="panel-header">
+        <h2><i class="fa-solid fa-sliders" style="font-size: 12px; color: var(--mandiri-blue);"></i> Filter & Control Center</h2>
+      </div>
+
+      <!-- Controls Form -->
+      <div class="filter-group">
+        
+        <!-- City Filter -->
+        <div class="form-field">
+          <label for="filter-city">Wilayah Kota / Kabupaten</label>
+          <select id="filter-city" class="select-input">
+            <option value="ALL">Semua Wilayah (Jakarta Selatan, Depok, Bogor)</option>
+            <option value="Jakarta Selatan">Jakarta Selatan (6 Area)</option>
+            <option value="Depok">Depok (3 Area)</option>
+            <option value="Bogor">Bogor (4 Area)</option>
+          </select>
+        </div>
+
+        <!-- Area Select Filter -->
+        <div class="form-field">
+          <label for="filter-area" id="label-filter-area">13 Area Kerja Region V</label>
+          <select id="filter-area" class="select-input">
+            <option value="ALL">Semua 13 Area Kerja</option>
+            <option value="BOGOR 1">BOGOR 1</option>
+            <option value="BOGOR 2">BOGOR 2</option>
+            <option value="BOGOR YASMIN">BOGOR YASMIN</option>
+            <option value="CIBINONG MAYOR OKING">CIBINONG MAYOR OKING</option>
+            <option value="DEPOK 1">DEPOK 1</option>
+            <option value="DEPOK 2">DEPOK 2</option>
+            <option value="DEPOK GALERIA SAWANGAN">DEPOK GALERIA SAWANGAN</option>
+            <option value="JAKARTA FALATEHAN">JAKARTA FALATEHAN</option>
+            <option value="JAKARTA FATMAWATI">JAKARTA FATMAWATI</option>
+            <option value="JAKARTA PLAZA MANDIRI">JAKARTA PLAZA MANDIRI</option>
+            <option value="JAKARTA PONDOK INDAH">JAKARTA PONDOK INDAH</option>
+            <option value="JAKARTA SUDIRMAN">JAKARTA SUDIRMAN</option>
+            <option value="JAKARTA TEBET SUPOMO">JAKARTA TEBET SUPOMO</option>
+          </select>
+        </div>
+
+        <!-- View Mode Segmented Control -->
+        <div class="form-field">
+          <label>Filter Status Outlet</label>
+          <div class="mode-toggle">
+            <button class="btn-mode active" data-mode="all" id="btn-mode-all">Semua</button>
+            <button class="btn-mode" data-mode="blank" id="btn-mode-blank">🔴 Blank Spot</button>
+            <button class="btn-mode" data-mode="branch" id="btn-mode-branch">🔵 Unit</button>
+          </div>
+        </div>
+
+        <!-- Radius / All Units Checkbox -->
+        <label class="checkbox-field">
+          <input type="checkbox" id="chk-show-radius" checked>
+          <span>Tampilkan Semua Unit</span>
+        </label>
+
+        <!-- Live Search Input -->
+        <div class="form-field">
+          <label for="search-input">Pencarian Kecamatan / Blank Spot</label>
+          <input type="text" id="search-input" class="text-input" placeholder="Cari nama kawasan (e.g. Sawangan, Katulampa)...">
+        </div>
+
+      </div>
+
+      <!-- Location List (Seamless Flat Vertical List - No Cards) -->
+      <div class="blankspot-list-container">
+        <div class="list-title">
+          <span>Daftar Kawasan Blank Spot</span>
+          <span class="badge-count" id="blankspot-counter">0 Titik</span>
+        </div>
+        <div id="blankspot-cards-wrapper">
+          <!-- Dynamic Flat Items rendered by app.js?v=1788515021043 -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Map Center Section -->
+    <section class="map-wrapper">
+      <div id="map"></div>
+
+      <!-- Sleek Frosted Glass Floating Legend Overlay -->
+      <div class="map-legend" id="map-legend">
+        <div class="legend-header">
+          <div class="legend-title">Legenda Pemetaan</div>
+          <button class="legend-close-btn" id="legend-close-btn" title="Sembunyikan Legenda" aria-label="Sembunyikan Legenda">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="legend-items">
+          <div class="legend-item">
+            <span class="legend-dot branch"></span>
+            <span>Kantor Cabang / KCP Eksisting</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot blank"></span>
+            <span>Kawasan Blank Spot (Tanpa Outlet)</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot radius"></span>
+            <span>Radius Jangkauan (2.5 Km)</span>
+          </div>
+          <div class="legend-item" style="margin-top: 4px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 4px;">
+            <span style="display: inline-block; width: 14px; height: 0px; border-top: 2px dashed #EF4444; outline: 1px solid white; margin-right: 4px;"></span>
+            <span>Batas Kota / Kab (Garis Merah Putus-Putus)</span>
+          </div>
+          <div class="legend-item">
+            <span style="display: inline-block; width: 14px; height: 0px; border-top: 2px dashed #10B981; outline: 1px solid white; margin-right: 4px;"></span>
+            <span>Batas Kecamatan (Garis Hijau Putus-Putus)</span>
+          </div>
+          <div class="legend-item">
+            <span style="display: inline-block; width: 10px; height: 10px; background: rgba(16, 185, 129, 0.4); border: 1px solid #059669; border-radius: 2px;"></span>
+            <span>Kelurahan Tercover (Ada Outlet)</span>
+          </div>
+          <div class="legend-item">
+            <span style="display: inline-block; width: 10px; height: 10px; background: rgba(239, 68, 68, 0.4); border: 1px solid #DC2626; border-radius: 2px;"></span>
+            <span>Kelurahan Blank Spot (Tanpa Outlet)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Re-open Legend Button -->
+      <button class="legend-toggle-btn hidden" id="legend-toggle-btn" title="Tampilkan Legenda" aria-label="Tampilkan Legenda">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Legenda Pemetaan</span>
+      </button>
+
+      <!-- Right Floating Detail Panel (Frosted Glass) -->
+      <aside class="detail-panel hidden" id="detail-panel">
+        <div class="detail-header">
+          <button class="btn-close-detail" id="btn-close-panel" title="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+          <h3 id="panel-title">Detail Kawasan Blank Spot</h3>
+        </div>
+        <div class="detail-content" id="panel-content">
+          <!-- Dynamic JS Panel Content -->
+        </div>
+      </aside>
+    </section>
+
+  </main>
+
+  <!-- Database Explorer Modal Window -->
+  <div class="modal-overlay hidden" id="modal-db-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <i class="fa-solid fa-database" style="font-size: 18px; color: var(--mandiri-yellow);"></i>
+          <div>
+            <h2 style="font-size: 15px; margin: 0;">Database Master KCP & Live Google Sheets Stream</h2>
+            <p style="font-size: 11px; opacity: 0.8; margin: 0;">Bank Mandiri Region V (Terhubung Real-Time ke Google Sheets)</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="btn-close-db-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-toolbar">
+        <div style="flex: 1; max-width: 320px;">
+          <input type="text" id="db-search-input" class="text-input" placeholder="Filter KCP / alamat / kota...">
+        </div>
+        <button class="btn-excel-quick" id="btn-export-excel-branches-modal">
+          <i class="fa-solid fa-file-excel"></i> Export Excel Database (.xlsx)
+        </button>
+      </div>
+
+      <div class="modal-body-table">
+        <table class="db-table">
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Nama KCP / Branch</th>
+              <th>Status Data</th>
+              <th>Wilayah Kota</th>
+              <th>Alamat Lengkap</th>
+              <th>Koordinat (Lat, Lng)</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="db-table-body">
+            <!-- Dynamic JS Table Rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Disclaimers -->
+  <footer class="app-footer">
+    <div class="disclaimer-text">
+      <span>PT Bank Mandiri (Persero) Tbk. Berizin dan Diawasi oleh <strong class="reg-badge">OJK</strong> dan <strong class="reg-badge">BI</strong>, Serta Merupakan Peserta Penjaminan <strong class="reg-badge">LPS</strong>. Maksimum nilai simpanan yang dijamin LPS per Nasabah per Bank adalah Rp 2 Miliar.</span>
+    </div>
+    <div>
+      <span>Region V Enterprise Dashboard v2.0</span>
+    </div>
+  </footer>
+
+  <!-- PapaParse CSV Parser Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- SheetJS (XLSX) Export Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Official Real-World GeoJSON Datasets for Region V (Jakarta Selatan, Depok, Kota Bogor, Kab Bogor) -->
+  <script src="jaksel_real_geojson.js"></script>
+  <script src="depok_real_geojson.js?v=1788560000000"></script>
+  <script src="kota_bogor_real_geojson.js"></script>
+  <script src="kab_bogor_real_geojson.js?v=1788660000000"></script>
+  <script src="kecamatan_real_geojson.js?v=1788590000000"></script>
+  <script src="master_kcps_data.js?v=1788660000000"></script>
+
+  <!-- App JS -->
+  <script src="app.js?v=1789440000000"></script>
+</body>
+</html>

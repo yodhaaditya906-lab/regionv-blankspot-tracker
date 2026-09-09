@@ -1,0 +1,13 @@
+{
+  "regionInfo": {
+    "regionName": "Bank Mandiri Region V / Jakarta 3",
+    "cities": [
+      "Jakarta Selatan",
+      "Depok",
+      "Bogor"
+    ],
+    "totalAreas": 0,
+    "description": "Dashboard Pemetaan & Tracking Blank Spot Cabang Bank Mandiri Region V (Jakarta Selatan, Depok, Bogor)"
+  },
+  "areas": []
+}

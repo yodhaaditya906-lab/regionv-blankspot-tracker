@@ -1,0 +1,5885 @@
+[
+  {
+    "type": "node",
+    "id": 1354130388,
+    "lat": -6.3909637,
+    "lon": 106.8143332,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1354133896,
+    "lat": -6.3943009,
+    "lon": 106.8143278,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 1354144129,
+    "lat": -6.3953192,
+    "lon": 106.802113,
+    "tags": {
+      "amenity": "bank",
+      "branch": "Sawangan",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2024167123,
+    "lat": -6.1878995,
+    "lon": 106.7356821,
+    "tags": {
+      "addr:housename": "Mandiri Sekuritas Puri Indah",
+      "addr:housenumber": "T1/49",
+      "addr:postcode": "11610",
+      "addr:street": "Sentra Niaga Puri Indah",
+      "amenity": "bank",
+      "branch": "Sekuritas",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2144099606,
+    "lat": -6.79317,
+    "lon": 106.7786765,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 2696164862,
+    "lat": -6.1970284,
+    "lon": 106.847687,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:postcode": "10430",
+      "addr:street": "Jalan Pangerang Diponegoro",
+      "amenity": "bank",
+      "atm": "yes",
+      "branch": "KCP Jakarta RSCM",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "drive_through": "no",
+      "level": "1",
+      "name": "Bank Mandiri",
+      "opening_hours": "Mo-Fr 09:00-15:00",
+      "operator": "Bank Mandiri",
+      "phone": "+62 14000",
+      "wheelchair": "limited"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4234978853,
+    "lat": -6.1975499,
+    "lon": 106.8252813,
+    "tags": {
+      "addr:city": "Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia",
+      "addr:housenumber": "61",
+      "addr:postcode": "10310",
+      "addr:street": "Jalan Imam Bonjol",
+      "amenity": "bank",
+      "branch": "Imam Bonjol",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4393080127,
+    "lat": -6.2746963,
+    "lon": 106.9868211,
+    "tags": {
+      "addr:city": "Bekasi",
+      "addr:postcode": "17114",
+      "amenity": "bank",
+      "atm": "yes",
+      "drive_through": "no",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4394980623,
+    "lat": -6.2768803,
+    "lon": 106.9893762,
+    "tags": {
+      "addr:city": "Bekasi",
+      "addr:street": "Jalan Kemang Pratama",
+      "amenity": "bank",
+      "atm": "yes",
+      "name": "Bank Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4613637589,
+    "lat": -6.2309278,
+    "lon": 106.6337567,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4821847306,
+    "lat": -6.2555321,
+    "lon": 106.8123698,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kemang Raya",
+      "amenity": "bank",
+      "branch": "Kemang",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4832316138,
+    "lat": -6.2693358,
+    "lon": 106.8153048,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kemang Raya",
+      "amenity": "bank",
+      "name": "Mandiri Syariah",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4855915806,
+    "lat": -6.1767165,
+    "lon": 106.7289524,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Ring Road Bojong - Cengkareng",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4859119642,
+    "lat": -6.1922032,
+    "lon": 106.7824531,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Budi Raya No.12",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4859351977,
+    "lat": -6.1852181,
+    "lon": 106.7537492,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Puri Indah Raya",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4859392742,
+    "lat": -6.2109448,
+    "lon": 106.8785667,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pisangan Lama III",
+      "addr:postcode": "13230",
+      "addr:street": "Jalan Pisangan Lama III",
+      "amenity": "bank",
+      "atm": "yes",
+      "branch": "Mitra Usaha",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4863808260,
+    "lat": -6.1905488,
+    "lon": 106.7503107,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4864234320,
+    "lat": -6.1918975,
+    "lon": 106.7460951,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Taman Aries",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4871519483,
+    "lat": -6.1864008,
+    "lon": 106.7979884,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Kawasan RS Darmais",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4871574212,
+    "lat": -6.1982681,
+    "lon": 106.7625541,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Meruya Ilir",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4871578712,
+    "lat": -6.2002196,
+    "lon": 106.7388184,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4877554303,
+    "lat": -6.1854435,
+    "lon": 106.7977899,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4882413835,
+    "lat": -6.1995079,
+    "lon": 106.8863513,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Ruko Balai Pustaka",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4884738027,
+    "lat": -6.1932691,
+    "lon": 106.8979113,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pemuda",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4887139081,
+    "lat": -6.1935039,
+    "lon": 106.8048616,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Kawasan RS Pelni",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4887139361,
+    "lat": -6.1972076,
+    "lon": 106.798395,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Letjen S. Parman Kav.63",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4891660555,
+    "lat": -6.2196137,
+    "lon": 106.7417924,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Joglo",
+      "amenity": "bank",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4908707106,
+    "lat": -6.2197913,
+    "lon": 106.7378811,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Meruya Selatan - Joglo ( Botanic Junction)",
+      "amenity": "bank",
+      "branch": "KCP Jakarta Botanical Garden",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4910293111,
+    "lat": -6.197707,
+    "lon": 106.7473054,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Taman Kebon Jeruk",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4913914550,
+    "lat": -6.1993335,
+    "lon": 106.7623687,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Meruya Ilir",
+      "amenity": "bank",
+      "name": "Mandiri Tunas Finance",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4913949480,
+    "lat": -6.2166405,
+    "lon": 106.7603892,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Srengseng Raya",
+      "amenity": "bank",
+      "branch": "Mitra Usaha",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4913949577,
+    "lat": -6.2173313,
+    "lon": 106.7593598,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Joglo",
+      "amenity": "bank",
+      "branch": "Taspen Pos",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4913949647,
+    "lat": -6.2177376,
+    "lon": 106.757412,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Joglo",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4913959621,
+    "lat": -6.1854318,
+    "lon": 106.8847825,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pondasi Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4914389389,
+    "lat": -6.1873588,
+    "lon": 106.9607991,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Bekasi",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4916416981,
+    "lat": -6.143531,
+    "lon": 106.6978374,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Peta Barat",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4916416985,
+    "lat": -6.1464711,
+    "lon": 106.7022966,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Peta Selatan",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4920971801,
+    "lat": -6.3523393,
+    "lon": 106.8830152,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4927843766,
+    "lat": -6.2185545,
+    "lon": 106.9310914,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Teratai Putih Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4968294883,
+    "lat": -6.220276,
+    "lon": 106.9222927,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Buaran",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4969489514,
+    "lat": -6.2780065,
+    "lon": 106.8451235,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Pasar Minggu",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4969771440,
+    "lat": -6.1330023,
+    "lon": 106.6946268,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "perumahan Citra 2",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4976774197,
+    "lat": -6.2196148,
+    "lon": 106.8993759,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pahlawan Revolusi",
+      "amenity": "bank",
+      "branch": "Mitra Usaha",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4976774199,
+    "lat": -6.2170275,
+    "lon": 106.8998054,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pahlawan Revolusi",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4981916175,
+    "lat": -6.1504433,
+    "lon": 106.8078603,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4989514070,
+    "lat": -6.283269,
+    "lon": 106.8267242,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4989514072,
+    "lat": -6.2877441,
+    "lon": 106.8187224,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Ampera Raya",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 4989843308,
+    "lat": -6.3105398,
+    "lon": 106.8139831,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5007086154,
+    "lat": -6.2478354,
+    "lon": 106.9284725,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Kalimalang",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5009315353,
+    "lat": -6.2429279,
+    "lon": 106.9344741,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Pondok Kelapa",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5013475670,
+    "lat": -6.3003732,
+    "lon": 106.8563452,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Condet",
+      "amenity": "bank",
+      "name": "Bank Mandiri Syariah",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5018125645,
+    "lat": -6.1938315,
+    "lon": 106.8917893,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5026090287,
+    "lat": -6.2636574,
+    "lon": 106.7978718,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan RS Fatmawati",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5028087598,
+    "lat": -6.2528827,
+    "lon": 106.8003193,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Wijaya II",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5033751698,
+    "lat": -6.1638516,
+    "lon": 106.7235732,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Dharma Kencana",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5036159527,
+    "lat": -6.2387753,
+    "lon": 106.8116637,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Wolter Monginsidi",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5042931218,
+    "lat": -6.1375253,
+    "lon": 106.7221785,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Komplek Taman Palem Lestari",
+      "amenity": "bank",
+      "name": "Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5042931432,
+    "lat": -6.1277326,
+    "lon": 106.72647,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kencana Timur",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5044261096,
+    "lat": -6.2436773,
+    "lon": 106.8036157,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Iskandarsyah Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5050808555,
+    "lat": -6.2466542,
+    "lon": 106.7900437,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Gandaria Tengah III",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5055157296,
+    "lat": -6.1363305,
+    "lon": 106.7324138,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Boulevard Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5055254963,
+    "lat": -6.2421455,
+    "lon": 106.7909657,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kyai Maja",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5055940530,
+    "lat": -6.1512433,
+    "lon": 106.7285299,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Bangun Nusa Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5057618580,
+    "lat": -6.1302288,
+    "lon": 106.7351389,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kapuk Cengkareng",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5057618599,
+    "lat": -6.1388095,
+    "lon": 106.7306962,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Lingkar Barat",
+      "amenity": "bank",
+      "name": "Mandiri Syariah",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5057618601,
+    "lat": -6.1383913,
+    "lon": 106.7306962,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Lingkar Barat",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5068495552,
+    "lat": -6.1582835,
+    "lon": 106.9063711,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Kelapa Gading Boulevard",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5070915073,
+    "lat": -6.2326594,
+    "lon": 106.7964917,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "note": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5081112256,
+    "lat": -6.1507453,
+    "lon": 106.8980657,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Gading Kirana ,Kelurahan Kelapa Gading Barat, Kecamatan Kelapa Gading, Jakarta Utara",
+      "amenity": "bank",
+      "branch": "KCP Jakarta Bukit Gading Indah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5081112723,
+    "lat": -6.1561928,
+    "lon": 106.8985766,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Boulevard Barat, Kelurahan Kelapa Gading Barat, Kecamatan Kelapa Gading, Jakarta Utara",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5084890133,
+    "lat": -6.2385894,
+    "lon": 106.8168309,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5087667481,
+    "lat": -6.1747103,
+    "lon": 106.8959856,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kelapa Gading Boulevard",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5104583940,
+    "lat": -6.111347,
+    "lon": 106.7771101,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pluit Karang Utara",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5104981295,
+    "lat": -6.1217991,
+    "lon": 106.7884027,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pluit Kencana",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5104981309,
+    "lat": -6.1247118,
+    "lon": 106.7967001,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5106742604,
+    "lat": -6.1382293,
+    "lon": 106.7739987,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Komplek Duta Harapan Indah",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5106912109,
+    "lat": -6.1163822,
+    "lon": 106.7673254,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pantai Indah Utara 2",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5116379027,
+    "lat": -6.2247214,
+    "lon": 106.8148631,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5121434839,
+    "lat": -6.144963,
+    "lon": 106.8641183,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Danau Agung 2",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5134938985,
+    "lat": -6.1507953,
+    "lon": 106.8783045,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Taman Sunter Indah",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5134938995,
+    "lat": -6.1493019,
+    "lon": 106.8857718,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5134938998,
+    "lat": -6.1418822,
+    "lon": 106.8875516,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Sunter Agung Utara",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5142535908,
+    "lat": -6.1349871,
+    "lon": 106.826743,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Mangga Dua Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5142535936,
+    "lat": -6.1363519,
+    "lon": 106.8217474,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Mangga Dua Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5142535975,
+    "lat": -6.1358678,
+    "lon": 106.8313886,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Mangga Dua Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri",
+      "ref": "located inside building",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5225679905,
+    "lat": -6.2775902,
+    "lon": 106.7527771,
+    "tags": {
+      "addr:city": "Tangerang Selatan",
+      "addr:full": "Pasar Bintaro Jaya Sektor 2",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5225825130,
+    "lat": -6.3040909,
+    "lon": 106.7549297,
+    "tags": {
+      "access:roof": "no",
+      "addr:full": "Jalan WR Supratman",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5226103537,
+    "lat": -6.3104333,
+    "lon": 106.7715385,
+    "tags": {
+      "addr:full": "Jalan Cireundeu Raya",
+      "amenity": "bank",
+      "name": "Mandiri Syariah",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5226103538,
+    "lat": -6.3133081,
+    "lon": 106.7700232,
+    "tags": {
+      "addr:full": "Jalan Cireundeu Raya",
+      "amenity": "bank",
+      "name": "Bank Mandiri",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5520068025,
+    "lat": -6.1418579,
+    "lon": 106.8135678,
+    "tags": {
+      "addr:street": "Jalan Pancoran",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri",
+      "opening_hours": "Mo-Fr 08:00-16:00"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5606634191,
+    "lat": -6.1659127,
+    "lon": 106.8199339,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "drive_through": "no",
+      "name": "Bank Mandiri",
+      "operator": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 5918084487,
+    "lat": -6.2017204,
+    "lon": 106.8010272,
+    "tags": {
+      "addr:street": "Jalan Gatot Subroto",
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6154559185,
+    "lat": -6.1715668,
+    "lon": 106.6349311,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Bank mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6155553385,
+    "lat": -6.1861006,
+    "lon": 106.6330124,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6180582288,
+    "lat": -6.185126,
+    "lon": 106.8145199,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6180636586,
+    "lat": -6.1862369,
+    "lon": 106.8146183,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6183143097,
+    "lat": -6.1664382,
+    "lon": 106.8038918,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6183275386,
+    "lat": -6.1428525,
+    "lon": 106.817296,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6183568387,
+    "lat": -6.1463719,
+    "lon": 106.8163871,
+    "tags": {
+      "addr:housenumber": "127, GF2",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "level": "GF2",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6185594485,
+    "lat": -6.1784112,
+    "lon": 106.8124687,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6187462586,
+    "lat": -6.1755983,
+    "lon": 106.8145493,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6187462912,
+    "lat": -6.159689,
+    "lon": 106.8181695,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6187462997,
+    "lat": -6.1621334,
+    "lon": 106.8192406,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6187463986,
+    "lat": -6.1628239,
+    "lon": 106.8188755,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6190345193,
+    "lat": -6.1534996,
+    "lon": 106.8179753,
+    "tags": {
+      "amenity": "bank",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6190351191,
+    "lat": -6.1532637,
+    "lon": 106.817336,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6190359485,
+    "lat": -6.1398413,
+    "lon": 106.8147915,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6201169589,
+    "lat": -6.1873871,
+    "lon": 106.8171266,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6203331090,
+    "lat": -6.1643276,
+    "lon": 106.7967204,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6203331219,
+    "lat": -6.1529102,
+    "lon": 106.7960149,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6210484300,
+    "lat": -6.1764471,
+    "lon": 106.7896656,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6216098889,
+    "lat": -6.405607,
+    "lon": 106.8187916,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6219015604,
+    "lat": -6.1967053,
+    "lon": 106.8407985,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6219015613,
+    "lat": -6.1933584,
+    "lon": 106.838719,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6221280886,
+    "lat": -6.1667659,
+    "lon": 106.7636627,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6221280989,
+    "lat": -6.1697909,
+    "lon": 106.7693668,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6222917285,
+    "lat": -6.1820212,
+    "lon": 106.8324974,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6222917295,
+    "lat": -6.1840697,
+    "lon": 106.8235597,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6222917487,
+    "lat": -6.180972,
+    "lon": 106.8379581,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri",
+      "website": "https://bankmandiri.co.id/"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6227113887,
+    "lat": -6.5908178,
+    "lon": 106.7931582,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6227650788,
+    "lat": -6.5854808,
+    "lon": 106.8054816,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri taspen"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6236283686,
+    "lat": -6.1472627,
+    "lon": 106.8070845,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6239456602,
+    "lat": -6.2015825,
+    "lon": 106.8234632,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6239574287,
+    "lat": -6.225191,
+    "lon": 106.8283707,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6239652986,
+    "lat": -6.2240532,
+    "lon": 106.8267999,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249597294,
+    "lat": -6.214783,
+    "lon": 106.8444243,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249657799,
+    "lat": -6.2390459,
+    "lon": 106.8317239,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249713600,
+    "lat": -6.2261615,
+    "lon": 106.847761,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249961693,
+    "lat": -6.1938301,
+    "lon": 106.8507816,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249962516,
+    "lat": -6.1828258,
+    "lon": 106.8428084,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249962517,
+    "lat": -6.1818658,
+    "lon": 106.843086,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6249969814,
+    "lat": -6.1745842,
+    "lon": 106.8409739,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6250752018,
+    "lat": -6.1668058,
+    "lon": 106.7853755,
+    "tags": {
+      "amenity": "bank",
+      "atm": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6251501187,
+    "lat": -6.1640667,
+    "lon": 106.8236802,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6251576907,
+    "lat": -6.1699753,
+    "lon": 106.8151743,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6255570399,
+    "lat": -6.1627165,
+    "lon": 106.8430898,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6255753493,
+    "lat": -6.1458113,
+    "lon": 106.8345833,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6259747288,
+    "lat": -6.2336779,
+    "lon": 106.8234042,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6259747294,
+    "lat": -6.2291063,
+    "lon": 106.8199904,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6260013695,
+    "lat": -6.1882755,
+    "lon": 106.8127551,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6274287189,
+    "lat": -6.2288708,
+    "lon": 106.8328386,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6274294685,
+    "lat": -6.1865276,
+    "lon": 106.8340601,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6281942590,
+    "lat": -6.2753462,
+    "lon": 106.7975162,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Syariah"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6284616687,
+    "lat": -6.1553469,
+    "lon": 106.7905491,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6285107885,
+    "lat": -6.1408111,
+    "lon": 106.7936505,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6285239647,
+    "lat": -6.1160682,
+    "lon": 106.7895116,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6326910785,
+    "lat": -6.1384581,
+    "lon": 106.8283969,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6326910789,
+    "lat": -6.1361827,
+    "lon": 106.8293359,
+    "tags": {
+      "amenity": "bank",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6335497985,
+    "lat": -6.1040081,
+    "lon": 106.881566,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6354530585,
+    "lat": -6.1873262,
+    "lon": 106.8237141,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6400824485,
+    "lat": -6.1009021,
+    "lon": 106.7999316,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6936087685,
+    "lat": -6.2146251,
+    "lon": 106.8176507,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6936088986,
+    "lat": -6.227615,
+    "lon": 106.8254855,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6948597990,
+    "lat": -6.227853,
+    "lon": 106.8252712,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6951170486,
+    "lat": -6.2183895,
+    "lon": 106.830767,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6951437885,
+    "lat": -6.2051994,
+    "lon": 106.8230931,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "name:en": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6956656790,
+    "lat": -6.208723,
+    "lon": 106.6285008,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri Bank"
+    }
+  },
+  {
+    "type": "node",
+    "id": 6956701285,
+    "lat": -6.1858353,
+    "lon": 106.7799493,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 7913529884,
+    "lat": -6.2095699,
+    "lon": 106.8209015,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 7913570572,
+    "lat": -6.2140252,
+    "lon": 106.819509,
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:housenumber": "29-31",
+      "addr:postcode": "12920",
+      "addr:street": "Jalan Jenderal Sudirman",
+      "amenity": "bank",
+      "atm": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "opening_hours": "Mo-Fr 08:00-16:00"
+    }
+  },
+  {
+    "type": "node",
+    "id": 8581485117,
+    "lat": -6.3274999,
+    "lon": 106.8242267,
+    "tags": {
+      "amenity": "bank",
+      "drive_through": "no",
+      "name": "Bank Mandiri",
+      "operator": "PT Bank Mandiri (Persero),Tbk"
+    }
+  },
+  {
+    "type": "node",
+    "id": 9671414487,
+    "lat": -6.259557,
+    "lon": 106.9485698,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 9687094388,
+    "lat": -6.2061755,
+    "lon": 106.7995653,
+    "tags": {
+      "amenity": "bank",
+      "branch": "blok 4",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 10571016783,
+    "lat": -6.1993939,
+    "lon": 106.8624801,
+    "tags": {
+      "amenity": "bank",
+      "name": "ATM Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 10738354582,
+    "lat": -6.2940969,
+    "lon": 106.7948689,
+    "tags": {
+      "amenity": "bank",
+      "branch": "KCP Jakarta Cilandak Barat",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11770517569,
+    "lat": -6.3435618,
+    "lon": 106.7344518,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11813528485,
+    "lat": -6.1690112,
+    "lon": 106.7898387,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11937120376,
+    "lat": -6.563294,
+    "lon": 106.7634295,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11939358451,
+    "lat": -6.5592211,
+    "lon": 106.7121296,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11941048765,
+    "lat": -6.2425406,
+    "lon": 106.8605469,
+    "tags": {
+      "addr:unit": "IKPT",
+      "amenity": "bank",
+      "atm": "yes",
+      "branch": "Wisma IKPT",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11941864175,
+    "lat": -6.5606394,
+    "lon": 106.7884102,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11960490938,
+    "lat": -6.5814845,
+    "lon": 106.80701,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 11991958537,
+    "lat": -6.5664356,
+    "lon": 106.8457438,
+    "tags": {
+      "amenity": "bank",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 12926403500,
+    "lat": -6.2313222,
+    "lon": 106.9613191,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "branch": "Bintara",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "drive_through": "no",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 12932387942,
+    "lat": -6.4969676,
+    "lon": 106.7537093,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13290240701,
+    "lat": -6.1864999,
+    "lon": 106.8228321,
+    "tags": {
+      "amenity": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13359183802,
+    "lat": -6.2230227,
+    "lon": 106.7093795,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13609855566,
+    "lat": -6.1742066,
+    "lon": 106.7834201,
+    "tags": {
+      "addr:city": "Jakarta Barat",
+      "addr:district": "Grogol Petamburan",
+      "addr:housenumber": "56",
+      "addr:postcode": "11470",
+      "addr:province": "DKI Jakarta",
+      "addr:street": "Jalan Tanjung Duren Raya",
+      "addr:subdistrict": "Tanjung Duren Utara",
+      "air_conditioning": "yes",
+      "amenity": "bank",
+      "atm": "yes",
+      "branch": "Tanjung Duren",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri",
+      "opening_hours": "Mo-Fr 08:00-15:00",
+      "operator": "Bank Mandiri",
+      "phone": "+62215666503"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13727097984,
+    "lat": -6.237565,
+    "lon": 106.7742778,
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "name": "Anjungan Tunai Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13736467396,
+    "lat": -6.1483096,
+    "lon": 106.8460862,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13736830302,
+    "lat": -6.1616758,
+    "lon": 106.8320883,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "node",
+    "id": 13764012601,
+    "lat": -6.2085025,
+    "lon": 106.8115078,
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 119587054,
+    "center": {
+      "lat": -6.3502463,
+      "lon": 106.8642871
+    },
+    "nodes": [
+      1343189504,
+      1343189501,
+      1343189496,
+      1343189513,
+      1343189505,
+      1343189498,
+      1343189504
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Bogor",
+      "amenity": "bank",
+      "atm": "yes",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "opening_hours": "Mo-Fr 08:00-15:00",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 120390243,
+    "center": {
+      "lat": -6.2425392,
+      "lon": 106.8520302
+    },
+    "nodes": [
+      1350009975,
+      1350009893,
+      1350009965,
+      1350009923,
+      1350009975
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan MT. Haryono Kavling 17",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": ">500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 120691393,
+    "center": {
+      "lat": -6.1840205,
+      "lon": 106.8241187
+    },
+    "nodes": [
+      1352628669,
+      4577073166,
+      1352628837,
+      6154838741,
+      1352628525,
+      6154838716,
+      6154838739,
+      1352628957,
+      6154838737,
+      6154838736,
+      1352628669
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kebon Sirih",
+      "addr:housenumber": "5",
+      "addr:street": "Jalan M.H. Thamrin",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "commercial",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "22",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:use": "commercial",
+      "building:walls": "glass",
+      "capacity:persons": ">500",
+      "name": "Bank Mandiri",
+      "official_name": "Wisma Mandiri II",
+      "source": "HOT_InAWARESurvey_2017",
+      "start_date": "1982"
+    }
+  },
+  {
+    "type": "way",
+    "id": 122152097,
+    "center": {
+      "lat": -6.1766545,
+      "lon": 106.8207356
+    },
+    "nodes": [
+      2958235452,
+      2958235449,
+      2958235447,
+      2958235448,
+      1365699666,
+      1365699267,
+      1365700315,
+      1365699525,
+      2958235452
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tanah Abang Timur No 1 - 2",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "12",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:use": "commercial",
+      "building:walls": "brick",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 154832320,
+    "center": {
+      "lat": -6.114292,
+      "lon": 106.8936223
+    },
+    "nodes": [
+      1673021797,
+      1673021801,
+      1673021800,
+      1673021799,
+      1673021798,
+      1673021797
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Yos Sudarso",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 154835460,
+    "center": {
+      "lat": -6.1821185,
+      "lon": 106.9160228
+    },
+    "nodes": [
+      1673057360,
+      1673057369,
+      1673057368,
+      1673057359,
+      1673057360
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Bekasi, Kelurahan Pegangsaan Dua, Kecamatan Kelapa Gading, Jakarta Utara 14250",
+      "amenity": "bank",
+      "atm": "yes",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": ">500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 155112249,
+    "center": {
+      "lat": -6.1931512,
+      "lon": 106.8385349
+    },
+    "nodes": [
+      9572279218,
+      4212545365,
+      4212545366,
+      1675473298,
+      1675473299,
+      4212545364,
+      1675473301,
+      9572279218
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "Jakarta Pusat",
+      "addr:district": "Menteng",
+      "addr:full": "Jalan Cikini Raya",
+      "addr:housenumber": "56",
+      "addr:province": "DKI Jakarta",
+      "addr:street": "Jalan Cikini Raya",
+      "addr:subdistrict": "Cikini",
+      "amenity": "bank",
+      "architect": "Nurrochman Siddharta;Atelier 6",
+      "atm": "yes",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "drive_through": "no",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017",
+      "start_date": "1982-01-04",
+      "year_of_construction": "1980-01-11..1982-01-04"
+    }
+  },
+  {
+    "type": "way",
+    "id": 155938229,
+    "center": {
+      "lat": -6.2008206,
+      "lon": 106.8558851
+    },
+    "nodes": [
+      1682767366,
+      1682767364,
+      1682767365,
+      1682767367,
+      1682767366
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Matraman Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "5",
+      "building:roof": "asbentos",
+      "building:structure": "steel_frame",
+      "building:walls": "concrete",
+      "capacity": "300",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 157344191,
+    "center": {
+      "lat": -6.245116,
+      "lon": 106.8262962
+    },
+    "nodes": [
+      1695616853,
+      1695616754,
+      1695616833,
+      1695616942,
+      1695616853
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Mampang Prapatan Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:levels": "5",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "buildings:floor": "ceramics",
+      "capacity": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 158840514,
+    "center": {
+      "lat": -6.5960399,
+      "lon": 106.7925618
+    },
+    "nodes": [
+      1709771183,
+      1709771157,
+      1709771160,
+      1709771184,
+      1709771183
+    ],
+    "tags": {
+      "addr:postcode": "16121",
+      "addr:street": "Jalan Kapten Muslihat",
+      "amenity": "bank",
+      "atm": "yes",
+      "building": "commercial",
+      "building:levels": "1",
+      "height": "4",
+      "name": "Mandiri",
+      "name:en": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 168387783,
+    "center": {
+      "lat": -6.6326797,
+      "lon": 106.8256101
+    },
+    "nodes": [
+      1796620268,
+      1796620277,
+      1796620274,
+      1796620267,
+      1796620268
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "commercial",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 186759262,
+    "center": {
+      "lat": -6.1713169,
+      "lon": 106.8658408
+    },
+    "nodes": [
+      1975015568,
+      1975015421,
+      1975015412,
+      1975015556,
+      1975015568
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Cempaka Putih Tengah",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 190135816,
+    "center": {
+      "lat": -6.6106433,
+      "lon": 106.8049406
+    },
+    "nodes": [
+      2007446501,
+      2007446497,
+      2007446486,
+      2007446493,
+      2007446501
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "yes",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 283047434,
+    "center": {
+      "lat": -6.2245375,
+      "lon": 106.8544744
+    },
+    "nodes": [
+      2869638831,
+      2869638813,
+      2869638818,
+      2869638835,
+      2869638831
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan KH. Abdullah Syafi'ie",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tile",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 310393733,
+    "center": {
+      "lat": -6.2560392,
+      "lon": 106.7899474
+    },
+    "nodes": [
+      3158130433,
+      3158130434,
+      3158130435,
+      3158130436,
+      3158130433
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Radio Dalam Raya",
+      "amenity": "bank",
+      "atm": "yes",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 311563464,
+    "center": {
+      "lat": -6.2843219,
+      "lon": 106.7805962
+    },
+    "nodes": [
+      3172459522,
+      3172459523,
+      3172459524,
+      3172459525,
+      3172459522
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 397395408,
+    "center": {
+      "lat": -6.1887493,
+      "lon": 106.8249746
+    },
+    "nodes": [
+      4001927790,
+      4001927791,
+      4001927792,
+      4001927793,
+      4001927790
+    ],
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 426761669,
+    "center": {
+      "lat": -6.1966174,
+      "lon": 106.8785529
+    },
+    "nodes": [
+      4260217385,
+      4260217386,
+      4260217387,
+      4260217384,
+      4260217385
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "bank",
+      "name": "Bank BNI dan Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 447192947,
+    "center": {
+      "lat": -6.5618867,
+      "lon": 106.7310544
+    },
+    "nodes": [
+      4443704615,
+      4443704616,
+      4443704617,
+      4443704618,
+      4443704615
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "yes",
+      "name": "Bank Syariah Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 478859876,
+    "center": {
+      "lat": -6.2246006,
+      "lon": 106.884493
+    },
+    "nodes": [
+      4720459880,
+      4720459877,
+      4720459878,
+      4720459879,
+      4720459880
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Cipinang Jaya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 481949204,
+    "center": {
+      "lat": -6.2375855,
+      "lon": 106.8570565
+    },
+    "nodes": [
+      4748288691,
+      4748288688,
+      4748288689,
+      4748288690,
+      4748288691
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tebet Timur Dalam Raya",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "buildings:floor": "ceramics",
+      "capacity": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 482134724,
+    "center": {
+      "lat": -6.2383471,
+      "lon": 106.849824
+    },
+    "nodes": [
+      4750032721,
+      4750032703,
+      4750032776,
+      4750032790,
+      4750032721
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tebet Barat IX",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 482198467,
+    "center": {
+      "lat": -6.2181037,
+      "lon": 106.8677537
+    },
+    "nodes": [
+      4750470764,
+      4750470763,
+      4750470762,
+      4750470761,
+      4750470764
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Jatinegara Timur No.37",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 482367862,
+    "center": {
+      "lat": -6.2626263,
+      "lon": 106.8428873
+    },
+    "nodes": [
+      4752029310,
+      4752029309,
+      4752029320,
+      4752030021,
+      4752029310
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "asbestos",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 483338528,
+    "center": {
+      "lat": -6.2371684,
+      "lon": 106.8447784
+    },
+    "nodes": [
+      4760949607,
+      4760949383,
+      4760949606,
+      4760949380,
+      4760949609,
+      4760949610,
+      4760948683,
+      4760949382,
+      4760949608,
+      4760949381,
+      4760949607
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Prof. Dr. Soepomo No. 43",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 483581784,
+    "center": {
+      "lat": -6.1912636,
+      "lon": 106.8377997
+    },
+    "nodes": [
+      4763315923,
+      7931202522,
+      4763315922,
+      4763315845,
+      4763315844,
+      4763315843,
+      7931202519,
+      7931202514,
+      4763315923
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Cikini Raya",
+      "amenity": "bank",
+      "atm": "yes",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484449417,
+    "center": {
+      "lat": -6.2221459,
+      "lon": 106.8654414
+    },
+    "nodes": [
+      4772013624,
+      4772013623,
+      4772013622,
+      4772013621,
+      4772013624
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Jatinegara Barat",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:levels": "3",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "buildings:floor": "ceramics",
+      "capacity": ">500",
+      "height": "9",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484657318,
+    "center": {
+      "lat": -6.1858121,
+      "lon": 106.8707072
+    },
+    "nodes": [
+      4774119383,
+      4774119384,
+      4774119382,
+      4774119381,
+      4774119383
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Rawasari Selatan Nomer 48 C",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484850426,
+    "center": {
+      "lat": -6.2019329,
+      "lon": 106.8383202
+    },
+    "nodes": [
+      4775996426,
+      4775996425,
+      4775996424,
+      4775996190,
+      4775996189,
+      4775996188,
+      4775996247,
+      4775996246,
+      4775996426
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Teuku Cik Ditiro",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484853343,
+    "center": {
+      "lat": -6.2590566,
+      "lon": 106.8149735
+    },
+    "nodes": [
+      4776018859,
+      4776018843,
+      4776018871,
+      4776018882,
+      4776018859
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kemang Raya",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "asbestos",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 484861460,
+    "center": {
+      "lat": -6.2136871,
+      "lon": 106.844167
+    },
+    "nodes": [
+      4776073417,
+      4776073416,
+      4776074025,
+      4776074024,
+      4776073417
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Minangkabau Timur",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "id:Bank Syariah Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 485256657,
+    "center": {
+      "lat": -6.2148282,
+      "lon": 106.864418
+    },
+    "nodes": [
+      4780350741,
+      4780350738,
+      4780350739,
+      4780350740,
+      4780350741
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Matraman Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "height": "9",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 485280741,
+    "center": {
+      "lat": -6.2202027,
+      "lon": 106.8676023
+    },
+    "nodes": [
+      4780603927,
+      4780603926,
+      4780603925,
+      4780603924,
+      4780603927
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Jatinegara Timur",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "6",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": ">500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 485813970,
+    "center": {
+      "lat": -6.1909552,
+      "lon": 106.8284041
+    },
+    "nodes": [
+      4785762280,
+      4785762279,
+      4785762278,
+      4785762277,
+      4785762276,
+      4785762275,
+      4785762274,
+      4785762923,
+      4785762922,
+      4785762921,
+      4785762280
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Gereja Theresia",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 485986712,
+    "center": {
+      "lat": -6.2189252,
+      "lon": 106.9313013
+    },
+    "nodes": [
+      4787460386,
+      4787460383,
+      4787460384,
+      4787460385,
+      4787460386
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Teratai Putih Raya",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Syariah Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 487370411,
+    "center": {
+      "lat": -6.1835849,
+      "lon": 106.8259288
+    },
+    "nodes": [
+      4798377239,
+      4798377238,
+      4798377237,
+      4798377236,
+      4798377235,
+      4798377234,
+      4798377233,
+      4798377232,
+      4798377231,
+      4798377230,
+      4798377229,
+      4798377239
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kebon Sirih No. 73",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 487585465,
+    "center": {
+      "lat": -6.2572176,
+      "lon": 106.8277881
+    },
+    "nodes": [
+      4800359332,
+      4800359331,
+      4800359330,
+      4800359329,
+      4800359332
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Mampang Prapatan",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 488371736,
+    "center": {
+      "lat": -6.2084128,
+      "lon": 106.8440694
+    },
+    "nodes": [
+      4806831649,
+      4806829467,
+      4806830297,
+      4806831952,
+      4806831649
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "jalan Sultan Agung",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 488404269,
+    "center": {
+      "lat": -6.187865,
+      "lon": 106.8353915
+    },
+    "nodes": [
+      6219673785,
+      4807104111,
+      4807104109,
+      4807104114,
+      4807104108,
+      4807104107,
+      4807104106,
+      4807104101,
+      4807104104,
+      4807104105,
+      12824936790,
+      12824936791,
+      6219673785
+    ],
+    "tags": {
+      "amenity": "bank",
+      "architect": "Abel R. Sorensen",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "yes",
+      "building:levels": "2",
+      "name": "Bank Mandiri",
+      "start_date": "1960",
+      "year_of_construction": "1960"
+    }
+  },
+  {
+    "type": "way",
+    "id": 489235697,
+    "center": {
+      "lat": -6.2644689,
+      "lon": 106.8310076
+    },
+    "nodes": [
+      4815035724,
+      4815035721,
+      4815035722,
+      4815035723,
+      4815035724
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Warung Jati Barat",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "5",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 491265366,
+    "center": {
+      "lat": -6.172944,
+      "lon": 106.8428254
+    },
+    "nodes": [
+      4834041485,
+      4834041482,
+      4834041483,
+      4834041484,
+      4834041485
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Stasiun Senen",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 491571607,
+    "center": {
+      "lat": -6.184416,
+      "lon": 106.8158842
+    },
+    "nodes": [
+      4836555676,
+      4836555673,
+      4836555674,
+      4836555675,
+      4836555676
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan KH. Fachrudin",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 492079691,
+    "center": {
+      "lat": -6.1382968,
+      "lon": 106.8071276
+    },
+    "nodes": [
+      4841373505,
+      4841373502,
+      4841373499,
+      4841373501,
+      4841373500,
+      4841373498,
+      4841373503,
+      4841373504,
+      4841373505
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pejagalan Raya",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 492968950,
+    "center": {
+      "lat": -6.1667802,
+      "lon": 106.8254601
+    },
+    "nodes": [
+      4849266592,
+      4849266593,
+      4849266601,
+      4849266600,
+      4849266592
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Ir H Juanda",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 493558286,
+    "center": {
+      "lat": -6.1643815,
+      "lon": 106.8160982
+    },
+    "nodes": [
+      4854626591,
+      4854626586,
+      4854626722,
+      4854626728,
+      4854626591
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Alaydrus",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 495632119,
+    "center": {
+      "lat": -6.1398135,
+      "lon": 106.8099725
+    },
+    "nodes": [
+      4873701521,
+      4873701420,
+      4873701419,
+      4873701418,
+      4873701521
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Perniagaan Timur",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 496612935,
+    "center": {
+      "lat": -6.193801,
+      "lon": 106.8947261
+    },
+    "nodes": [
+      4883015037,
+      4883015034,
+      4883015035,
+      4883015036,
+      4883015037
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pemuda",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 496612997,
+    "center": {
+      "lat": -6.2006521,
+      "lon": 106.8907526
+    },
+    "nodes": [
+      4883015184,
+      4883015183,
+      4883015182,
+      4883015181,
+      4883015184
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pegambiran",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 496626590,
+    "center": {
+      "lat": -6.1667013,
+      "lon": 106.8273904
+    },
+    "nodes": [
+      4883105008,
+      4883105014,
+      4883105006,
+      4883105012,
+      4883105010,
+      4883105011,
+      4883105007,
+      4883105015,
+      4883105016,
+      4883105008
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Ir H Juanda",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 496807626,
+    "center": {
+      "lat": -6.164726,
+      "lon": 106.8079206
+    },
+    "nodes": [
+      4884750999,
+      4884750997,
+      4884750998,
+      4884751000,
+      4884750999
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan KH Moh Mansyur",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "6",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 497059056,
+    "center": {
+      "lat": -6.2120112,
+      "lon": 106.8125184
+    },
+    "nodes": [
+      4886887717,
+      4886887711,
+      4886887927,
+      4886887937,
+      4886887717
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Bendungan Hilir",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 497059143,
+    "center": {
+      "lat": -6.2121669,
+      "lon": 106.8122291
+    },
+    "nodes": [
+      4886887934,
+      4886887928,
+      4886887954,
+      4886887960,
+      4886887934
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Bendungan Hilir",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "id:Bank Syariah Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "height": "9",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 497108730,
+    "center": {
+      "lat": -6.1773908,
+      "lon": 106.8002841
+    },
+    "nodes": [
+      4887273257,
+      4887273254,
+      4887273255,
+      4887273256,
+      4887273257
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tomang Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 497108763,
+    "center": {
+      "lat": -6.1789069,
+      "lon": 106.7978261
+    },
+    "nodes": [
+      4887273467,
+      4887273469,
+      4887273468,
+      4887273470,
+      4887273471,
+      4887273472,
+      4887273473,
+      4887273467
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tomang Raya No.17",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "branch": "Syariah",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 498330562,
+    "center": {
+      "lat": -6.1104362,
+      "lon": 106.8881415
+    },
+    "nodes": [
+      4897793953,
+      4897793950,
+      4897793951,
+      4897793952,
+      4897793953
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Enggano",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 498720858,
+    "center": {
+      "lat": -6.1294495,
+      "lon": 106.9191354
+    },
+    "nodes": [
+      4900839231,
+      4900839230,
+      4900839229,
+      4900839228,
+      4900839231
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tipar Cakung",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 498993807,
+    "center": {
+      "lat": -6.3491081,
+      "lon": 106.8765671
+    },
+    "nodes": [
+      4903252927,
+      4903252926,
+      4903252925,
+      4903252924,
+      4903252927
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Lapangan Tembak",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "name:en": "Bank Mandiri Mitra Usaha",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 499215994,
+    "center": {
+      "lat": -6.3507532,
+      "lon": 106.8776218
+    },
+    "nodes": [
+      4905202271,
+      4905202270,
+      4905202269,
+      4905202268,
+      4905202271
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Lapangan Tembak",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri Syariah",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 500897431,
+    "center": {
+      "lat": -6.2850785,
+      "lon": 106.8385359
+    },
+    "nodes": [
+      4918430117,
+      4918430116,
+      4918430115,
+      4918430114,
+      4918430117
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Ragunan",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 501539630,
+    "center": {
+      "lat": -6.3401606,
+      "lon": 106.8878217
+    },
+    "nodes": [
+      4923278599,
+      4923278596,
+      4923278597,
+      4923278598,
+      4923278599
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Kelapa Dua Wetan Blok Taqwa No 70 RT 001 RW 008",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 502668400,
+    "center": {
+      "lat": -6.3484263,
+      "lon": 106.8665973
+    },
+    "nodes": [
+      4930685933,
+      4930685932,
+      4930685931,
+      4930685930,
+      4930685933
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Bogor",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri Syariah",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 504918765,
+    "center": {
+      "lat": -6.246991,
+      "lon": 106.9214888
+    },
+    "nodes": [
+      4950072538,
+      4950072542,
+      4950072696,
+      4950072692,
+      4950072538
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kelapa Kopyor 14",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 505025947,
+    "center": {
+      "lat": -6.2398418,
+      "lon": 106.9004693
+    },
+    "nodes": [
+      4950704707,
+      5057412863,
+      5057412864,
+      4950704706,
+      4950704707
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pahlawan Revolusi",
+      "amenity": "bank",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "asbestos",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 505801021,
+    "center": {
+      "lat": -6.1705207,
+      "lon": 106.7751382
+    },
+    "nodes": [
+      4956475685,
+      4956475850,
+      4956475892,
+      4956475836,
+      4956475685
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Perumahan Green Ville",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 508130679,
+    "center": {
+      "lat": -6.2026933,
+      "lon": 106.7697772
+    },
+    "nodes": [
+      4974914732,
+      4974914733,
+      4974914737,
+      4974914736,
+      4974914732
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Panjang Arteri Kelapa Dua",
+      "amenity": "bank",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "4",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 509533185,
+    "center": {
+      "lat": -6.3380572,
+      "lon": 106.8990096
+    },
+    "nodes": [
+      4987577708,
+      4987577705,
+      4987577706,
+      4987577707,
+      4987577708
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raua Cilangkap",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 512196542,
+    "center": {
+      "lat": -6.2293811,
+      "lon": 106.9086614
+    },
+    "nodes": [
+      5008710942,
+      5008710939,
+      5008710940,
+      5008710941,
+      5008710942
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kol Soegiono",
+      "amenity": "bank",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 513465405,
+    "center": {
+      "lat": -6.2809515,
+      "lon": 106.7967251
+    },
+    "nodes": [
+      5019161759,
+      5019161760,
+      5019161762,
+      5019161761,
+      5019161759
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan RS. Fatmawati",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "asbestos",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 514074351,
+    "center": {
+      "lat": -6.1114618,
+      "lon": 106.8815148
+    },
+    "nodes": [
+      5023353847,
+      5023353845,
+      5023353846,
+      5023353848,
+      5023353847
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Cucut",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 514644025,
+    "center": {
+      "lat": -6.2305688,
+      "lon": 106.7797657
+    },
+    "nodes": [
+      5027537967,
+      5027537951,
+      5027537984,
+      5027537997,
+      5027537967
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kebayoran Lama Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 514735126,
+    "center": {
+      "lat": -6.1659934,
+      "lon": 106.7244836
+    },
+    "nodes": [
+      5028175339,
+      5028175336,
+      5028175337,
+      5028175338,
+      5028175339
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Raya Duri Kosambi",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 516542353,
+    "center": {
+      "lat": -6.1499682,
+      "lon": 106.7213419
+    },
+    "nodes": [
+      5042318675,
+      5042318674,
+      5042318673,
+      5042318672,
+      5042318671,
+      5042318670,
+      5042318669,
+      5042318668,
+      5042318675
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Utama Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:levels": "1",
+      "building:roof": "asbestos",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 516566445,
+    "center": {
+      "lat": -6.2430918,
+      "lon": 106.8018223
+    },
+    "nodes": [
+      5042503187,
+      5042503184,
+      5042503185,
+      5042503186,
+      5042503187
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Palatehan I",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:levels": "4",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 516775410,
+    "center": {
+      "lat": -6.2456632,
+      "lon": 106.8005311
+    },
+    "nodes": [
+      5044260519,
+      5142701591,
+      5044260518,
+      5044260517,
+      5142701593,
+      5142701592,
+      5044260516,
+      5044260519
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Melawai Raya",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 516775448,
+    "center": {
+      "lat": -6.2466172,
+      "lon": 106.8003363
+    },
+    "nodes": [
+      5044261064,
+      5044261069,
+      5044261070,
+      5044261067,
+      5044261071,
+      5044261068,
+      5044261065,
+      5044261066,
+      5044261064
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Panglima Polim IV",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 518483324,
+    "center": {
+      "lat": -6.1670116,
+      "lon": 106.7932224
+    },
+    "nodes": [
+      5057542771,
+      5057542770,
+      5057542769,
+      5057542768,
+      5057542771
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kyai Tapa",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 519224951,
+    "center": {
+      "lat": -6.1439477,
+      "lon": 106.7859797
+    },
+    "nodes": [
+      5063432179,
+      5063432178,
+      5063432177,
+      5063432176,
+      5063432179
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Tubagus Angke",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 519262453,
+    "center": {
+      "lat": -6.2712435,
+      "lon": 106.7571381
+    },
+    "nodes": [
+      5063665310,
+      5063665309,
+      5063665308,
+      5063665307,
+      5063665306,
+      5063665305,
+      5063665304,
+      5063665303,
+      5063665302,
+      5063665301,
+      5063665300,
+      5063665299,
+      5063665310
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kesehatan Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ground",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 519589956,
+    "center": {
+      "lat": -6.1404007,
+      "lon": 106.8397034
+    },
+    "nodes": [
+      5066143709,
+      5066143706,
+      5066143707,
+      5066143708,
+      5066143709
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pademangan IV",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "1",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 520277823,
+    "center": {
+      "lat": -6.1400959,
+      "lon": 106.8560193
+    },
+    "nodes": [
+      5071289970,
+      5071289967,
+      5071289968,
+      5071289969,
+      5071289970
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Griya Utama",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 521195828,
+    "center": {
+      "lat": -6.1294261,
+      "lon": 106.9073189
+    },
+    "nodes": [
+      5078583396,
+      5078583393,
+      5078583394,
+      5078583395,
+      5078583396
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Plumpang Semper",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 521856660,
+    "center": {
+      "lat": -6.1585826,
+      "lon": 106.7697004
+    },
+    "nodes": [
+      5084125135,
+      5084125140,
+      7992644224,
+      7992644225,
+      5084124917,
+      5084124918,
+      5084124908,
+      5084124910,
+      5084125136,
+      5084125135
+    ],
+    "tags": {
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Daan Mogot",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 523580869,
+    "center": {
+      "lat": -6.1389998,
+      "lon": 106.8657596
+    },
+    "nodes": [
+      5096960283,
+      5096960282,
+      5096960286,
+      5096960287,
+      5096960283
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Danau Sunter Utara",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 523580873,
+    "center": {
+      "lat": -6.138481,
+      "lon": 106.8676228
+    },
+    "nodes": [
+      5096960274,
+      5096960273,
+      5096960275,
+      5096960276,
+      5096960274
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Danau Sunter Utara",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 523623916,
+    "center": {
+      "lat": -6.1285578,
+      "lon": 106.8221949
+    },
+    "nodes": [
+      5097226203,
+      5097226202,
+      5097226201,
+      5097226200,
+      5097226203
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Parang Tritis I",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tile",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 524003658,
+    "center": {
+      "lat": -6.1296014,
+      "lon": 106.8166267
+    },
+    "nodes": [
+      5100110244,
+      5100110241,
+      5100110242,
+      5100110243,
+      5100110244
+    ],
+    "tags": {
+      "access:roof": "yes",
+      "addr:city": "DKI Jakarta",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 524614251,
+    "center": {
+      "lat": -6.1259489,
+      "lon": 106.7896438
+    },
+    "nodes": [
+      5104980820,
+      5104980819,
+      5104980818,
+      5104980817,
+      5104980820
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pluit Selatan Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 524614259,
+    "center": {
+      "lat": -6.1208927,
+      "lon": 106.7830365
+    },
+    "nodes": [
+      5104980932,
+      5104980931,
+      5104980930,
+      5104980929,
+      5104980932
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Pluit Karang Timur",
+      "amenity": "bank",
+      "backup_generator": "no",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 525766001,
+    "center": {
+      "lat": -6.1399625,
+      "lon": 106.7775755
+    },
+    "nodes": [
+      5114218643,
+      5114218642,
+      5114218641,
+      5114218640,
+      5114218643
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Kampung Gusti",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "50-100",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 526191913,
+    "center": {
+      "lat": -6.11624,
+      "lon": 106.7766833
+    },
+    "nodes": [
+      5117472395,
+      5117472394,
+      5117472393,
+      5117472392,
+      5117472395
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Muara Karang Raya",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 527875718,
+    "center": {
+      "lat": -6.261012,
+      "lon": 106.7969336
+    },
+    "nodes": [
+      5131079552,
+      5131079551,
+      5131079550,
+      5131079549,
+      5131079552
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan RS Fatmawati",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "5",
+      "building:roof": "tin",
+      "building:structure": "confined_masonry",
+      "building:walls": "glass",
+      "capacity:persons": "250-500",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 529234644,
+    "center": {
+      "lat": -6.1397882,
+      "lon": 106.8607565
+    },
+    "nodes": [
+      5141530283,
+      5141530282,
+      5141530281,
+      5141530280,
+      5141530283
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:city": "DKI Jakarta",
+      "addr:full": "Jalan Danau Sunter Utara",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "3",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "concrete",
+      "capacity:persons": "100-250",
+      "name": "Bank Mandiri",
+      "source": "HOT_InAWARESurvey_2017"
+    }
+  },
+  {
+    "type": "way",
+    "id": 534419011,
+    "center": {
+      "lat": -6.3041462,
+      "lon": 106.7549275
+    },
+    "nodes": [
+      5182944845,
+      5182944842,
+      5182944843,
+      5182944844,
+      5182944845
+    ],
+    "tags": {
+      "access:roof": "no",
+      "addr:full": "Jalan WR Supratman",
+      "amenity": "bank",
+      "backup_generator": "yes",
+      "building": "bank",
+      "building:condition": "good",
+      "building:floor": "ceramics",
+      "building:levels": "2",
+      "building:roof": "concrete",
+      "building:structure": "confined_masonry",
+      "building:walls": "brick",
+      "capacity:persons": "<50",
+      "name": "Bank Mandiri",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "way",
+    "id": 534443526,
+    "center": {
+      "lat": -6.29656,
+      "lon": 106.7659026
+    },
+    "nodes": [
+      5183090857,
+      5183090856,
+      5183090855,
+      5183090854,
+      5183090857
+    ],
+    "tags": {
+      "addr:full": "Jalan Ir. Juanda",
+      "amenity": "bank",
+      "building": "yes",
+      "name": "Bank Mandiri",
+      "source": "survey"
+    }
+  },
+  {
+    "type": "way",
+    "id": 563377239,
+    "center": {
+      "lat": -6.292746,
+      "lon": 106.6663911
+    },
+    "nodes": [
+      11118115014,
+      11118115015,
+      4009310831,
+      4009310832,
+      11118115014
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "yes",
+      "building:height": "10",
+      "building:levels": "3",
+      "name": "Mandiri Taspen"
+    }
+  },
+  {
+    "type": "way",
+    "id": 584204988,
+    "center": {
+      "lat": -6.5960643,
+      "lon": 106.7936976
+    },
+    "nodes": [
+      5584596590,
+      5584596591,
+      5584596592,
+      5584596593,
+      5584596590
+    ],
+    "tags": {
+      "addr:street": "Jalan Ir. H. Juanda",
+      "amenity": "bank",
+      "atm": "yes",
+      "name": "Mandiri Djuanda",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "type": "way",
+    "id": 666481667,
+    "center": {
+      "lat": -6.2015817,
+      "lon": 106.823543
+    },
+    "nodes": [
+      6239940496,
+      6239940497,
+      6239940498,
+      6239940499,
+      6239940496
+    ],
+    "tags": {
+      "addr:housenumber": "31",
+      "addr:street": "Jalan Blora",
+      "amenity": "bank",
+      "building": "commercial",
+      "building:levels": "4",
+      "height": "12",
+      "name": "Bank Mandiri Syariah"
+    }
+  },
+  {
+    "type": "way",
+    "id": 714691759,
+    "center": {
+      "lat": -6.2782002,
+      "lon": 106.721593
+    },
+    "nodes": [
+      6717961670,
+      6717961671,
+      6717961672,
+      6717961673,
+      6717961670
+    ],
+    "tags": {
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "building": "commercial",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 966209526,
+    "center": {
+      "lat": -6.2388719,
+      "lon": 106.7980629
+    },
+    "nodes": [
+      8939096124,
+      8939096123,
+      8939096122,
+      8939096121,
+      8939096124
+    ],
+    "tags": {
+      "addr:housenumber": "3",
+      "addr:street": "Jalan Sisingamangaraja",
+      "amenity": "bank",
+      "brand": "Bank Mandiri",
+      "brand:wikidata": "Q806639",
+      "brand:wikipedia": "en:Bank Mandiri",
+      "building": "yes",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 1044647129,
+    "center": {
+      "lat": -6.6517064,
+      "lon": 106.9071499
+    },
+    "nodes": [
+      9612178882,
+      9612178883,
+      9612178884,
+      9612178885,
+      9612178882
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "yes",
+      "name": "Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 1291946574,
+    "center": {
+      "lat": -6.677519,
+      "lon": 106.9293369
+    },
+    "nodes": [
+      11976822736,
+      11976822735,
+      11976822734,
+      11976822733,
+      11976822736
+    ],
+    "tags": {
+      "amenity": "bank",
+      "building": "yes",
+      "name": "Bank Mandiri"
+    }
+  },
+  {
+    "type": "way",
+    "id": 1292785800,
+    "center": {
+      "lat": -6.6141424,
+      "lon": 106.8036321
+    },
+    "nodes": [
+      11984946725,
+      11984946724,
+      11984946723,
+      11984946721,
+      11984946722,
+      11984946725
+    ],
+    "tags": {
+      "amenity": "bank",
+      "atm": "yes",
+      "building": "yes",
+      "name": "Bank Mandiri"
+    }
+  }
+]

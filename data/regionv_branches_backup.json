@@ -1,0 +1,944 @@
+{
+  "regionInfo": {
+    "regionName": "Bank Mandiri Region V / Jakarta 3",
+    "cities": [
+      "Jakarta Selatan",
+      "Depok",
+      "Bogor"
+    ],
+    "totalAreas": 13,
+    "description": "Dashboard Pemetaan & Tracking Blank Spot Cabang Bank Mandiri Region V (Jakarta Selatan, Depok, Bogor)"
+  },
+  "areas": [
+    {
+      "id": "JKS-SDR",
+      "name": "JAKARTA SUDIRMAN",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10101",
+      "branchName": "KC Jakarta Menara Mandiri",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Menara Mandiri Lt. 1, Jl. Jend. Sudirman Kav. 54-55, Senayan, Kebayoran Baru, Jakarta Selatan 12190",
+      "phone": "+62 21-5299-7001",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Drive-Thru ATM",
+        "CRM 24 Jam",
+        "Mandiri Priority Lounge",
+        "Safe Deposit Box",
+        "Digital Smart Branch"
+      ],
+      "lat": -6.2255,
+      "lng": 106.8091,
+      "coverageRadiusKm": 2.5,
+      "kecamatanCovered": [
+        "Setiabudi",
+        "Karet",
+        "Senayan",
+        "Bendungan Hilir"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Senayan",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Menara Mandiri",
+          "distanceKm": 0.3
+        },
+        {
+          "name": "Bendungan Hilir",
+          "kecamatan": "Tanah Abang",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Menara Mandiri",
+          "distanceKm": 1.2
+        },
+        {
+          "name": "Karet",
+          "kecamatan": "Setiabudi",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Menara Mandiri",
+          "distanceKm": 1.5
+        },
+        {
+          "name": "Karet Semanggi Selatan",
+          "kecamatan": "Setiabudi",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Menara Mandiri",
+          "distanceKm": 1.8
+        },
+        {
+          "name": "Guntur & Menteng Atas",
+          "kecamatan": "Setiabudi",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Menara Mandiri",
+          "distanceKm": 2.6
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-01",
+          "name": "Karet Semanggi Selatan",
+          "kecamatan": "Setiabudi",
+          "kelurahan": "Karet Semanggi",
+          "lat": -6.234,
+          "lng": 106.8185,
+          "priority": "High",
+          "reason": "Kawasan bisnis padat perkantoran dan apartemen modern namun belum ada cabang/Smart Branch terdekat.",
+          "nearestBranchKm": 1.8,
+          "potensialNasabah": "Karyawan Perkantoran & Residensial High-End"
+        },
+        {
+          "id": "BS-JKS-02",
+          "name": "Guntur & Menteng Atas",
+          "kecamatan": "Setiabudi",
+          "kelurahan": "Guntur",
+          "lat": -6.211,
+          "lng": 106.8375,
+          "priority": "Medium",
+          "reason": "Zona komersial campuran dan pemukiman belum memiliki outlet Mandiri.",
+          "nearestBranchKm": 2.6,
+          "potensialNasabah": "UMKM Pertokoan & Warga Komunitas"
+        }
+      ]
+    },
+    {
+      "id": "JKS-PLZ",
+      "name": "JAKARTA PLAZA MANDIRI",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10102",
+      "branchName": "KC Jakarta Plaza Mandiri",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Plaza Mandiri, Jl. Jend. Gatot Subroto Kav. 36-38, Kebayoran Baru, Jakarta Selatan 12190",
+      "phone": "+62 21-5265-0011",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Headquarters Branch",
+        "CRM 24 Jam",
+        "Mandiri Priority Lounge",
+        "Foreign Exchange",
+        "SDB"
+      ],
+      "lat": -6.2308,
+      "lng": 106.8168,
+      "coverageRadiusKm": 2,
+      "kecamatanCovered": [
+        "Kabayoran Baru",
+        "Selong",
+        "Senopati"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Selong",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Plaza Mandiri",
+          "distanceKm": 0.5
+        },
+        {
+          "name": "Senopati",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Plaza Mandiri",
+          "distanceKm": 1
+        },
+        {
+          "name": "Rawa Barat & Wolter Monginsidi",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Plaza Mandiri",
+          "distanceKm": 1.9
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-03",
+          "name": "Rawa Barat & Wolter Monginsidi",
+          "kecamatan": "Kebayoran Baru",
+          "kelurahan": "Rawa Barat",
+          "lat": -6.2382,
+          "lng": 106.8095,
+          "priority": "High",
+          "reason": "Sentra kuliner dan bisnis kreatif dengan trafik transaksi tunai dan QRIS tinggi.",
+          "nearestBranchKm": 1.9,
+          "potensialNasabah": "Merchant F&B, Office Workers & Lifestyle Commercial"
+        }
+      ]
+    },
+    {
+      "id": "JKS-FTM",
+      "name": "JAKARTA FATMAWATI",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10103",
+      "branchName": "KC Jakarta RS Fatmawati",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Gedung Mandiri Fatmawati, Jl. RS. Fatmawati No. 12, Cilandak, Jakarta Selatan 12430",
+      "phone": "+62 21-7590-8833",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Drive-Thru ATM",
+        "CRM 24 Jam",
+        "Smart Branch Digital",
+        "Weekend Banking"
+      ],
+      "lat": -6.2842,
+      "lng": 106.7946,
+      "coverageRadiusKm": 3,
+      "kecamatanCovered": [
+        "Cilandak",
+        "Cipete",
+        "Pondok Labu"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Cilandak Barat",
+          "kecamatan": "Cilandak",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta RS Fatmawati",
+          "distanceKm": 0.4
+        },
+        {
+          "name": "Cipete Selatan",
+          "kecamatan": "Cilandak",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta RS Fatmawati",
+          "distanceKm": 1.1
+        },
+        {
+          "name": "Lebak Bulus Selatan",
+          "kecamatan": "Cilandak",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta RS Fatmawati",
+          "distanceKm": 3.2
+        },
+        {
+          "name": "Pondok Labu Ujung",
+          "kecamatan": "Cilandak",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta RS Fatmawati",
+          "distanceKm": 3.8
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-04",
+          "name": "Lebak Bulus Selatan / Karang Tengah",
+          "kecamatan": "Cilandak",
+          "kelurahan": "Lebak Bulus",
+          "lat": -6.305,
+          "lng": 106.782,
+          "priority": "High",
+          "reason": "Akses MRT Lebak Bulus dan perumahan padat, minim outlet perbankan Mandiri.",
+          "nearestBranchKm": 3.2,
+          "potensialNasabah": "Komuter MRT & Penghuni Complex Residensial"
+        },
+        {
+          "id": "BS-JKS-05",
+          "name": "Pondok Labu Ujung",
+          "kecamatan": "Cilandak",
+          "kelurahan": "Pondok Labu",
+          "lat": -6.319,
+          "lng": 106.799,
+          "priority": "Medium",
+          "reason": "Perbatasan Depok-Jaksel dengan lalu lintas komuter tinggi.",
+          "nearestBranchKm": 3.8,
+          "potensialNasabah": "Institusi Pendidikan (UPN) & Residensial Depok-Jaksel"
+        }
+      ]
+    },
+    {
+      "id": "JKS-PDI",
+      "name": "JAKARTA PONDOK INDAH",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10104",
+      "branchName": "KC Jakarta Pondok Indah",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Plaza Pondok Indah 2, Jl. Metro Pondok Indah, Kebayoran Lama, Jakarta Selatan 12310",
+      "phone": "+62 21-7500-2211",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Mandiri Priority Banking Lounge",
+        "CRM 24 Jam",
+        "Foreign Exchange Counter",
+        "SDB"
+      ],
+      "lat": -6.2662,
+      "lng": 106.7841,
+      "coverageRadiusKm": 2.5,
+      "kecamatanCovered": [
+        "Kabayoran Lama",
+        "Pondok Pinang"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Pondok Pinang",
+          "kecamatan": "Kebayoran Lama",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Pondok Indah",
+          "distanceKm": 0.8
+        },
+        {
+          "name": "Kebayoran Lama Selatan",
+          "kecamatan": "Kebayoran Lama",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Pondok Indah",
+          "distanceKm": 1.4
+        },
+        {
+          "name": "Ulujami & Cipulir Selatan",
+          "kecamatan": "Kebayoran Lama",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Pondok Indah",
+          "distanceKm": 3.1
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-06",
+          "name": "Ulujami & Cipulir Selatan",
+          "kecamatan": "Kebayoran Lama",
+          "kelurahan": "Ulujami",
+          "lat": -6.248,
+          "lng": 106.761,
+          "priority": "High",
+          "reason": "Wilayah pemukiman padat dan Tanri Abeng University tanpa fasilitas Mandiri.",
+          "nearestBranchKm": 3.1,
+          "potensialNasabah": "Mahasiswa, Perdagangan Tekstil Cipulir & Pemukiman Padat"
+        }
+      ]
+    },
+    {
+      "id": "JKS-FLT",
+      "name": "JAKARTA FALATEHAN",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10105",
+      "branchName": "KC Jakarta Falatehan",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Jl. Falatehan I No. 46, Melawai, Kebayoran Baru, Jakarta Selatan 12160",
+      "phone": "+62 21-7221-5544",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "CRM 24 Jam",
+        "Smart Branch",
+        "Merchant Service Center"
+      ],
+      "lat": -6.2441,
+      "lng": 106.8015,
+      "coverageRadiusKm": 2,
+      "kecamatanCovered": [
+        "Melawai",
+        "Blok M",
+        "Kramat Pela"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Melawai",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Falatehan",
+          "distanceKm": 0.2
+        },
+        {
+          "name": "Kramat Pela",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Falatehan",
+          "distanceKm": 0.7
+        },
+        {
+          "name": "Pulo & Petogogan Timur",
+          "kecamatan": "Kebayoran Baru",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Falatehan",
+          "distanceKm": 2.3
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-07",
+          "name": "Pulo & Petogogan Timur",
+          "kecamatan": "Kebayoran Baru",
+          "kelurahan": "Pulo",
+          "lat": -6.2515,
+          "lng": 106.812,
+          "priority": "Medium",
+          "reason": "Zona perumahan elite dan perkantoran Wijaya tanpa cabang langsung.",
+          "nearestBranchKm": 2.3,
+          "potensialNasabah": "Warga Perumahan Luxury & Perkantoran Wijaya"
+        }
+      ]
+    },
+    {
+      "id": "JKS-TBT",
+      "name": "JAKARTA TEBET SUPOMO",
+      "city": "Jakarta Selatan",
+      "branchCode": "KC10106",
+      "branchName": "KC Jakarta Dr. Supomo",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Jl. Dr. Saharjo No. 216, Tebet, Jakarta Selatan 12870",
+      "phone": "+62 21-8301-4455",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Drive-Thru ATM",
+        "CRM 24 Jam",
+        "KSM Consumer Loan Hub"
+      ],
+      "lat": -6.2268,
+      "lng": 106.8456,
+      "coverageRadiusKm": 2.5,
+      "kecamatanCovered": [
+        "Tebet",
+        "Manggarai",
+        "Pancoran",
+        "Kalibata"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Tebet Barat",
+          "kecamatan": "Tebet",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Dr. Supomo",
+          "distanceKm": 0.6
+        },
+        {
+          "name": "Manggarai Selatan",
+          "kecamatan": "Tebet",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Jakarta Dr. Supomo",
+          "distanceKm": 1.1
+        },
+        {
+          "name": "Kebon Baru & Bukit Duri Timur",
+          "kecamatan": "Tebet",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Dr. Supomo",
+          "distanceKm": 2.7
+        },
+        {
+          "name": "Pengadegan & Rawajati",
+          "kecamatan": "Pancoran",
+          "status": "Blank Spot",
+          "branchName": "KC Jakarta Dr. Supomo",
+          "distanceKm": 3.4
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-JKS-08",
+          "name": "Kebon Baru & Bukit Duri Timur",
+          "kecamatan": "Tebet",
+          "kelurahan": "Kebon Baru",
+          "lat": -6.2295,
+          "lng": 106.862,
+          "priority": "High",
+          "reason": "Kawasan pemukiman padat dekat stasiun tanpa cabang Mandiri.",
+          "nearestBranchKm": 2.7,
+          "potensialNasabah": "Komuter Stasiun Tebet & Pemukiman Urban"
+        },
+        {
+          "id": "BS-JKS-09",
+          "name": "Pengadegan & Rawajati",
+          "kecamatan": "Pancoran",
+          "kelurahan": "Rawajati",
+          "lat": -6.253,
+          "lng": 106.858,
+          "priority": "Medium",
+          "reason": "Kawasan apartemen Kalibata City dan area residensial padat.",
+          "nearestBranchKm": 3.4,
+          "potensialNasabah": "Penghuni Apartemen Kalibata & Pekerja Industri Kreatif"
+        }
+      ]
+    },
+    {
+      "id": "DPK-DP1",
+      "name": "DEPOK 1",
+      "city": "Depok",
+      "branchCode": "KCP20101",
+      "branchName": "KC Depok Margonda",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Jl. Margonda Raya No. 345, Kemiri Muka, Beji, Depok 16424",
+      "phone": "+62 21-7721-9988",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "KSM Hub Depok",
+        "CRM 24 Jam",
+        "Student Banking Center UI"
+      ],
+      "lat": -6.3768,
+      "lng": 106.8312,
+      "coverageRadiusKm": 3,
+      "kecamatanCovered": [
+        "Beji",
+        "Margonda North",
+        "Pondok Cina"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Kemiri Muka",
+          "kecamatan": "Beji",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Depok Margonda",
+          "distanceKm": 0.2
+        },
+        {
+          "name": "Pondok Cina",
+          "kecamatan": "Beji",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Depok Margonda",
+          "distanceKm": 1.2
+        },
+        {
+          "name": "Kukusan Barat & Tanah Baru",
+          "kecamatan": "Beji",
+          "status": "Blank Spot",
+          "branchName": "KC Depok Margonda",
+          "distanceKm": 3.5
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-DPK-01",
+          "name": "Kukusan Barat & Tanah Baru",
+          "kecamatan": "Beji",
+          "kelurahan": "Kukusan",
+          "lat": -6.362,
+          "lng": 106.811,
+          "priority": "High",
+          "reason": "Dekat Tol Cijago & Vokasi UI, perkembangan kost-kostan dan UMKM pesat.",
+          "nearestBranchKm": 3.5,
+          "potensialNasabah": "Mahasiswa UI, Pemilik Kost, & Pengusaha UMKM"
+        }
+      ]
+    },
+    {
+      "id": "DPK-DP2",
+      "name": "DEPOK 2",
+      "city": "Depok",
+      "branchCode": "KCP20102",
+      "branchName": "KCP Depok 2 Tengah",
+      "branchType": "Kantor Cabang Pembantu (KCP)",
+      "address": "Jl. Merdeka No. 1, Abadijaya, Sukmajaya, Depok 16417",
+      "phone": "+62 21-7782-3344",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "CRM 24 Jam",
+        "KSM Consumer Service",
+        "Micro Banking"
+      ],
+      "lat": -6.3912,
+      "lng": 106.848,
+      "coverageRadiusKm": 3.5,
+      "kecamatanCovered": [
+        "Cisalak"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Abadijaya",
+          "kecamatan": "Sukmajaya",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Depok 2 Tengah",
+          "distanceKm": 0.4
+        },
+        {
+          "name": "Cisalak Pasar",
+          "kecamatan": "Cimanggis",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Depok 2 Tengah",
+          "distanceKm": 1.8
+        },
+        {
+          "name": "Kalibaru & Jatimulya",
+          "kecamatan": "Cilodong",
+          "status": "Blank Spot",
+          "branchName": "KCP Depok 2 Tengah",
+          "distanceKm": 4.2
+        },
+        {
+          "name": "Cimanggis Ujung / Mekarsari",
+          "kecamatan": "Cimanggis",
+          "status": "Blank Spot",
+          "branchName": "KCP Depok 2 Tengah",
+          "distanceKm": 4
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-DPK-02",
+          "name": "Kalibaru & Jatimulya",
+          "kecamatan": "Cilodong",
+          "kelurahan": "Kalibaru",
+          "lat": -6.425,
+          "lng": 106.839,
+          "priority": "High",
+          "reason": "Sentra industri dan komplek perumahan berkembang pesat di Cilodong.",
+          "nearestBranchKm": 4.2,
+          "potensialNasabah": "Pekerja Manufaktur / Industri & Warga Residensial Cilodong"
+        },
+        {
+          "id": "BS-DPK-03",
+          "name": "Cimanggis Ujung / Mekarsari",
+          "kecamatan": "Cimanggis",
+          "kelurahan": "Mekarsari",
+          "lat": -6.368,
+          "lng": 106.872,
+          "priority": "Medium",
+          "reason": "Zona perbatasan Cibubur-Depok dengan populasi komuter tinggi.",
+          "nearestBranchKm": 4,
+          "potensialNasabah": "Komuter Jakarta-Cibubur & Perumahan Raffles Hills"
+        }
+      ]
+    },
+    {
+      "id": "DPK-DGS",
+      "name": "DEPOK GALERIA SAWANGAN",
+      "city": "Depok",
+      "branchCode": "KCP20103",
+      "branchName": "KCP Depok Sawangan",
+      "branchType": "Kantor Cabang Pembantu (KCP)",
+      "address": "Ruko Galeria Sawangan, Jl. Raya Sawangan No. 88, Pancoran Mas, Depok 16436",
+      "phone": "+62 21-7752-1100",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "CRM 24 Jam",
+        "Smart Banking Counter"
+      ],
+      "lat": -6.398,
+      "lng": 106.7925,
+      "coverageRadiusKm": 4,
+      "kecamatanCovered": [
+        "Sawangan",
+        "Bojongsari",
+        "Pasir Putih"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Mampang",
+          "kecamatan": "Pancoran Mas",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Depok Sawangan",
+          "distanceKm": 0.5
+        },
+        {
+          "name": "Bedahan & Pengasinan",
+          "kecamatan": "Sawangan",
+          "status": "Blank Spot",
+          "branchName": "KCP Depok Sawangan",
+          "distanceKm": 4.8
+        },
+        {
+          "name": "Duren Seribu & Curug Bojongsari",
+          "kecamatan": "Bojongsari",
+          "status": "Blank Spot",
+          "branchName": "KCP Depok Sawangan",
+          "distanceKm": 6.1
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-DPK-04",
+          "name": "Bedahan & Pengasinan",
+          "kecamatan": "Sawangan",
+          "kelurahan": "Pengasinan",
+          "lat": -6.418,
+          "lng": 106.762,
+          "priority": "High",
+          "reason": "Blank spot utama area perumahan baru skala besar (Shila at Sawangan dll).",
+          "nearestBranchKm": 4.8,
+          "potensialNasabah": "Warga Perumahan Baru Scale Large Township & Pengembang"
+        },
+        {
+          "id": "BS-DPK-05",
+          "name": "Duren Seribu & Curug Bojongsari",
+          "kecamatan": "Bojongsari",
+          "kelurahan": "Duren Seribu",
+          "lat": -6.402,
+          "lng": 106.738,
+          "priority": "Medium",
+          "reason": "Batas Depok - Parung Bogor dengan pertumbuhan perumahan baru.",
+          "nearestBranchKm": 6.1,
+          "potensialNasabah": "Pedagang Pasar Parung & Residensial Bojongsari"
+        }
+      ]
+    },
+    {
+      "id": "BGR-BG1",
+      "name": "BOGOR 1",
+      "city": "Bogor",
+      "branchCode": "KC30101",
+      "branchName": "KC Bogor Juanda",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Jl. Ir. H. Juanda No. 18, Pabaton, Bogor Tengah, Kota Bogor 16121",
+      "phone": "+62 251-8324-5566",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Regional Hub Bogor",
+        "CRM 24 Jam",
+        "Mandiri Priority Lounge",
+        "Safe Deposit Box"
+      ],
+      "lat": -6.5962,
+      "lng": 106.7952,
+      "coverageRadiusKm": 3,
+      "kecamatanCovered": [
+        "Bogor Tengah",
+        "Bogor Timur",
+        "Pajajaran"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Pabaton",
+          "kecamatan": "Bogor Tengah",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Bogor Juanda",
+          "distanceKm": 0.1
+        },
+        {
+          "name": "Baranangsiang",
+          "kecamatan": "Bogor Timur",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Bogor Juanda",
+          "distanceKm": 1.9
+        },
+        {
+          "name": "Katulampa & Baranangsiang Indah",
+          "kecamatan": "Bogor Timur",
+          "status": "Blank Spot",
+          "branchName": "KC Bogor Juanda",
+          "distanceKm": 4.1
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-BGR-01",
+          "name": "Katulampa & Baranangsiang Indah",
+          "kecamatan": "Bogor Timur",
+          "kelurahan": "Katulampa",
+          "lat": -6.618,
+          "lng": 106.822,
+          "priority": "High",
+          "reason": "Akses tol Summarecon Bogor dan kawasan perumahan elit baru.",
+          "nearestBranchKm": 4.1,
+          "potensialNasabah": "Penghuni Township Summarecon Bogor & Wisatawan"
+        }
+      ]
+    },
+    {
+      "id": "BGR-BG2",
+      "name": "BOGOR 2",
+      "city": "Bogor",
+      "branchCode": "KCP30102",
+      "branchName": "KCP Bogor Siliwangi",
+      "branchType": "Kantor Cabang Pembantu (KCP)",
+      "address": "Jl. Siliwangi No. 64, Lawanggintung, Bogor Selatan, Kota Bogor 16134",
+      "phone": "+62 251-8381-2299",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "CRM 24 Jam",
+        "KSM Loan Officer"
+      ],
+      "lat": -6.6145,
+      "lng": 106.8082,
+      "coverageRadiusKm": 3.5,
+      "kecamatanCovered": [
+        "Bogor Selatan",
+        "Batu Tulis",
+        "Pamoyanan"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Lawanggintung",
+          "kecamatan": "Bogor Selatan",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Bogor Siliwangi",
+          "distanceKm": 0.3
+        },
+        {
+          "name": "Batutulis",
+          "kecamatan": "Bogor Selatan",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Bogor Siliwangi",
+          "distanceKm": 1
+        },
+        {
+          "name": "Mulyaharja & Cikaret",
+          "kecamatan": "Bogor Selatan",
+          "status": "Blank Spot",
+          "branchName": "KCP Bogor Siliwangi",
+          "distanceKm": 3.9
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-BGR-02",
+          "name": "Mulyaharja & Cikaret",
+          "kecamatan": "Bogor Selatan",
+          "kelurahan": "Mulyaharja",
+          "lat": -6.632,
+          "lng": 106.789,
+          "priority": "High",
+          "reason": "Kawasan agrowisata dan perkampungan tematik berkembang tanpa jaringan outlet.",
+          "nearestBranchKm": 3.9,
+          "potensialNasabah": "Pelaku Agro-Wisata & Masyarakat Bogor Selatan"
+        }
+      ]
+    },
+    {
+      "id": "BGR-BYM",
+      "name": "BOGOR YASMIN",
+      "city": "Bogor",
+      "branchCode": "KCP30103",
+      "branchName": "KCP Bogor Taman Yasmin",
+      "branchType": "Kantor Cabang Pembantu (KCP)",
+      "address": "Ruko Taman Yasmin Sektor VI, Jl. KH. Sholeh Iskandar, Tanah Sareal, Kota Bogor 16164",
+      "phone": "+62 251-7541-0088",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Drive-Thru ATM",
+        "CRM 24 Jam",
+        "Smart Branch Digital"
+      ],
+      "lat": -6.5585,
+      "lng": 106.7725,
+      "coverageRadiusKm": 3.5,
+      "kecamatanCovered": [
+        "Bogor Barat",
+        "Tanah Sareal",
+        "Curug"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Kedungbadak",
+          "kecamatan": "Tanah Sareal",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Bogor Taman Yasmin",
+          "distanceKm": 0.8
+        },
+        {
+          "name": "Cibuluh",
+          "kecamatan": "Bogor Utara",
+          "status": "Terjangkau Cabang",
+          "branchName": "KCP Bogor Taman Yasmin",
+          "distanceKm": 2.1
+        },
+        {
+          "name": "Kayumanis & Mekarwangi",
+          "kecamatan": "Tanah Sareal",
+          "status": "Blank Spot",
+          "branchName": "KCP Bogor Taman Yasmin",
+          "distanceKm": 3.8
+        },
+        {
+          "name": "Bubulak & Situgede",
+          "kecamatan": "Bogor Barat",
+          "status": "Blank Spot",
+          "branchName": "KCP Bogor Taman Yasmin",
+          "distanceKm": 4.5
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-BGR-03",
+          "name": "Kayumanis & Mekarwangi",
+          "kecamatan": "Tanah Sareal",
+          "kelurahan": "Kayumanis",
+          "lat": -6.538,
+          "lng": 106.761,
+          "priority": "High",
+          "reason": "Kawasan industri ringan dan pergudangan di lintasan Tol BORR.",
+          "nearestBranchKm": 3.8,
+          "potensialNasabah": "Karyawan Logistik / Pergudangan BORR"
+        },
+        {
+          "id": "BS-BGR-04",
+          "name": "Bubulak & Situgede",
+          "kecamatan": "Bogor Barat",
+          "kelurahan": "Bubulak",
+          "lat": -6.575,
+          "lng": 106.745,
+          "priority": "Medium",
+          "reason": "Jalur utama kampus IPB Dramaga dan terminal Bubulak.",
+          "nearestBranchKm": 4.5,
+          "potensialNasabah": "Civitas Akademika IPB & Komuter Bubulak"
+        }
+      ]
+    },
+    {
+      "id": "BGR-CMO",
+      "name": "CIBINONG MAYOR OKING",
+      "city": "Bogor",
+      "branchCode": "KC30104",
+      "branchName": "KC Cibinong Mayor Oking",
+      "branchType": "Kantor Cabang (KC Utama)",
+      "address": "Jl. Mayor Oking Jaya Atmaja No. 28, Ciriung, Cibinong, Kab. Bogor 16918",
+      "phone": "+62 21-8752-9900",
+      "operationalHours": "Senin - Jumat (08:00 - 15:00 WIB)",
+      "facilities": [
+        "Drive-Thru ATM",
+        "CRM 24 Jam",
+        "Commercial Banking Hub",
+        "Priority Banking"
+      ],
+      "lat": -6.4815,
+      "lng": 106.855,
+      "coverageRadiusKm": 4,
+      "kecamatanCovered": [
+        "Sentul",
+        "Citeureup"
+      ],
+      "kelurahanMapping": [
+        {
+          "name": "Ciriung",
+          "kecamatan": "Cibinong",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Cibinong Mayor Oking",
+          "distanceKm": 0.2
+        },
+        {
+          "name": "Citeureup",
+          "kecamatan": "Citeureup",
+          "status": "Terjangkau Cabang",
+          "branchName": "KC Cibinong Mayor Oking",
+          "distanceKm": 2.5
+        },
+        {
+          "name": "Karang Tengah & Babakan Madang",
+          "kecamatan": "Babakan Madang",
+          "status": "Blank Spot",
+          "branchName": "KC Cibinong Mayor Oking",
+          "distanceKm": 7.2
+        },
+        {
+          "name": "Nanggewer & Pakansari",
+          "kecamatan": "Cibinong",
+          "status": "Blank Spot",
+          "branchName": "KC Cibinong Mayor Oking",
+          "distanceKm": 3.1
+        }
+      ],
+      "blankSpots": [
+        {
+          "id": "BS-BGR-05",
+          "name": "Karang Tengah & Babakan Madang",
+          "kecamatan": "Babakan Madang",
+          "kelurahan": "Karang Tengah",
+          "lat": -6.578,
+          "lng": 106.885,
+          "priority": "High",
+          "reason": "Sentra pariwisata kuliner Sentul Nirwana dan perumahan berkembang pesat.",
+          "nearestBranchKm": 7.2,
+          "potensialNasabah": "Pengunjung Sentul Nirwana, Resort & Residensial Sentul City"
+        },
+        {
+          "id": "BS-BGR-06",
+          "name": "Nanggewer & Pakansari",
+          "kecamatan": "Cibinong",
+          "kelurahan": "Nanggewer",
+          "lat": -6.495,
+          "lng": 106.832,
+          "priority": "Medium",
+          "reason": "Sekitar Stadion Pakansari dan pusat pemerintahan Kab. Bogor.",
+          "nearestBranchKm": 3.1,
+          "potensialNasabah": "ASN Pemkab Bogor & Pelaku Olahraga Pakansari"
+        }
+      ]
+    }
+  ]
+}

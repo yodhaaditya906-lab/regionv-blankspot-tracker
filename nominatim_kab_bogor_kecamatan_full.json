@@ -1,0 +1,925 @@
+{
+  "Babakan Madang": {
+    "name": "Babakan Madang",
+    "displayName": "Kantor Kecamatan Babakan Madang, Jalan Babakan Madang, Sentul City, Babakan Madang, Kab Bogor, Jawa Barat, 16810, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8652427,
+          -6.5711372
+        ],
+        [
+          106.8653486,
+          -6.5711785
+        ],
+        [
+          106.8653594,
+          -6.5711572
+        ],
+        [
+          106.8653728,
+          -6.5711612
+        ],
+        [
+          106.8653232,
+          -6.5712864
+        ],
+        [
+          106.8654492,
+          -6.5713291
+        ],
+        [
+          106.8654626,
+          -6.5712957
+        ],
+        [
+          106.8656115,
+          -6.5713477
+        ],
+        [
+          106.8657255,
+          -6.5710786
+        ],
+        [
+          106.8654385,
+          -6.5709946
+        ],
+        [
+          106.8654023,
+          -6.5710733
+        ],
+        [
+          106.8652869,
+          -6.5710346
+        ],
+        [
+          106.8652427,
+          -6.5711372
+        ]
+      ]
+    ]
+  },
+  "Bojonggede": {
+    "name": "Bojonggede",
+    "displayName": "Kantor Kecamatan Bojonggede, Gang Haji Dahwan Saph, Bojonggede, Bojong Gede, Kab Bogor, Jawa Barat, 16922, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7996129,
+          -6.4840711
+        ],
+        [
+          106.7997533,
+          -6.4841578
+        ],
+        [
+          106.7998584,
+          -6.4839897
+        ],
+        [
+          106.799718,
+          -6.483903
+        ],
+        [
+          106.7996129,
+          -6.4840711
+        ]
+      ]
+    ]
+  },
+  "Caringin": {
+    "name": "Caringin",
+    "displayName": "Kantor Kecamatan Caringin, 8, Cimande Hilir, Caringin, Kab Bogor, Jawa Barat, 44166, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8247726,
+          -6.7036948
+        ],
+        [
+          106.8247998,
+          -6.7038573
+        ],
+        [
+          106.8249899,
+          -6.703826
+        ],
+        [
+          106.8249627,
+          -6.7036634
+        ],
+        [
+          106.8247726,
+          -6.7036948
+        ]
+      ]
+    ]
+  },
+  "Cariu": {
+    "name": "Cariu",
+    "displayName": "Kantor Kecamatan Cariu, Jalan Transyogi, Cariu, Kab Bogor, Jawa Barat, 16840, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          107.1329304,
+          -6.5037142
+        ],
+        [
+          107.1330694,
+          -6.5037518
+        ],
+        [
+          107.133082,
+          -6.5036981
+        ],
+        [
+          107.1332038,
+          -6.5037285
+        ],
+        [
+          107.1332345,
+          -6.5036057
+        ],
+        [
+          107.132971,
+          -6.5035448
+        ],
+        [
+          107.1329304,
+          -6.5037142
+        ]
+      ]
+    ]
+  },
+  "Ciampea": {
+    "name": "Ciampea",
+    "displayName": "Kantor Kecamatan Ciampea, 22, Jalan Leuwliang-Bogor, Bojongrangkas, Ciampea, Kab Bogor, Jawa Barat, 16620, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.6971068,
+          -6.554954
+        ],
+        [
+          106.6973029,
+          -6.5550179
+        ],
+        [
+          106.6973809,
+          -6.5548013
+        ],
+        [
+          106.6973072,
+          -6.5547748
+        ],
+        [
+          106.697318,
+          -6.554746
+        ],
+        [
+          106.6972607,
+          -6.5547231
+        ],
+        [
+          106.6972477,
+          -6.5547534
+        ],
+        [
+          106.6971675,
+          -6.554719
+        ],
+        [
+          106.6971115,
+          -6.55485
+        ],
+        [
+          106.6971441,
+          -6.5548631
+        ],
+        [
+          106.6971068,
+          -6.554954
+        ]
+      ]
+    ]
+  },
+  "Ciawi": {
+    "name": "Ciawi",
+    "displayName": "Kantor Kecamatan Ciawi, Jalan Jenderal Hoegeng Iman Santoso, Bendungan, Ciawi, Kab Bogor, Jawa Barat, 16720, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8530099,
+          -6.6621704
+        ],
+        [
+          106.85311,
+          -6.6622605
+        ],
+        [
+          106.8532665,
+          -6.6620888
+        ],
+        [
+          106.8531665,
+          -6.6619988
+        ],
+        [
+          106.8530099,
+          -6.6621704
+        ]
+      ]
+    ]
+  },
+  "Cibinong": {
+    "name": "Cibinong",
+    "displayName": "Kantor Kecamatan Cibinong, Jalan HR Lukman, Cirimekar, Cibinong, Kab Bogor, Jawa Barat, 16917, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8531809,
+          -6.4728239
+        ],
+        [
+          106.8533488,
+          -6.472898
+        ],
+        [
+          106.8534278,
+          -6.4727175
+        ],
+        [
+          106.8532474,
+          -6.4726422
+        ],
+        [
+          106.8531809,
+          -6.4728239
+        ]
+      ]
+    ]
+  },
+  "Cigombong": {
+    "name": "Cigombong",
+    "displayName": "Kantor Kecamatan Cigombong, Jalan Raya Siliwangi, Cigombong, Kab Bogor, Jawa Barat, 16110, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8029718,
+          -6.7433883
+        ],
+        [
+          106.8031424,
+          -6.7434647
+        ],
+        [
+          106.8032189,
+          -6.7432965
+        ],
+        [
+          106.8030483,
+          -6.74322
+        ],
+        [
+          106.8029718,
+          -6.7433883
+        ]
+      ]
+    ]
+  },
+  "Cigudeg": {
+    "name": "Cigudeg",
+    "displayName": "Kantor Kecamatan Jasinga, 11, Peuteuy, Pamagersari, Jasinga, Kab Bogor, Jawa Barat, 16670, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.4694377,
+          -6.4836673
+        ],
+        [
+          106.4696521,
+          -6.4837084
+        ],
+        [
+          106.4696849,
+          -6.4835393
+        ],
+        [
+          106.4694704,
+          -6.4834982
+        ],
+        [
+          106.4694377,
+          -6.4836673
+        ]
+      ]
+    ]
+  },
+  "Cijeruk": {
+    "name": "Cijeruk",
+    "displayName": "Kantor Kecamatan Cijeruk, Warso Durian Service Tracks, Cipelang, Cijeruk, Kab Bogor, Jawa Barat, 16740, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7963895,
+          -6.6980055
+        ],
+        [
+          106.7965868,
+          -6.6980489
+        ],
+        [
+          106.7966348,
+          -6.6978341
+        ],
+        [
+          106.7964375,
+          -6.6977907
+        ],
+        [
+          106.7963895,
+          -6.6980055
+        ]
+      ]
+    ]
+  },
+  "Cileungsi": {
+    "name": "Cileungsi",
+    "displayName": "Kantor Kecamatan Cileungsi, Jalan MT Haryono, Limusnunggal, Cileungsi, Kab Bogor, Jawa Barat, 16829, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.9770755,
+          -6.3943329
+        ],
+        [
+          106.9772322,
+          -6.3945168
+        ],
+        [
+          106.9774343,
+          -6.3943467
+        ],
+        [
+          106.9772776,
+          -6.3941628
+        ],
+        [
+          106.9770755,
+          -6.3943329
+        ]
+      ]
+    ]
+  },
+  "Ciomas": {
+    "name": "Ciomas",
+    "displayName": "Kantor Kecamatan Ciomas, Jalan Cikoneng 1, Pagelaran, Ciomas, Kab Bogor, Jawa Barat, 16610, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7652132,
+          -6.6025363
+        ],
+        [
+          106.7652184,
+          -6.6027291
+        ],
+        [
+          106.7654186,
+          -6.6027238
+        ],
+        [
+          106.7654157,
+          -6.6026153
+        ],
+        [
+          106.7654134,
+          -6.6025302
+        ],
+        [
+          106.7653437,
+          -6.602532
+        ],
+        [
+          106.7653428,
+          -6.6024986
+        ],
+        [
+          106.7653426,
+          -6.6024537
+        ],
+        [
+          106.7652731,
+          -6.6024556
+        ],
+        [
+          106.7652732,
+          -6.6025012
+        ],
+        [
+          106.7652741,
+          -6.6025347
+        ],
+        [
+          106.7652132,
+          -6.6025363
+        ]
+      ]
+    ]
+  },
+  "Cisarua": {
+    "name": "Cisarua",
+    "displayName": "Kantor Kecamatan Cisarua, Jalan Raya Puncak, Leuwimalang, Cisarua, Kab Bogor, Jawa Barat, 16750, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.9267269,
+          -6.669995
+        ],
+        [
+          106.9268081,
+          -6.6701836
+        ],
+        [
+          106.9270008,
+          -6.6701017
+        ],
+        [
+          106.9269196,
+          -6.6699132
+        ],
+        [
+          106.9267269,
+          -6.669995
+        ]
+      ]
+    ]
+  },
+  "Citeureup": {
+    "name": "Citeureup",
+    "displayName": "Kantor Kecamatan Citeureup, Jalan Raya Mayor Oking, Puspanegara, Citeureup, Kab Bogor, Jawa Barat, 16810, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8789646,
+          -6.487048
+        ],
+        [
+          106.8791507,
+          -6.4871243
+        ],
+        [
+          106.8792224,
+          -6.4869514
+        ],
+        [
+          106.8790364,
+          -6.4868751
+        ],
+        [
+          106.8789646,
+          -6.487048
+        ]
+      ]
+    ]
+  },
+  "Dramaga": {
+    "name": "Dramaga",
+    "displayName": "Kantor Kecamatan Dramaga, Jalan Pasar Dramaga–Petir, Situ Leutik, Dramaga, Kab Bogor, Jawa Barat, 16680, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7380102,
+          -6.5755084
+        ],
+        [
+          106.738033,
+          -6.5756049
+        ],
+        [
+          106.7380946,
+          -6.5755905
+        ],
+        [
+          106.7381008,
+          -6.5756177
+        ],
+        [
+          106.7381517,
+          -6.5756064
+        ],
+        [
+          106.7381455,
+          -6.5755787
+        ],
+        [
+          106.7382215,
+          -6.5755609
+        ],
+        [
+          106.7381987,
+          -6.5754645
+        ],
+        [
+          106.7380102,
+          -6.5755084
+        ]
+      ]
+    ]
+  },
+  "Gunung Putri": {
+    "name": "Gunung Putri",
+    "displayName": "Kantor Kecamatan Gunung Putri, Jalan Villa Asri 2, Wanaherang, Gunung Putri, Kab Bogor, Jawa Barat, 16965, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.9404396,
+          -6.4238529
+        ],
+        [
+          106.9406778,
+          -6.423919
+        ],
+        [
+          106.9407304,
+          -6.4237302
+        ],
+        [
+          106.9404922,
+          -6.4236673
+        ],
+        [
+          106.9404396,
+          -6.4238529
+        ]
+      ]
+    ]
+  },
+  "Jasinga": {
+    "name": "Jasinga",
+    "displayName": "Kantor Kecamatan Jasinga, 11, Peuteuy, Pamagersari, Jasinga, Kab Bogor, Jawa Barat, 16670, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.4694377,
+          -6.4836673
+        ],
+        [
+          106.4696521,
+          -6.4837084
+        ],
+        [
+          106.4696849,
+          -6.4835393
+        ],
+        [
+          106.4694704,
+          -6.4834982
+        ],
+        [
+          106.4694377,
+          -6.4836673
+        ]
+      ]
+    ]
+  },
+  "Jonggol": {
+    "name": "Jonggol",
+    "displayName": "Kantor Kecamatan Jonggol, Jalan Jonggol Dayeuh, Jonggol, Kab Bogor, Jawa Barat, 16830, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          107.0659231,
+          -6.4678602
+        ],
+        [
+          107.0661213,
+          -6.4679492
+        ],
+        [
+          107.0662195,
+          -6.4677332
+        ],
+        [
+          107.0660213,
+          -6.4676442
+        ],
+        [
+          107.0659231,
+          -6.4678602
+        ]
+      ]
+    ]
+  },
+  "Kemang": {
+    "name": "Kemang",
+    "displayName": "Kantor Kecamatan Kemang, Jalan Kemang–Rancabungur, Kemang, Kab Bogor, Jawa Barat, 16310, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7550917,
+          -6.5128787
+        ],
+        [
+          106.7550956,
+          -6.5130783
+        ],
+        [
+          106.7552885,
+          -6.5130746
+        ],
+        [
+          106.7552846,
+          -6.5128744
+        ],
+        [
+          106.7552251,
+          -6.5128756
+        ],
+        [
+          106.7552243,
+          -6.5128382
+        ],
+        [
+          106.7551546,
+          -6.5128395
+        ],
+        [
+          106.7551554,
+          -6.5128774
+        ],
+        [
+          106.7550917,
+          -6.5128787
+        ]
+      ]
+    ]
+  },
+  "Klapanunggal": {
+    "name": "Klapanunggal",
+    "displayName": "Kantor Kecamatan Klapanunggal, Jl. Raya Klapanunggal, Kembang Kuning, Klapanunggal, Kab Bogor, Jawa Barat, 16871, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.9429629,
+          -6.4464026
+        ],
+        [
+          106.943171,
+          -6.4465376
+        ],
+        [
+          106.9433017,
+          -6.4463387
+        ],
+        [
+          106.9430936,
+          -6.4462037
+        ],
+        [
+          106.9429629,
+          -6.4464026
+        ]
+      ]
+    ]
+  },
+  "Megamendung": {
+    "name": "Megamendung",
+    "displayName": "Kantor Kecamatan Megamendung, Jalan Pertanian, Vimala Hills, Sukamaju, Megamendung, Kab Bogor, Jawa Barat, 16770, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8832449,
+          -6.6749174
+        ],
+        [
+          106.8833225,
+          -6.6750988
+        ],
+        [
+          106.8835145,
+          -6.6750177
+        ],
+        [
+          106.883437,
+          -6.6748364
+        ],
+        [
+          106.8832449,
+          -6.6749174
+        ]
+      ]
+    ]
+  },
+  "Rumpin": {
+    "name": "Rumpin",
+    "displayName": "Kantor Camat Rumpin, Jalan Kampung Sawah–Janala, Kebonkalapa, Rumpin, Kab Bogor, Jawa Barat, 16350, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.6403429,
+          -6.4419761
+        ],
+        [
+          106.6405988,
+          -6.4420482
+        ],
+        [
+          106.6406578,
+          -6.4418414
+        ],
+        [
+          106.6404019,
+          -6.4417693
+        ],
+        [
+          106.6403429,
+          -6.4419761
+        ]
+      ]
+    ]
+  },
+  "Sukajaya": {
+    "name": "Sukajaya",
+    "displayName": "Kantor Kecamatan Sukajaya, Jalan Lama Buntu, Jayaraharja, Sukajaya, Kab Bogor, Jawa Barat, 16660, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.4778633,
+          -6.5942454
+        ],
+        [
+          106.4779478,
+          -6.5943674
+        ],
+        [
+          106.4782447,
+          -6.5941645
+        ],
+        [
+          106.4781656,
+          -6.5940502
+        ],
+        [
+          106.4780939,
+          -6.5940992
+        ],
+        [
+          106.478043,
+          -6.5940257
+        ],
+        [
+          106.4779224,
+          -6.5941081
+        ],
+        [
+          106.477968,
+          -6.5941739
+        ],
+        [
+          106.4778633,
+          -6.5942454
+        ]
+      ]
+    ]
+  },
+  "Sukamakmur": {
+    "name": "Sukamakmur",
+    "displayName": "Kantor Kecamatan Sukamakmur, sanggar, Sukamulya, Sukamakmur, Kab Bogor, Jawa Barat, 16830, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.9949353,
+          -6.5659067
+        ],
+        [
+          106.995086,
+          -6.5660806
+        ],
+        [
+          106.9952287,
+          -6.5659585
+        ],
+        [
+          106.9950779,
+          -6.5657846
+        ],
+        [
+          106.9949353,
+          -6.5659067
+        ]
+      ]
+    ]
+  },
+  "Sukaraja": {
+    "name": "Sukaraja",
+    "displayName": "Kantor Kecamatan Sukaraja, Jalan Siaga, Cimandala, Sukaraja, Kab Bogor, Jawa Barat, 16710, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.8233621,
+          -6.5411065
+        ],
+        [
+          106.8235486,
+          -6.5411708
+        ],
+        [
+          106.8235942,
+          -6.5410402
+        ],
+        [
+          106.8234077,
+          -6.5409759
+        ],
+        [
+          106.8233621,
+          -6.5411065
+        ]
+      ]
+    ]
+  },
+  "Tajurhalang": {
+    "name": "Tajurhalang",
+    "displayName": "Kantor Kecamatan Tajurhalang, Jalan Citayam-Parung, Tajurhalang, Kab Bogor, Jawa Barat, 16931, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          106.7575117,
+          -6.4753905
+        ],
+        [
+          106.7576987,
+          -6.4754025
+        ],
+        [
+          106.7577135,
+          -6.4751747
+        ],
+        [
+          106.7575265,
+          -6.4751628
+        ],
+        [
+          106.7575117,
+          -6.4753905
+        ]
+      ]
+    ]
+  },
+  "Tanjungsari": {
+    "name": "Tanjungsari",
+    "displayName": "Kantor Kecamatan Tanjungsari, Jalan Transyogi, Pasir Tanjung, Tanjungsari, Kab Bogor, Jawa Barat, 16840, Indonesia",
+    "type": "Polygon",
+    "rawCoordinates": [
+      [
+        [
+          107.1488938,
+          -6.6055004
+        ],
+        [
+          107.1491109,
+          -6.6055105
+        ],
+        [
+          107.1491196,
+          -6.6053249
+        ],
+        [
+          107.1489024,
+          -6.6053149
+        ],
+        [
+          107.1488938,
+          -6.6055004
+        ]
+      ]
+    ]
+  }
+}

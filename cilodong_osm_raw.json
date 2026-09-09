@@ -1,0 +1,43 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-07T02:06:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 18792490,
+  "bounds": {
+    "minlat": -6.4393956,
+    "minlon": 106.8378417,
+    "maxlat": -6.4393855,
+    "maxlon": 106.8388327
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 12643166826,
+      "role": "",
+      "lat": -6.4393956,
+      "lon": 106.8378417
+    },
+    {
+      "type": "node",
+      "ref": 12643166844,
+      "role": "",
+      "lat": -6.4393855,
+      "lon": 106.8388327
+    }
+  ],
+  "tags": {
+    "name": "Setu Cilodong",
+    "public_transport": "stop_area",
+    "type": "public_transport"
+  }
+}
+
+  ]
+}
