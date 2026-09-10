@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let showRadius = true;
   let searchQuery = '';
   let selectedBlankSpotId = null;
+  let selectedBlankSpotKec = null;
 
   // City-to-Area Cascading Dropdown Mapping
   const cityAreaMapping = {
@@ -194,6 +195,74 @@ document.addEventListener('DOMContentLoaded', () => {
     kelurahanPolygonsGroup.addTo(map);
   }
 
+  // GeoJSON Point-in-Polygon Helper (Handles Polygon & MultiPolygon of any nesting depth)
+  function isPtInPoly(pt, vs) {
+    const x = pt[0], y = pt[1];
+    let inside = false;
+    for (let i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+      if (!vs[i] || !vs[j]) continue;
+      const xi = vs[i][0], yi = vs[i][1];
+      const xj = vs[j][0], yj = vs[j][1];
+      if (typeof xi !== 'number' || typeof yi !== 'number') continue;
+      const intersect = ((yi > y) !== (yj > y))
+        && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
+    }
+    return inside;
+  }
+
+  function checkPointInCoords(pt, coords) {
+    if (!Array.isArray(coords) || coords.length === 0) return false;
+    if (typeof coords[0][0] === 'number') {
+      return isPtInPoly(pt, coords);
+    }
+    return coords.some(sub => checkPointInCoords(pt, sub));
+  }
+
+  function cleanKecName(str) {
+    if (!str) return '';
+    return str.toLowerCase().replace(/^(kecamatan|kec\.)\s+/i, '').replace(/\s+/g, '').trim();
+  }
+
+  // Helper to calculate how many units exist in a given kecamatan
+  function getKecUnitCount(kecName, kecItem) {
+    const activeUnits = (liveKcpBranches && liveKcpBranches.length > 0)
+      ? liveKcpBranches
+      : (window.MASTER_KCPS_DATA || []);
+
+    if (!activeUnits || activeUnits.length === 0) return 0;
+
+    const normName = cleanKecName(kecName);
+
+    let count = 0;
+    activeUnits.forEach(u => {
+      if (!u) return;
+
+      let isMatch = false;
+
+      // 1. Exact kecamatan string match (prevents false matches like "Parung" matching "Parung Panjang")
+      if (u.kecamatan) {
+        const uKec = cleanKecName(u.kecamatan);
+        if (uKec === normName) {
+          isMatch = true;
+        }
+      }
+
+      // 2. Spatial point-in-polygon check
+      if (!isMatch && typeof u.lat === 'number' && typeof u.lng === 'number' && !isNaN(u.lat) && !isNaN(u.lng)) {
+        if (kecItem && kecItem.coords) {
+          if (checkPointInCoords([u.lat, u.lng], kecItem.coords)) {
+            isMatch = true;
+          }
+        }
+      }
+
+      if (isMatch) count++;
+    });
+
+    return count;
+  }
+
   // Render Official Real-World GeoJSON Boundaries for ALL 4 Region V Territories (>8,760 GPS Vertices)
   function renderAllRegionVRealGeoJsonBoundaries() {
     kecamatanBoundariesGroup.clearLayers();
@@ -212,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Tamansari', 'Tanjungsari', 'Tenjo', 'Tenjolaya'
     ];
 
-    // 1. RENDER KECAMATAN BOUNDARIES FIRST (Green Lines - Filtered by City Selection)
+    // 1. RENDER KECAMATAN BOUNDARIES FIRST (Green for Covered, Red for Blank Spot 0-Unit Kecamatan)
     if (window.KECAMATAN_REAL_GEOJSON) {
       Object.keys(window.KECAMATAN_REAL_GEOJSON).forEach(kecName => {
         // Filter Kecamatan by selected city
@@ -223,13 +292,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = window.KECAMATAN_REAL_GEOJSON[kecName];
         if (!item || !item.coords || item.coords.length === 0) return;
 
+        const unitCount = getKecUnitCount(kecName, item);
+        const isBlankSpot = unitCount === 0;
+
+        const strokeColor = isBlankSpot ? '#EF4444' : '#10B981'; // Red for Blank Spot, Green for Covered
+        const fillColor = isBlankSpot ? '#EF4444' : '#10B981';
+        const defaultFillOpacity = isBlankSpot ? 0.15 : 0.03;
+        const defaultWeight = isBlankSpot ? 2.8 : 2.2;
+        const hoverFillOpacity = isBlankSpot ? 0.35 : 0.22;
+        const hoverWeight = isBlankSpot ? 3.5 : 3.0;
+
         const drawKecPolygon = (vertices) => {
           if (!vertices || vertices.length === 0) return;
 
           // Under-layer White Glow Polyline
           const outerWhiteGlow = L.polyline(vertices, {
             color: '#FFFFFF',
-            weight: 3.8,
+            weight: isBlankSpot ? 4.2 : 3.8,
             opacity: 0.9,
             lineCap: 'round',
             lineJoin: 'round',
@@ -237,21 +316,25 @@ document.addEventListener('DOMContentLoaded', () => {
             interactive: false
           });
 
-          // Top-layer Interactive Kecamatan Polygon (Dashed Green Border + Soft Hover Highlight)
+          // Top-layer Interactive Kecamatan Polygon
           const kecPoly = L.polygon(vertices, {
-            color: '#10B981', // Vibrant Green for Kecamatan Boundaries
-            weight: 2.2,
+            color: strokeColor,
+            weight: defaultWeight,
             dashArray: '6, 5',
-            fillColor: '#10B981',
-            fillOpacity: 0.03, // Subtle transparent fill to easily catch mouse hover
+            fillColor: fillColor,
+            fillOpacity: defaultFillOpacity,
             lineCap: 'round',
             lineJoin: 'round',
             smoothFactor: 0.0,
             interactive: true
           });
 
-          // Tooltip ONLY appears on hover and follows cursor!
-          kecPoly.bindTooltip(`<strong>Kecamatan ${item.name}</strong>`, {
+          // Custom Tooltip with Unit Status
+          const statusBadge = isBlankSpot
+            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit)</span>`
+            : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Unit Operasional</span>`;
+
+          kecPoly.bindTooltip(`<strong>Kecamatan ${item.name}</strong><br>${statusBadge}`, {
             sticky: true,
             direction: 'auto',
             className: 'kecamatan-hover-tooltip'
@@ -259,15 +342,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
           kecPoly.on('mouseover', function () {
             this.setStyle({
-              fillOpacity: 0.22,
-              weight: 3.0
+              fillOpacity: hoverFillOpacity,
+              weight: hoverWeight
             });
           });
 
           kecPoly.on('mouseout', function () {
             this.setStyle({
-              fillOpacity: 0.03,
-              weight: 2.2
+              fillOpacity: defaultFillOpacity,
+              weight: defaultWeight
             });
           });
 
@@ -283,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // 2. RENDER CITY / KABUPATEN BOUNDARIES SECOND (Red Bold Lines - Filtered by City Selection)
+    // 2. RENDER CITY / KABUPATEN BOUNDARIES SECOND (Yellow Bold Lines - Filtered by City Selection)
     const territories = [
       { name: 'Jakarta Selatan', cityGroup: 'Jakarta Selatan', data: window.JAKSEL_OFFICIAL_REAL_GEOJSON },
       { name: 'Depok', cityGroup: 'Depok', data: window.DEPOK_OFFICIAL_REAL_GEOJSON },
@@ -307,10 +390,10 @@ document.addEventListener('DOMContentLoaded', () => {
           interactive: false
         });
 
-        // Top-layer Google Signature Red-White Dashed Polyline (Prominent City Boundary)
-        const innerRedDash = L.polyline(vertices, {
-          color: '#FF1111',
-          weight: 3.2,
+        // Top-layer Yellow-White Dashed Polyline (Prominent City Boundary)
+        const innerYellowDash = L.polyline(vertices, {
+          color: '#FFB700',
+          weight: 3.5,
           dashArray: '8, 6',
           opacity: 1.0,
           lineCap: 'round',
@@ -320,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         googleBoundaryGroup.addLayer(outerWhiteGlow);
-        googleBoundaryGroup.addLayer(innerRedDash);
+        googleBoundaryGroup.addLayer(innerYellowDash);
       };
 
       if (Array.isArray(t.data[0]) && Array.isArray(t.data[0][0])) {
@@ -506,35 +589,40 @@ document.addEventListener('DOMContentLoaded', () => {
       let baseLat = null;
       let baseLng = null;
 
-      // 1. Check combined "Titik Koordinat" column (e.g. "-6.7477605,106.801142")
+      // 1. Check combined "Titik Koordinat" column from Google Sheet CSV first (e.g. "-6.7477605,106.801142")
       if (coordStr && coordStr.includes(',')) {
-        const parts = coordStr.split(',').map(s => s.trim());
-        if (parts.length >= 2) {
-          const pLat = parseFloat(parts[0]);
-          const pLng = parseFloat(parts[1]);
-          if (!isNaN(pLat) && !isNaN(pLng) && pLat !== 0) {
-            baseLat = pLat;
-            baseLng = pLng;
-          }
+        const parts = coordStr.split(',').map(s => parseFloat(s.trim()));
+        if (!isNaN(parts[0]) && !isNaN(parts[1]) && parts[0] !== 0) {
+          baseLat = parts[0];
+          baseLng = parts[1];
         }
       }
 
-      // 2. Check separate lat / lng columns if present
+      // 2. Fallback to precalculated MASTER_KCPS_DATA
+      if (baseLat === null && window.MASTER_KCPS_DATA && window.MASTER_KCPS_DATA.length > 0) {
+        const cleanCode = branchCode ? String(branchCode).replace(/[^0-9]/g, '') : '';
+        const cleanName = unitName ? unitName.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+
+        const found = window.MASTER_KCPS_DATA.find(m => {
+          const mCode = m.kodeCabang ? String(m.kodeCabang).replace(/[^0-9]/g, '') : '';
+          const mName = m.kcp ? m.kcp.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+          return (cleanCode && mCode && cleanCode === mCode) ||
+                 (cleanName && mName && (cleanName === mName || cleanName.includes(mName) || mName.includes(cleanName)));
+        });
+
+        if (found && typeof found.lat === 'number' && typeof found.lng === 'number' && found.lat !== 0) {
+          baseLat = found.lat;
+          baseLng = found.lng;
+        }
+      }
+
+      // 3. Check separate lat / lng columns if present
       if (baseLat === null && latIdx !== -1 && lngIdx !== -1) {
         const pLat = parseFloat(vals[latIdx]);
         const pLng = parseFloat(vals[lngIdx]);
         if (!isNaN(pLat) && !isNaN(pLng) && pLat !== 0) {
           baseLat = pLat;
           baseLng = pLng;
-        }
-      }
-
-      // 3. Fallback to precalculated MASTER_KCPS_DATA
-      if (baseLat === null && window.MASTER_KCPS_DATA && window.MASTER_KCPS_DATA.length > 0) {
-        const found = window.MASTER_KCPS_DATA.find(m => (m.kodeCabang && m.kodeCabang === branchCode) || (m.kcp && m.kcp.toLowerCase() === unitName.toLowerCase()));
-        if (found && found.lat && found.lng) {
-          baseLat = found.lat;
-          baseLng = found.lng;
         }
       }
 
@@ -598,18 +686,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let visibleBounds = L.latLngBounds();
     let hasPoints = false;
 
-    // 1. RENDER UNIT MARKERS
-    if (currentMode === 'all' || currentMode === 'branch') {
-      const shouldRenderUnits = showRadius || searchQuery.trim() !== '';
-
-      if (shouldRenderUnits && liveKcpBranches.length > 0) {
-        liveKcpBranches.forEach(kcpItem => {
+    // 1. RENDER UNIT MARKERS (Always rendered on map at 100% exact audited coordinates)
+    if (liveKcpBranches.length > 0) {
+      liveKcpBranches.forEach(kcpItem => {
           if (!kcpItem || typeof kcpItem.lat !== 'number' || typeof kcpItem.lng !== 'number' || isNaN(kcpItem.lat) || isNaN(kcpItem.lng)) return;
 
           if (currentCityFilter !== 'ALL' && kcpItem.city !== currentCityFilter) return;
           if (currentAreaFilter !== 'ALL' && kcpItem.cluster !== currentAreaFilter && kcpItem.area !== currentAreaFilter) return;
 
-          if (searchQuery.trim() !== '') {
+          // When "Tampilkan Semua Unit" (showRadius) is false and search query is present, filter unit markers.
+          // When "Tampilkan Semua Unit" (showRadius) is true, show ALL unit markers on map regardless of search query!
+          if (!showRadius && searchQuery.trim() !== '') {
             const q = searchQuery.toLowerCase();
             const matchAddr = kcpItem.alamat ? kcpItem.alamat.toLowerCase().includes(q) : false;
             const matchKcp = kcpItem.kcp ? kcpItem.kcp.toLowerCase().includes(q) : false;
@@ -683,7 +770,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-    }
 
     // 2. RENDER BLANK SPOTS FROM REGIONAL DATASET
     if (currentMode === 'all' || currentMode === 'blank') {
@@ -773,7 +859,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Auto-center / fly to searched item if user entered a search query
     if (searchQuery.trim() !== '') {
-      if (filteredKcps.length > 0) {
+      const q = searchQuery.toLowerCase();
+      const blankSpotKecs = (currentMode === 'all' || currentMode === 'blank') ? getBlankSpotKecamatans() : [];
+      const matchKec = blankSpotKecs.find(s => s.kecamatan.toLowerCase().includes(q) || s.name.toLowerCase().includes(q));
+      
+      if (matchKec && matchKec.centroid) {
+        map.flyTo([matchKec.centroid[0], matchKec.centroid[1]], 13, { duration: 1.0 });
+      } else if (filteredKcps.length > 0) {
         const firstKcp = filteredKcps[0];
         map.flyTo([firstKcp.lat, firstKcp.lng], 14, { duration: 1.0 });
       } else if (allFilteredBlankSpots.length > 0) {
@@ -781,6 +873,111 @@ document.addEventListener('DOMContentLoaded', () => {
         map.flyTo([firstSpot.lat, firstSpot.lng], 14, { duration: 1.0 });
       }
     }
+  }
+
+  // Haversine Distance Helper (in KM)
+  function getHaversineDistanceKm(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth radius in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  // Get Centroid of GeoJSON Polygon
+  function getPolygonCentroid(coords) {
+    if (!coords || coords.length === 0) return [-6.5971, 106.7996];
+    let sumLat = 0, sumLng = 0, count = 0;
+    const addPts = pts => {
+      pts.forEach(p => {
+        sumLat += p[0];
+        sumLng += p[1];
+        count++;
+      });
+    };
+    if (Array.isArray(coords[0]) && Array.isArray(coords[0][0])) {
+      coords.forEach(sub => addPts(sub));
+    } else {
+      addPts(coords);
+    }
+    return count > 0 ? [sumLat / count, sumLng / count] : [-6.5971, 106.7996];
+  }
+
+  // Get all Blank Spot Kecamatans (0 Units) with Nearest Unit Distance
+  function getBlankSpotKecamatans() {
+    if (!window.KECAMATAN_REAL_GEOJSON) return [];
+
+    const activeUnits = (liveKcpBranches && liveKcpBranches.length > 0)
+      ? liveKcpBranches
+      : (window.MASTER_KCPS_DATA || []);
+
+    const jakselKecs = ['Tebet', 'Setiabudi', 'Pancoran', 'Mampang Prapatan', 'Kebayoran Baru', 'Kebayoran Lama', 'Cilandak', 'Pasar Minggu', 'Jagakarsa', 'Pesanggrahan'];
+    const depokKecs = ['Sawangan', 'Beji', 'Pancoran Mas', 'Tapos', 'Cinere', 'Limo', 'Bojongsari', 'Cipayung', 'Cimanggis', 'Sukmajaya', 'Cilodong'];
+    const kotaBogorKecs = ['Bogor Timur', 'Bogor Selatan', 'Bogor Tengah', 'Bogor Barat', 'Bogor Utara', 'Tanah Sareal'];
+
+    const blankSpotKecs = [];
+
+    Object.keys(window.KECAMATAN_REAL_GEOJSON).forEach(kecName => {
+      let cityGroup = 'Bogor';
+      let fullCityName = 'Kabupaten Bogor';
+
+      if (jakselKecs.includes(kecName)) {
+        cityGroup = 'Jakarta Selatan';
+        fullCityName = 'Kota Jakarta Selatan';
+      } else if (depokKecs.includes(kecName)) {
+        cityGroup = 'Depok';
+        fullCityName = 'Kota Depok';
+      } else if (kotaBogorKecs.includes(kecName)) {
+        cityGroup = 'Bogor';
+        fullCityName = 'Kota Bogor';
+      }
+
+      if (currentCityFilter !== 'ALL' && cityGroup !== currentCityFilter) return;
+
+      const item = window.KECAMATAN_REAL_GEOJSON[kecName];
+      if (!item || !item.coords || item.coords.length === 0) return;
+
+      const unitCount = getKecUnitCount(kecName, item);
+      if (unitCount > 0) return;
+
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase();
+        const matchKec = kecName.toLowerCase().includes(q);
+        const matchCity = cityGroup.toLowerCase().includes(q) || fullCityName.toLowerCase().includes(q);
+        if (!matchKec && !matchCity) return;
+      }
+
+      const centroid = getPolygonCentroid(item.coords);
+
+      let minDist = Infinity;
+      let nearestUnit = null;
+
+      activeUnits.forEach(u => {
+        if (!u || typeof u.lat !== 'number' || typeof u.lng !== 'number' || isNaN(u.lat) || isNaN(u.lng)) return;
+        const d = getHaversineDistanceKm(centroid[0], centroid[1], u.lat, u.lng);
+        if (d < minDist) {
+          minDist = d;
+          nearestUnit = u;
+        }
+      });
+
+      blankSpotKecs.push({
+        id: 'BLANK-KEC-' + kecName.replace(/\s+/g, '-'),
+        kecamatan: kecName,
+        name: `Kecamatan ${kecName}, ${fullCityName}`,
+        city: cityGroup,
+        fullCity: fullCityName,
+        centroid: centroid,
+        unitCount: 0,
+        nearestUnit: nearestUnit,
+        nearestKm: minDist !== Infinity ? parseFloat(minDist.toFixed(1)) : null,
+        coords: item.coords
+      });
+    });
+
+    return blankSpotKecs.sort((a, b) => (a.nearestKm || 999) - (b.nearestKm || 999));
   }
 
   // Render Sidebar Location List (Unified KCP Units & Blank Spots)
@@ -796,8 +993,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const totalCount = spotsList.length + kcpList.length;
-    if (blankspotCounter) blankspotCounter.textContent = `${totalCount} Titik`;
+    const blankSpotKecs = (currentMode === 'all' || currentMode === 'blank') ? getBlankSpotKecamatans() : [];
+
+    let totalCount = 0;
+    if (currentMode === 'branch') {
+      totalCount = kcpList.length;
+    } else if (currentMode === 'blank') {
+      totalCount = blankSpotKecs.length;
+    } else {
+      totalCount = kcpList.length + blankSpotKecs.length;
+    }
+
+    if (blankspotCounter) {
+      if (currentMode === 'blank') {
+        blankspotCounter.textContent = `${blankSpotKecs.length} Kecamatan`;
+      } else if (currentMode === 'branch') {
+        blankspotCounter.textContent = `${kcpList.length} Unit`;
+      } else {
+        blankspotCounter.textContent = `${totalCount} Titik`;
+      }
+    }
 
     if (totalCount === 0) {
       cardsWrapper.innerHTML = `
@@ -811,13 +1026,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let html = '';
 
-    // Render KCP Branches First if matching
-    if (kcpList.length > 0) {
+    // Render KCP Branches First if matching mode 'all' or 'branch'
+    if (kcpList.length > 0 && (currentMode === 'all' || currentMode === 'branch')) {
       kcpList.forEach(kcp => {
         html += `
-          <div class="blankspot-item kcp-sidebar-item" data-kcp-id="${kcp.id || kcp.kcp}" style="border-left: 4px solid #003D79;">
+          <div class="blankspot-item kcp-sidebar-item" data-kcp-id="${kcp.id || kcp.kcp}" style="border-left: 4px solid #003D79; cursor: pointer;">
             <div class="item-header-top">
-              <span class="spot-name" style="color: #003D79;"><i class="fa-solid fa-building-columns"></i> ${kcp.kcp}</span>
+              <span class="spot-name" style="color: #003D79; font-weight: 700;"><i class="fa-solid fa-building-columns"></i> ${kcp.kcp}</span>
               <span class="priority-tag" style="background: #DBEAFE; color: #1E40AF; border-color: #BFDBFE;">KCP</span>
             </div>
             <div class="spot-meta">
@@ -834,26 +1049,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Render Blank Spots
-    if (spotsList.length > 0) {
-      spotsList.forEach(spot => {
-        const isSelected = spot.id === selectedBlankSpotId;
+    // Render Blank Spot Kecamatan Cards
+    if (blankSpotKecs.length > 0 && (currentMode === 'all' || currentMode === 'blank')) {
+      blankSpotKecs.forEach(spot => {
+        const isSelected = selectedBlankSpotKec === spot.kecamatan;
         const selectedClass = isSelected ? 'selected' : '';
-        
+        const nearestText = spot.nearestUnit
+          ? `${spot.nearestUnit.kcp} (${spot.nearestKm} km)`
+          : 'Unit Region V';
+
         html += `
-          <div class="blankspot-item ${selectedClass}" data-spot-id="${spot.id}">
+          <div class="blankspot-item kec-blankspot-sidebar-item ${selectedClass}" data-kec-name="${spot.kecamatan}" style="border-left: 4px solid #EF4444; cursor: pointer;">
             <div class="item-header-top">
-              <span class="spot-name">${spot.name}</span>
-              <span class="priority-tag ${spot.priority}">${spot.priority}</span>
+              <span class="spot-name" style="color: #DC2626; font-weight: 700;">
+                <i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Kecamatan ${spot.kecamatan}, ${spot.fullCity}
+              </span>
+              <span class="priority-tag" style="background: #FEE2E2; color: #991B1B; border-color: #FCA5A5; font-weight: 700;">0 unit</span>
             </div>
-            <div class="spot-meta">
-              <span><i class="fa-solid fa-location-dot"></i> ${spot.kecamatan}</span>
-              <span>• ${spot.parentArea.name}</span>
+            <div class="spot-meta" style="margin-top: 3px;">
+              <span><i class="fa-solid fa-location-dot"></i> ${spot.fullCity}</span>
+              <span>• Blank Spot Kecamatan</span>
             </div>
-            <p class="spot-reason">${spot.reason}</p>
-            <div class="item-action-link">
-              <span><i class="fa-solid fa-route"></i> Unit Terdekat: ${spot.nearestBranchKm} km</span>
-              <span style="margin-left: auto;">Lihat Map <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i></span>
+            <div class="spot-reason" style="font-size: 11.5px; color: #1E293B; margin: 6px 0 4px 0; background: #FFF1F2; padding: 6px 8px; border-radius: 6px; border: 1px solid #FECDD3;">
+              <i class="fa-solid fa-route" style="color: #EA7200;"></i> <strong>Unit terdekat:</strong> ${nearestText}
+            </div>
+            <div class="item-action-link" style="margin-top: 4px; display: flex; align-items: center;">
+              <span style="font-size: 10.5px; color: #EF4444; font-weight: 600;"><i class="fa-solid fa-circle-exclamation"></i> 0 Unit (Kawasan Blank Spot)</span>
+              <span style="margin-left: auto; font-size: 11px; font-weight: 700; color: #DC2626;">Lihat di Map <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i></span>
             </div>
           </div>
         `;
@@ -874,19 +1096,84 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Blankspot Click Event Handlers
-    cardsWrapper.querySelectorAll('.blankspot-item:not(.kcp-sidebar-item)').forEach(item => {
+    // Blank Spot Kecamatan Click Event Handlers
+    cardsWrapper.querySelectorAll('.kec-blankspot-sidebar-item').forEach(item => {
       item.addEventListener('click', () => {
-        const spotId = item.getAttribute('data-spot-id');
-        const foundSpot = spotsList.find(s => s.id === spotId);
+        const kecName = item.getAttribute('data-kec-name');
+        const foundSpot = blankSpotKecs.find(s => s.kecamatan === kecName);
         if (foundSpot) {
-          selectedBlankSpotId = foundSpot.id;
-          map.flyTo([foundSpot.lat, foundSpot.lng], 14, { duration: 1.2 });
-          showBlankSpotDetailPanel(foundSpot);
+          selectedBlankSpotKec = foundSpot.kecamatan;
+          map.flyTo([foundSpot.centroid[0], foundSpot.centroid[1]], 13, { duration: 1.2 });
+          showKecBlankSpotDetailPanel(foundSpot);
           renderSidebarCards(spotsList, kcpList);
         }
       });
     });
+  }
+
+  // Show Floating Detail Panel for Blank Spot Kecamatan
+  function showKecBlankSpotDetailPanel(spot) {
+    if (!detailPanel) return;
+    panelTitle.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Detail Blank Spot: Kecamatan ${spot.kecamatan}`;
+    
+    const nearestText = spot.nearestUnit
+      ? `<strong>${spot.nearestUnit.kcp}</strong> (~${spot.nearestKm} km)`
+      : 'Belum teridentifikasi';
+
+    const nearestAddr = spot.nearestUnit && spot.nearestUnit.alamat
+      ? spot.nearestUnit.alamat
+      : '-';
+
+    panelContent.innerHTML = `
+      <div class="detail-section">
+        <span class="detail-label">Status Kawasan</span>
+        <span class="detail-value" style="color: #EF4444; font-weight: 700;">
+          <i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit Operasional)
+        </span>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Nama Kecamatan</span>
+        <span class="detail-value highlight" style="font-size: 14px; color: #DC2626;">Kecamatan ${spot.kecamatan}</span>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Wilayah Kota / Kabupaten</span>
+        <span class="detail-value">${spot.city}</span>
+      </div>
+
+      <div class="detail-section" style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 8px; padding: 10px; margin: 10px 0;">
+        <span class="detail-label" style="color: #991B1B; font-weight: 700;">
+          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Unit Terdekat dari Kecamatan:
+        </span>
+        <span class="detail-value" style="font-size: 13px; font-weight: 700; color: #0F172A; display: block; margin-top: 4px;">
+          ${nearestText}
+        </span>
+        <p style="font-size: 11px; color: #475569; margin: 4px 0 0 0;">
+          <strong>Alamat Unit:</strong> ${nearestAddr}
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Koordinat Centroid Kecamatan</span>
+        <span class="detail-value"><code>${spot.centroid[0].toFixed(6)}, ${spot.centroid[1].toFixed(6)}</code></span>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <button class="btn-primary" id="btn-focus-kec" style="width: 100%; background: #003D79; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer;">
+          <i class="fa-solid fa-crosshairs"></i> Fokus Ke Kecamatan ${spot.kecamatan}
+        </button>
+      </div>
+    `;
+
+    detailPanel.classList.remove('hidden');
+
+    const btnFocus = document.getElementById('btn-focus-kec');
+    if (btnFocus) {
+      btnFocus.addEventListener('click', () => {
+        map.flyTo([spot.centroid[0], spot.centroid[1]], 14, { duration: 1.2 });
+      });
+    }
   }
 
   // Show Floating Detail Panel for KCP Unit
@@ -1171,11 +1458,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
-        // When user types a search query, automatically uncheck "Tampilkan Semua Unit"
-        if (searchQuery.trim() !== '') {
-          if (radiusCheckbox) radiusCheckbox.checked = false;
-          showRadius = false;
-        }
         renderMapLayersAndList();
       });
     }
@@ -1183,11 +1465,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (radiusCheckbox) {
       radiusCheckbox.addEventListener('change', (e) => {
         showRadius = e.target.checked;
-        // When user checks "Tampilkan Semua Unit", clear search input text immediately
-        if (e.target.checked) {
-          if (searchInput) searchInput.value = '';
-          searchQuery = '';
-        }
         renderMapLayersAndList();
       });
     }
