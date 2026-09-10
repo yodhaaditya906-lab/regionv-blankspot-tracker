@@ -57,10 +57,10 @@
         </button>
         <div class="excel-dropdown-content" id="excel-menu-content">
           <a href="#" id="btn-export-excel-blankspots">
-            <i class="fa-solid fa-file-excel" style="color: #107C41;"></i>
+            <i class="fa-solid fa-file-excel" style="color: #DC2626;"></i>
             <div>
-              <strong>1. Excel Coverage & Blank Spot</strong>
-              <small>Daftar Kecamatan & Kelurahan (Terjangkau vs Blank Spot)</small>
+              <strong>1. Excel Database Blank Spot</strong>
+              <small>Daftar Kecamatan Blank Spot (0 Unit) & Unit Terdekat</small>
             </div>
           </a>
           <a href="#" id="btn-export-excel-branches">
@@ -263,11 +263,14 @@
       </div>
 
       <div class="modal-toolbar">
-        <div style="flex: 1; max-width: 320px;">
+        <div style="flex: 1; max-width: 300px;">
           <input type="text" id="db-search-input" class="text-input" placeholder="Filter KCP / alamat / kota...">
         </div>
+        <button class="btn-excel-quick" id="btn-export-excel-blankspots-modal" style="background: #DC2626; color: white; border: none; margin-right: 6px;">
+          <i class="fa-solid fa-file-excel"></i> Export Excel Blank Spot (.xlsx)
+        </button>
         <button class="btn-excel-quick" id="btn-export-excel-branches-modal">
-          <i class="fa-solid fa-file-excel"></i> Export Excel Database (.xlsx)
+          <i class="fa-solid fa-file-excel"></i> Export Excel Master Unit (.xlsx)
         </button>
       </div>
 

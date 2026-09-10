@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnExportExcelBlankspots = document.getElementById('btn-export-excel-blankspots');
   const btnExportExcelBranches = document.getElementById('btn-export-excel-branches');
   const btnExportExcelBranchesModal = document.getElementById('btn-export-excel-branches-modal');
+  const btnExportExcelBlankspotsModal = document.getElementById('btn-export-excel-blankspots-modal');
   const btnSyncSheet = document.getElementById('btn-sync-sheet');
   const sheetStatusBadge = document.getElementById('sheet-status-badge');
 
@@ -1361,36 +1362,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // SHEETJS EXCEL EXPORT ENGINE
+  // SHEETJS EXCEL EXPORT ENGINE FOR BLANK SPOTS
   function exportExcelCoverageBlankspots() {
-    if (!regionData || typeof XLSX === 'undefined') {
+    if (typeof XLSX === 'undefined') {
       alert('Library XLSX belum siap.');
       return;
     }
 
+    const blankSpotKecs = getBlankSpotKecamatans();
+
     let excelRows = [];
-    regionData.areas.forEach(area => {
-      if (area.kelurahanMapping) {
-        area.kelurahanMapping.forEach(k => {
-          excelRows.push({
-            "Kota / Kabupaten": area.city,
-            "Kecamatan": k.kecamatan,
-            "Kelurahan / Kawasan": k.name,
-            "Status Coverage": k.status,
-            "Area Induk Mandiri": area.name,
-            "Cabang Terdekat": k.branchName,
-            "Estimasi Jarak (Km)": k.distanceKm,
-            "Prioritas Expansion": k.status === 'Blank Spot' ? 'High' : '-'
-          });
+    if (blankSpotKecs && blankSpotKecs.length > 0) {
+      blankSpotKecs.forEach((spot, idx) => {
+        excelRows.push({
+          "No": idx + 1,
+          "Nama Kawasan": `Kecamatan ${spot.kecamatan}`,
+          "Nama Lengkap": spot.name,
+          "Kota / Kabupaten": spot.fullCity || spot.city,
+          "Status Coverage": "Blank Spot (0 Unit)",
+          "Jumlah Unit": 0,
+          "Unit Operasional Terdekat": spot.nearestUnit ? spot.nearestUnit.kcp : "-",
+          "Alamat Unit Terdekat": spot.nearestUnit && spot.nearestUnit.alamat ? spot.nearestUnit.alamat : "-",
+          "Jarak Ke Unit Terdekat (Km)": spot.nearestKm !== null ? spot.nearestKm : "-",
+          "Latitude Centroid": spot.centroid ? spot.centroid[0].toFixed(6) : "-",
+          "Longitude Centroid": spot.centroid ? spot.centroid[1].toFixed(6) : "-",
+          "Prioritas Expansion": "High"
         });
-      }
-    });
+      });
+    } else if (regionData && regionData.areas) {
+      let no = 1;
+      regionData.areas.forEach(area => {
+        if (area.blankSpots) {
+          area.blankSpots.forEach(spot => {
+            excelRows.push({
+              "No": no++,
+              "Nama Kawasan": spot.name,
+              "Nama Lengkap": `Kecamatan ${spot.kecamatan}, ${area.city}`,
+              "Kota / Kabupaten": area.city,
+              "Status Coverage": "Blank Spot (0 Unit)",
+              "Jumlah Unit": 0,
+              "Unit Operasional Terdekat": area.branchName || "-",
+              "Alamat Unit Terdekat": "-",
+              "Jarak Ke Unit Terdekat (Km)": spot.nearestBranchKm || "-",
+              "Latitude Centroid": spot.lat ? spot.lat.toFixed(6) : "-",
+              "Longitude Centroid": spot.lng ? spot.lng.toFixed(6) : "-",
+              "Prioritas Expansion": spot.priority || "High"
+            });
+          });
+        }
+      });
+    }
+
+    if (excelRows.length === 0) {
+      alert('Tidak ada data Blank Spot yang ditemukan.');
+      return;
+    }
 
     const worksheet = XLSX.utils.json_to_sheet(excelRows);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Blank Spot & Coverage");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Database Blank Spot");
 
-    XLSX.writeFile(workbook, `Mandiri_RegionV_Coverage_Kecamatan_Kelurahan_${new Date().toISOString().slice(0,10)}.xlsx`);
+    const fileName = `Mandiri_RegionV_Database_BlankSpot_Kecamatan_${new Date().toISOString().slice(0,10)}.xlsx`;
+    XLSX.writeFile(workbook, fileName);
   }
 
   function exportExcelBranchesDatabase() {
@@ -1399,25 +1432,35 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const activeUnits = (liveKcpBranches && liveKcpBranches.length > 0)
+      ? liveKcpBranches
+      : (window.MASTER_KCPS_DATA || []);
+
     let branchRows = [];
-    if (liveKcpBranches.length > 0) {
-      liveKcpBranches.forEach(b => {
-        branchRows.push({
-          "Nama KCP / Cabang": b.kcp,
-          "Wilayah / Kota": b.city,
-          "Alamat Lengkap": b.alamat,
-          "Latitude": b.lat,
-          "Longitude": b.lng,
-          "Status Data": "Live Google Sheets Master KCP"
-        });
+    activeUnits.forEach((b, idx) => {
+      branchRows.push({
+        "No": idx + 1,
+        "Kode Cabang": b.kodeCabang || "-",
+        "Nama KCP / Unit": b.kcp,
+        "Wilayah Kota / Kab": b.city || b.rawCity || "-",
+        "Cluster / Area": b.cluster || "-",
+        "Kecamatan": b.kecamatan || "-",
+        "Kelurahan": b.kelurahan || "-",
+        "Alamat Lengkap": b.alamat || "-",
+        "Kode Pos": b.kodePos || "-",
+        "Provinsi": b.provinsi || "Jawa Barat",
+        "Latitude GPS": b.lat,
+        "Longitude GPS": b.lng,
+        "Status Data": "Live Master Google Sheet (Audited)"
       });
-    }
+    });
 
     const worksheet = XLSX.utils.json_to_sheet(branchRows);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Database Master KCP Region V");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Database Master Unit");
 
-    XLSX.writeFile(workbook, `Mandiri_RegionV_Daftar_KCP_Live_${new Date().toISOString().slice(0,10)}.xlsx`);
+    const fileName = `Mandiri_RegionV_Database_Master_Unit_${new Date().toISOString().slice(0,10)}.xlsx`;
+    XLSX.writeFile(workbook, fileName);
   }
 
   // Event Listeners Setup
@@ -1536,6 +1579,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnExportExcelBranchesModal) {
       btnExportExcelBranchesModal.addEventListener('click', () => {
         exportExcelBranchesDatabase();
+      });
+    }
+
+    if (btnExportExcelBlankspotsModal) {
+      btnExportExcelBlankspotsModal.addEventListener('click', () => {
+        exportExcelCoverageBlankspots();
       });
     }
 
