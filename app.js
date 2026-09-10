@@ -663,12 +663,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Update Top Stats
   function updateQuickStats() {
-    if (!regionData) return;
-    let totalBlankSpots = 0;
-    regionData.areas.forEach(area => {
-      totalBlankSpots += area.blankSpots.length;
-    });
-    if (statTotalBlankspotsChip) statTotalBlankspotsChip.textContent = totalBlankSpots;
+    const blankSpotKecs = getBlankSpotKecamatans();
+    const count = blankSpotKecs ? blankSpotKecs.length : 0;
+    if (statTotalBlankspotsChip) statTotalBlankspotsChip.textContent = count;
   }
 
   // Main Render Map & Lists
@@ -678,6 +675,9 @@ document.addEventListener('DOMContentLoaded', () => {
     radiusCirclesGroup.clearLayers();
     kelurahanPolygonsGroup.clearLayers();
     cityBoundariesGroup.clearLayers();
+
+    // Update ribbon counter
+    updateQuickStats();
 
     // Render City & Kecamatan Boundaries
     renderAllRegionVRealGeoJsonBoundaries();
