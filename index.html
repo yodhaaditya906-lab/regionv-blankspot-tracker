@@ -34,7 +34,7 @@
       </div>
       <div class="brand-divider"></div>
       <div class="header-title-group">
-        <h1>Dashboard Tracking Region V / Jakarta 3</h1>
+        <h1>Dashboard Tracking Unit Micro Banking Region V / Jakarta 3</h1>
       </div>
     </div>
 
@@ -79,7 +79,7 @@
   <div class="metrics-ribbon">
     <div class="metric-chip">
       <span class="chip-dot blue"></span>
-      <span><strong>13</strong> Area Kerja</span>
+      <span><strong>13</strong> Micro Cluster</span>
     </div>
     <div class="metric-chip">
       <span class="chip-dot yellow"></span>
@@ -104,9 +104,17 @@
   <main class="app-container">
     
     <!-- Left Sidebar: Filters & Seamless Flat Location List -->
-    <aside class="sidebar-left">
-      <div class="panel-header">
+    <aside class="sidebar-left" id="sidebar-left">
+      <!-- Floating Sidebar Collapse/Expand Toggle Tab (Google Maps Style) -->
+      <button class="sidebar-toggle-tab" id="sidebar-toggle-btn" title="Tutup Panel Filter" aria-label="Toggle Sidebar">
+        <i class="fa-solid fa-chevron-left" id="sidebar-toggle-icon"></i>
+      </button>
+
+      <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
         <h2><i class="fa-solid fa-sliders" style="font-size: 12px; color: var(--mandiri-blue);"></i> Filter & Control Center</h2>
+        <button class="btn-close-sidebar" id="btn-close-sidebar-top" title="Tutup Panel Filter" aria-label="Tutup Panel">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
       <!-- Controls Form -->
@@ -114,7 +122,7 @@
         
         <!-- City Filter -->
         <div class="form-field">
-          <label for="filter-city">Wilayah Kota / Kabupaten</label>
+          <label for="filter-city">Kab./Kodya</label>
           <select id="filter-city" class="select-input">
             <option value="ALL">Semua Wilayah (Jakarta Selatan, Depok, Bogor)</option>
             <option value="Jakarta Selatan">Jakarta Selatan (6 Area)</option>
@@ -125,9 +133,9 @@
 
         <!-- Area Select Filter -->
         <div class="form-field">
-          <label for="filter-area" id="label-filter-area">13 Area Kerja Region V</label>
+          <label for="filter-area" id="label-filter-area">Micro Cluster Reg V</label>
           <select id="filter-area" class="select-input">
-            <option value="ALL">Semua 13 Area Kerja</option>
+            <option value="ALL">Semua Micro Cluster</option>
             <option value="BOGOR 1">BOGOR 1</option>
             <option value="BOGOR 2">BOGOR 2</option>
             <option value="BOGOR YASMIN">BOGOR YASMIN</option>
@@ -158,6 +166,18 @@
         <label class="checkbox-field">
           <input type="checkbox" id="chk-show-radius" checked>
           <span>Tampilkan Semua Unit</span>
+        </label>
+
+        <!-- Dedicated Market Layer Toggle (Default: OFF) -->
+        <label class="checkbox-field" style="margin-top: 4px; background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(245, 158, 11, 0.4); padding: 6px 10px; border-radius: 6px; cursor: pointer;">
+          <input type="checkbox" id="chk-show-markets">
+          <span style="font-weight: 600; color: #B45309;"><i class="fa-solid fa-store" style="color: #F59E0B; margin-right: 4px;"></i> Tampilkan Pasar (214 Titik)</span>
+        </label>
+
+        <!-- Dedicated Mandiri Agents Layer Toggle (Default: OFF) -->
+        <label class="checkbox-field" style="margin-top: 4px; background: rgba(14, 165, 233, 0.08); border: 1px dashed rgba(14, 165, 233, 0.4); padding: 6px 10px; border-radius: 6px; cursor: pointer;">
+          <input type="checkbox" id="chk-show-agents">
+          <span style="font-weight: 600; color: #0284C7;"><i class="fa-solid fa-user-tie" style="color: #0EA5E9; margin-right: 4px;"></i> Tampilkan Agen Mandiri (4,094 Titik)</span>
         </label>
 
         <!-- Live Search Input -->
@@ -224,6 +244,14 @@
           <div class="legend-item">
             <span style="display: inline-block; width: 10px; height: 10px; background: rgba(239, 68, 68, 0.4); border: 1px solid #DC2626; border-radius: 2px;"></span>
             <span>Kelurahan Blank Spot (Tanpa Outlet)</span>
+          </div>
+          <div class="legend-item" style="margin-top: 4px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 4px;">
+            <span style="display: inline-block; width: 10px; height: 10px; background: #F59E0B; border: 1.5px solid #B45309; border-radius: 50%;"></span>
+            <span style="font-weight: 600; color: #92400E;">Pasar & Pusat Ekonomi (214 Titik)</span>
+          </div>
+          <div class="legend-item">
+            <span style="display: inline-block; width: 10px; height: 10px; background: #0EA5E9; border: 1.5px solid #0284C7; border-radius: 50%;"></span>
+            <span style="font-weight: 600; color: #0369A1;">Agen Mandiri (4,094 Titik)</span>
           </div>
         </div>
       </div>
@@ -322,8 +350,11 @@
   <script src="kab_bogor_real_geojson.js?v=1788660000000"></script>
   <script src="kecamatan_real_geojson.js?v=1788590000000"></script>
   <script src="master_kcps_data.js?v=1788660000000"></script>
+  <script src="master_markets_data.js?v=1789999999999"></script>
+  <script src="master_agents_data.js?v=1789999999999"></script>
+  <script src="master_blankspots_umkm_data.js?v=1790000000000"></script>
 
   <!-- App JS -->
-  <script src="app.js?v=1789440000000"></script>
+  <script src="app.js?v=1789999999999"></script>
 </body>
 </html>

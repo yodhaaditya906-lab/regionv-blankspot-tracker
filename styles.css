@@ -255,11 +255,71 @@ body {
 /* Left Sidebar (Minimalist Controls & Seamless Flat List) */
 .sidebar-left {
   width: 360px;
+  min-width: 360px;
   background: var(--neutral-white);
   border-right: 1px solid var(--neutral-200);
   display: flex;
   flex-direction: column;
   z-index: 500;
+  position: relative;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-left.collapsed {
+  margin-left: -360px;
+  min-width: 0px;
+  width: 0px;
+}
+
+/* Floating Sidebar Collapse/Expand Toggle Tab (Google Maps Style) */
+.sidebar-toggle-tab {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left: -1px;
+  width: 24px;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid var(--neutral-300);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  color: var(--neutral-700);
+  font-size: 11px;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.sidebar-toggle-tab:hover {
+  background: var(--neutral-50);
+  color: var(--mandiri-blue);
+  box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.btn-close-sidebar {
+  background: transparent;
+  border: none;
+  color: var(--neutral-400);
+  font-size: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.btn-close-sidebar:hover {
+  background: var(--neutral-100);
+  color: var(--neutral-800);
 }
 
 .panel-header {
@@ -998,5 +1058,11 @@ body {
   background: #EF4444 !important;
   color: #FFFFFF !important;
   transform: scale(1.15) rotate(90deg) !important;
+}
+
+/* Leaflet Control Spacing Adjustment */
+.leaflet-top.leaflet-left {
+  margin-top: 12px !important;
+  margin-left: 12px !important;
 }
 

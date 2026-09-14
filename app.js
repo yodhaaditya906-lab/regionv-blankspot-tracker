@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const KCP_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${KCP_SHEET_ID}/gviz/tq?tqx=out:csv`;
   const KCP_SHEET_EXPORT_URL = `https://docs.google.com/spreadsheets/d/${KCP_SHEET_ID}/export?format=csv`;
 
+  // Google Sheet Config (Master Blank Spot & UMKM Database)
+  const BLANKSPOT_SHEET_ID = '1Jk8IbeIjTyQF-97DYDMunvppcAELrwLeczjgCQwj1J8';
+  const BLANKSPOT_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/gviz/tq?tqx=out:csv`;
+  const BLANKSPOT_SHEET_EXPORT_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/export?format=csv`;
+
   // App State
   let regionData = null;
   let liveKcpBranches = [];
+  let liveBlankSpots = (window.MASTER_BLANKSPOTS_UMKM_DATA || []);
   let map = null;
   let branchMarkersGroup = L.layerGroup();
   let blankSpotMarkersGroup = L.layerGroup();
@@ -27,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let cityBoundariesGroup = L.layerGroup();
   let kecamatanBoundariesGroup = L.layerGroup();
   let kelurahanPolygonsGroup = L.layerGroup();
+  let pasarMarkersGroup = L.layerGroup();
+  let agentMarkersGroup = L.layerGroup();
   
   let currentCityFilter = 'ALL';
   let currentAreaFilter = 'ALL';
@@ -68,11 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
     areaSelect.innerHTML = '';
 
     if (city === 'ALL' || !cityAreaMapping[city]) {
-      if (labelArea) labelArea.textContent = '13 Area Kerja Region V';
+      if (labelArea) labelArea.textContent = 'Micro Cluster Reg V';
 
       const defaultOpt = document.createElement('option');
       defaultOpt.value = 'ALL';
-      defaultOpt.textContent = 'Semua 13 Area Kerja';
+      defaultOpt.textContent = 'Semua Micro Cluster';
       areaSelect.appendChild(defaultOpt);
 
       Object.values(cityAreaMapping).flat().forEach(areaName => {
@@ -84,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const allowedAreas = cityAreaMapping[city];
       const count = allowedAreas.length;
-      if (labelArea) labelArea.textContent = `${count} Area Kerja ${city}`;
+      if (labelArea) labelArea.textContent = `${count} Micro Cluster ${city}`;
 
       const defaultOpt = document.createElement('option');
       defaultOpt.value = 'ALL';
-      defaultOpt.textContent = `Semua ${count} Area Kerja`;
+      defaultOpt.textContent = `Semua ${count} Micro Cluster`;
       areaSelect.appendChild(defaultOpt);
 
       allowedAreas.forEach(areaName => {
@@ -149,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   fetchRegionData();
   fetchLiveKcpGoogleSheet();
+  fetchLiveBlankSpotGoogleSheet();
 
   // Map Initialization (100% Genuine Google Maps Engine)
   function initMap() {
@@ -330,9 +339,18 @@ document.addEventListener('DOMContentLoaded', () => {
             interactive: true
           });
 
-          // Custom Tooltip with Unit Status
+          // Custom Tooltip with Unit Status & UMKM Potensi
+          const normKec = cleanKecName(kecName);
+          const matchedUMKM = (liveBlankSpots || window.MASTER_BLANKSPOTS_UMKM_DATA || []).find(b => {
+            const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
+            return bKec.includes(normKec) || normKec.includes(bKec);
+          });
+          const umkmBadge = (isBlankSpot && matchedUMKM && matchedUMKM.jumlahUMKM)
+            ? `<br><span style="color:#0284C7; font-weight:700;"><i class="fa-solid fa-store"></i> ${matchedUMKM.jumlahUMKM.toLocaleString('id-ID')} UMKM Terdata</span>`
+            : '';
+
           const statusBadge = isBlankSpot
-            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit)</span>`
+            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit)</span>${umkmBadge}`
             : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Unit Operasional</span>`;
 
           kecPoly.bindTooltip(`<strong>Kecamatan ${item.name}</strong><br>${statusBadge}`, {
@@ -494,6 +512,52 @@ document.addEventListener('DOMContentLoaded', () => {
       renderMapLayersAndList();
       renderDatabaseTable();
     }
+  }
+
+  // Fetch Live Master Blank Spot & UMKM Database (100% Synced with Google Sheet 1Jk8IbeIjTyQF-97DYDMunvppcAELrwLeczjgCQwj1J8)
+  function fetchLiveBlankSpotGoogleSheet() {
+    if (window.MASTER_BLANKSPOTS_UMKM_DATA && window.MASTER_BLANKSPOTS_UMKM_DATA.length > 0) {
+      liveBlankSpots = window.MASTER_BLANKSPOTS_UMKM_DATA;
+    }
+
+    fetch(BLANKSPOT_SHEET_EXPORT_URL)
+      .then(res => {
+        if (!res.ok) return fetch(BLANKSPOT_SHEET_CSV_URL);
+        return res;
+      })
+      .then(res => res.text())
+      .then(csvText => {
+        if (typeof Papa !== 'undefined') {
+          const results = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+          if (results && results.data && results.data.length > 0) {
+            const parsed = [];
+            results.data.forEach((row, idx) => {
+              const namaKawasan = row['Nama Kawasan'] || row['Nama Lengkap'] || '';
+              const jumlahUMKMStr = row['Jumlah UMKM'] || row['Jumlah umkm'] || row['UMKM'] || '0';
+              const jumlahUMKM = parseInt(jumlahUMKMStr.toString().replace(/[^0-9]/g, ''), 10) || 0;
+              const prioritasExpansion = row['Prioritas Expansion'] || row['Prioritas'] || '-';
+
+              if (namaKawasan) {
+                parsed.push({
+                  no: idx + 1,
+                  namaKawasan: namaKawasan,
+                  namaLengkap: row['Nama Lengkap'] || namaKawasan,
+                  wilayah: row['Kab./Kodya'] || row['Kabupaten/Kota'] || '',
+                  prioritasExpansion: prioritasExpansion,
+                  jumlahUMKM: jumlahUMKM
+                });
+              }
+            });
+            if (parsed.length > 0) {
+              liveBlankSpots = parsed;
+              renderMapLayersAndList();
+            }
+          }
+        }
+      })
+      .catch(err => {
+        console.warn("Live fetch notice for Blank Spot UMKM Sheet, using fallback window.MASTER_BLANKSPOTS_UMKM_DATA...", err);
+      });
   }
 
   // Parse Google Sheet CSV dynamically matching column headers (supports Titik Koordinat column seamlessly)
@@ -964,6 +1028,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      // Lookup UMKM data from liveBlankSpots or MASTER_BLANKSPOTS_UMKM_DATA
+      const normKec = cleanKecName(kecName);
+      let matchedUMKM = null;
+      if (liveBlankSpots && liveBlankSpots.length > 0) {
+        matchedUMKM = liveBlankSpots.find(b => {
+          const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
+          return bKec.includes(normKec) || normKec.includes(bKec);
+        });
+      }
+      if (!matchedUMKM && window.MASTER_BLANKSPOTS_UMKM_DATA) {
+        matchedUMKM = window.MASTER_BLANKSPOTS_UMKM_DATA.find(b => {
+          const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
+          return bKec.includes(normKec) || normKec.includes(bKec);
+        });
+      }
+
       blankSpotKecs.push({
         id: 'BLANK-KEC-' + kecName.replace(/\s+/g, '-'),
         kecamatan: kecName,
@@ -974,7 +1054,9 @@ document.addEventListener('DOMContentLoaded', () => {
         unitCount: 0,
         nearestUnit: nearestUnit,
         nearestKm: minDist !== Infinity ? parseFloat(minDist.toFixed(1)) : null,
-        coords: item.coords
+        coords: item.coords,
+        jumlahUMKM: matchedUMKM ? matchedUMKM.jumlahUMKM : null,
+        prioritasExpansion: matchedUMKM ? matchedUMKM.prioritasExpansion : '-'
       });
     });
 
@@ -1069,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="spot-meta" style="margin-top: 3px;">
               <span><i class="fa-solid fa-location-dot"></i> ${spot.fullCity}</span>
-              <span>• Blank Spot Kecamatan</span>
+              ${spot.jumlahUMKM ? `<span style="color: #0284C7; font-weight: 700;"><i class="fa-solid fa-store"></i> ${spot.jumlahUMKM.toLocaleString('id-ID')} UMKM</span>` : ''}
             </div>
             <div class="spot-reason" style="font-size: 11.5px; color: #1E293B; margin: 6px 0 4px 0; background: #FFF1F2; padding: 6px 8px; border-radius: 6px; border: 1px solid #FECDD3;">
               <i class="fa-solid fa-route" style="color: #EA7200;"></i> <strong>Unit terdekat:</strong> ${nearestText}
@@ -1139,7 +1221,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="detail-section">
-        <span class="detail-label">Wilayah Kota / Kabupaten</span>
+        <span class="detail-label">Kab./Kodya</span>
         <span class="detail-value">${spot.city}</span>
       </div>
 
@@ -1188,7 +1270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="detail-section">
-        <span class="detail-label">Wilayah Kota / Kabupaten</span>
+        <span class="detail-label">Kab./Kodya</span>
         <span class="detail-value">${kcpItem.city}</span>
       </div>
 
@@ -1231,7 +1313,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="detail-section">
-        <span class="detail-label">Area Kerja Region V</span>
+        <span class="detail-label">Micro Cluster Reg V</span>
         <span class="detail-value">${area.name} (${area.city})</span>
       </div>
 
@@ -1260,55 +1342,85 @@ document.addEventListener('DOMContentLoaded', () => {
   function showBlankSpotDetailPanel(spot) {
     panelTitle.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color: #FFB700;"></i> Detail Blank Spot`;
     
+    const nearestText = spot.nearestUnit
+      ? `${spot.nearestUnit.kcp} (~${spot.nearestKm} km)`
+      : 'Kantor Cabang Region V';
+    const nearestAddr = spot.nearestUnit && spot.nearestUnit.alamat
+      ? spot.nearestUnit.alamat
+      : 'Region V';
+
+    const umkmFormatted = spot.jumlahUMKM !== null && spot.jumlahUMKM !== undefined
+      ? spot.jumlahUMKM.toLocaleString('id-ID')
+      : 'Belum Terdata';
+
     panelContent.innerHTML = `
       <div class="detail-section">
         <span class="detail-label">Kawasan Blank Spot</span>
         <span class="detail-value highlight" style="font-size: 14px;">${spot.name}</span>
       </div>
 
-      <div class="detail-section">
-        <span class="detail-label">Kecamatan / Kelurahan</span>
-        <span class="detail-value">${spot.kecamatan} (${spot.kelurahan || '-'})</span>
-      </div>
-
-      <div class="detail-section">
-        <span class="detail-label">Area Induk Mandiri</span>
-        <span class="detail-value">${spot.parentArea.name} (${spot.parentArea.city})</span>
-      </div>
-
-      <div class="detail-section">
-        <span class="detail-label">Prioritas Expansion</span>
-        <div><span class="priority-tag ${spot.priority}" style="font-size: 11px; padding: 3px 8px;">${spot.priority} Priority</span></div>
-      </div>
-
-      <div class="detail-section">
-        <span class="detail-label">Jarak ke Cabang Mandiri Terdekat</span>
-        <span class="detail-value">${spot.nearestBranchKm} km (${spot.parentArea.branchName})</span>
-      </div>
-
-      <div class="detail-section">
-        <span class="detail-label">Potensi Segmen Nasabah</span>
-        <span class="detail-value">${spot.potensialNasabah || 'Pemukiman Urban & Pelaku Usaha'}</span>
-      </div>
-
-      <div class="detail-section">
-        <span class="detail-label">Analisis & Alasan Blank Spot</span>
-        <span class="detail-value" style="font-weight: 400; font-size: 11px;">${spot.reason}</span>
-      </div>
-
-      <div class="action-card">
-        <div style="font-size: 11px; font-weight: 700; color: #003D79; margin-bottom: 4px;">
-          <i class="fa-solid fa-lightbulb"></i> Rekomendasi Expansion:
+      <!-- Stat Card Potensi UMKM & Expansion Priority -->
+      <div style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border: 1px dashed #0284C7; border-radius: 8px; padding: 10px 12px; margin: 10px 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 10px; font-weight: 700; color: #0369A1; text-transform: uppercase; letter-spacing: 0.5px;">
+              <i class="fa-solid fa-store" style="color: #0EA5E9;"></i> Potensi Usaha Mikro (UMKM)
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: #0284C7; margin-top: 2px;">
+              ${umkmFormatted} <span style="font-size: 11px; font-weight: 600; color: #0369A1;">Unit</span>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 10px; font-weight: 700; color: #64748B; margin-bottom: 2px;">Prioritas Expansion</div>
+            <span class="priority-tag" style="background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; font-weight: 700; padding: 2px 8px;">${spot.prioritasExpansion || '-'}</span>
+          </div>
         </div>
-        <p style="font-size: 11px; color: #334155; line-height: 1.4;">
-          ${spot.priority === 'High' 
-            ? 'Direkomendasikan pembukaan <strong>Smart Branch / KCP Baru</strong> atau penempatan <strong>Drive-Thru Mandiri ATM Cluster</strong>.' 
-            : 'Direkomendasikan pembukaan <strong>Mandiri Agen / E-Money Top Up Spot</strong>.'}
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Status Outlets</span>
+        <span class="detail-value" style="color: #DC2626; font-weight: 700;">
+          <i class="fa-solid fa-triangle-exclamation"></i> 0 Unit (Blank Spot)
+        </span>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Kab./Kodya</span>
+        <span class="detail-value">${spot.fullCity}</span>
+      </div>
+
+      <div class="action-card" style="background: #FFF1F2; border-color: #FDA4AF; margin-top: 10px;">
+        <span class="detail-label" style="color: #991B1B; font-weight: 700;">
+          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Unit Terdekat dari Kecamatan:
+        </span>
+        <span class="detail-value" style="font-size: 13px; font-weight: 700; color: #0F172A; display: block; margin-top: 4px;">
+          ${nearestText}
+        </span>
+        <p style="font-size: 11px; color: #475569; margin: 4px 0 0 0;">
+          <strong>Alamat Unit:</strong> ${nearestAddr}
         </p>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Koordinat Centroid Kecamatan</span>
+        <span class="detail-value"><code>${spot.centroid[0].toFixed(6)}, ${spot.centroid[1].toFixed(6)}</code></span>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <button class="btn-primary" id="btn-focus-kec" style="width: 100%; background: #003D79; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer;">
+          <i class="fa-solid fa-crosshairs"></i> Fokus Ke Kecamatan ${spot.kecamatan}
+        </button>
       </div>
     `;
 
     detailPanel.classList.remove('hidden');
+
+    const btnFocus = document.getElementById('btn-focus-kec');
+    if (btnFocus) {
+      btnFocus.addEventListener('click', () => {
+        map.flyTo([spot.centroid[0], spot.centroid[1]], 14, { duration: 1.2 });
+      });
+    }
   }
 
   // Render Live Database Explorer Table
@@ -1378,7 +1490,7 @@ document.addEventListener('DOMContentLoaded', () => {
           "No": idx + 1,
           "Nama Kawasan": `Kecamatan ${spot.kecamatan}`,
           "Nama Lengkap": spot.name,
-          "Kota / Kabupaten": spot.fullCity || spot.city,
+          "Kab./Kodya": spot.fullCity || spot.city,
           "Status Coverage": "Blank Spot (0 Unit)",
           "Jumlah Unit": 0,
           "Unit Operasional Terdekat": spot.nearestUnit ? spot.nearestUnit.kcp : "-",
@@ -1386,7 +1498,8 @@ document.addEventListener('DOMContentLoaded', () => {
           "Jarak Ke Unit Terdekat (Km)": spot.nearestKm !== null ? spot.nearestKm : "-",
           "Latitude Centroid": spot.centroid ? spot.centroid[0].toFixed(6) : "-",
           "Longitude Centroid": spot.centroid ? spot.centroid[1].toFixed(6) : "-",
-          "Prioritas Expansion": "High"
+          "Prioritas Expansion": spot.prioritasExpansion || "-",
+          "Jumlah UMKM": spot.jumlahUMKM !== undefined && spot.jumlahUMKM !== null ? spot.jumlahUMKM : "-"
         });
       });
     } else if (regionData && regionData.areas) {
@@ -1398,7 +1511,7 @@ document.addEventListener('DOMContentLoaded', () => {
               "No": no++,
               "Nama Kawasan": spot.name,
               "Nama Lengkap": `Kecamatan ${spot.kecamatan}, ${area.city}`,
-              "Kota / Kabupaten": area.city,
+              "Kab./Kodya": area.city,
               "Status Coverage": "Blank Spot (0 Unit)",
               "Jumlah Unit": 0,
               "Unit Operasional Terdekat": area.branchName || "-",
@@ -1442,7 +1555,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "No": idx + 1,
         "Kode Cabang": b.kodeCabang || "-",
         "Nama KCP / Unit": b.kcp,
-        "Wilayah Kota / Kab": b.city || b.rawCity || "-",
+        "Kab./Kodya": b.city || b.rawCity || "-",
         "Cluster / Area": b.cluster || "-",
         "Kecamatan": b.kecamatan || "-",
         "Kelurahan": b.kelurahan || "-",
@@ -1591,6 +1704,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnSyncSheet) {
       btnSyncSheet.addEventListener('click', () => {
         fetchLiveKcpGoogleSheet();
+        fetchLiveBlankSpotGoogleSheet();
       });
     }
 
@@ -1610,6 +1724,178 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dbSearchInput) {
       dbSearchInput.addEventListener('input', () => {
         renderDatabaseTable();
+      });
+    }
+
+    // Dedicated Isolated Market Layer Engine (Does NOT mutate KCP unit state)
+    function renderMarketMarkers() {
+      pasarMarkersGroup.clearLayers();
+      if (!window.MASTER_MARKETS_DATA || !Array.isArray(window.MASTER_MARKETS_DATA)) return;
+
+      window.MASTER_MARKETS_DATA.forEach(m => {
+        if (!m.lat || !m.lng) return;
+
+        const circleMarker = L.circleMarker([m.lat, m.lng], {
+          radius: 5,
+          color: '#B45309',
+          weight: 1.5,
+          fillColor: '#F59E0B',
+          fillOpacity: 0.85,
+          zIndexOffset: 100 // Kept lower than KCP markers (zIndexOffset 1000)
+        });
+
+        const popupHtml = `
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 220px;">
+            <div style="font-size: 10px; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">
+              🏪 ${m.type || 'Pasar Tradisional'}
+            </div>
+            <div style="font-size: 13px; font-weight: 800; color: #1E293B; margin-bottom: 4px; line-height: 1.3;">
+              ${m.nama}
+            </div>
+            <div style="font-size: 11px; color: #64748B; line-height: 1.4;">
+              <i class="fa-solid fa-location-dot" style="color: #F59E0B; margin-right: 4px;"></i>${m.alamat || 'Region V'}
+            </div>
+            <div style="margin-top: 6px; padding-top: 4px; border-top: 1px dashed #E2E8F0; font-size: 10px; color: #0284C7; font-weight: 600;">
+              📍 GPS: ${m.lat.toFixed(5)}, ${m.lng.toFixed(5)}
+            </div>
+          </div>
+        `;
+
+        circleMarker.bindTooltip(`<b>${m.nama}</b><br><small style="color:#B45309">${m.type || 'Pasar'}</small>`, {
+          direction: 'top',
+          offset: [0, -4]
+        });
+
+        circleMarker.bindPopup(popupHtml);
+        pasarMarkersGroup.addLayer(circleMarker);
+      });
+    }
+
+    const chkShowMarkets = document.getElementById('chk-show-markets');
+    if (chkShowMarkets) {
+      chkShowMarkets.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          renderMarketMarkers();
+          if (map && !map.hasLayer(pasarMarkersGroup)) {
+            pasarMarkersGroup.addTo(map);
+          }
+        } else {
+          pasarMarkersGroup.clearLayers();
+          if (map && map.hasLayer(pasarMarkersGroup)) {
+            map.removeLayer(pasarMarkersGroup);
+          }
+        }
+      });
+    }
+
+    // Google Maps-Style Left Sidebar Collapse & Expand Engine
+    const sidebarLeft = document.getElementById('sidebar-left');
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+    const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
+    const btnCloseSidebarTop = document.getElementById('btn-close-sidebar-top');
+
+    function toggleSidebarCollapse() {
+      const sb = sidebarLeft || document.getElementById('sidebar-left');
+      if (!sb) return;
+
+      const isCollapsed = sb.classList.toggle('collapsed');
+      const icon = sidebarToggleIcon || document.getElementById('sidebar-toggle-icon');
+      const btn = sidebarToggleBtn || document.getElementById('sidebar-toggle-btn');
+
+      if (icon) {
+        if (isCollapsed) {
+          icon.className = 'fa-solid fa-chevron-right';
+          if (btn) btn.title = 'Tampilkan Panel Filter';
+        } else {
+          icon.className = 'fa-solid fa-chevron-left';
+          if (btn) btn.title = 'Tutup Panel Filter';
+        }
+      }
+
+      // Smoothly invalidate Leaflet map dimensions after 300ms transition
+      setTimeout(() => {
+        if (map) map.invalidateSize();
+      }, 310);
+    }
+
+    if (sidebarToggleBtn) {
+      sidebarToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleSidebarCollapse();
+      });
+    }
+
+    if (btnCloseSidebarTop) {
+      btnCloseSidebarTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleSidebarCollapse();
+      });
+    }
+
+    // Dedicated Isolated Mandiri Agents Layer Engine (Does NOT mutate KCP unit or Blank Spot logic)
+    function renderAgentMarkers() {
+      agentMarkersGroup.clearLayers();
+      if (!window.MASTER_AGENTS_DATA || !Array.isArray(window.MASTER_AGENTS_DATA)) return;
+
+      window.MASTER_AGENTS_DATA.forEach(a => {
+        if (!a.lat || !a.lng) return;
+
+        const circleMarker = L.circleMarker([a.lat, a.lng], {
+          radius: 4,
+          color: '#0284C7',
+          weight: 1.2,
+          fillColor: '#38BDF8',
+          fillOpacity: 0.8,
+          zIndexOffset: 150 // Lower priority than KCP Branch Markers (1000)
+        });
+
+        const popupHtml = `
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 4px; max-width: 240px;">
+            <div style="font-size: 10px; font-weight: 700; color: #0284C7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;">
+              👤 Agen Mandiri ${a.kodeAgen ? `(#${a.kodeAgen})` : ''}
+            </div>
+            <div style="font-size: 13px; font-weight: 800; color: #1E293B; margin-bottom: 2px; line-height: 1.3;">
+              ${a.nama}
+            </div>
+            ${a.pemilik ? `<div style="font-size: 11px; font-weight: 600; color: #475569; margin-bottom: 4px;">Pemilik: ${a.pemilik} ${a.telepon ? `(${a.telepon})` : ''}</div>` : ''}
+            <div style="font-size: 11px; color: #64748B; line-height: 1.4;">
+              <i class="fa-solid fa-location-dot" style="color: #0EA5E9; margin-right: 4px;"></i>${a.alamat || '-'}<br>
+              <strong>Kel/Kec:</strong> ${a.kelurahan || '-'}, ${a.kecamatan || '-'}<br>
+              <strong>Kota/Kab:</strong> ${a.kota || '-'} ${a.kodePos ? `(${a.kodePos})` : ''}<br>
+              ${a.areaCluster ? `<strong>Cluster:</strong> ${a.areaCluster}` : ''}
+            </div>
+            <div style="margin-top: 6px; padding-top: 4px; border-top: 1px dashed #E2E8F0; font-size: 10px; color: #0284C7; font-weight: 600;">
+              📍 GPS: ${a.lat.toFixed(5)}, ${a.lng.toFixed(5)}
+            </div>
+          </div>
+        `;
+
+        circleMarker.bindTooltip(`<b>${a.nama}</b><br><small style="color:#0284C7">Agen Mandiri - ${a.kecamatan || a.kota}</small>`, {
+          direction: 'top',
+          offset: [0, -4]
+        });
+
+        circleMarker.bindPopup(popupHtml);
+        agentMarkersGroup.addLayer(circleMarker);
+      });
+    }
+
+    const chkShowAgents = document.getElementById('chk-show-agents');
+    if (chkShowAgents) {
+      chkShowAgents.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          renderAgentMarkers();
+          if (map && !map.hasLayer(agentMarkersGroup)) {
+            agentMarkersGroup.addTo(map);
+          }
+        } else {
+          agentMarkersGroup.clearLayers();
+          if (map && map.hasLayer(agentMarkersGroup)) {
+            map.removeLayer(agentMarkersGroup);
+          }
+        }
       });
     }
   }
