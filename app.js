@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mode Buttons
   const btnModeAll = document.getElementById('btn-mode-all');
   const btnModeBlank = document.getElementById('btn-mode-blank');
-  const btnModeBranch = document.getElementById('btn-mode-branch');
+  const btnModeMicro = document.getElementById('btn-mode-micro');
+  const btnModeNonMicro = document.getElementById('btn-mode-nonmicro');
 
   // Dual Boundary Layer Switcher Buttons
   const btnBoundaryRadius = document.getElementById('btn-boundary-radius');
@@ -350,8 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
             : '';
 
           const statusBadge = isBlankSpot
-            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit)</span>${umkmBadge}`
-            : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Unit Operasional</span>`;
+            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Cabang)</span>${umkmBadge}`
+            : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Cabang Operasional</span>`;
 
           kecPoly.bindTooltip(`<strong>Kecamatan ${item.name}</strong><br>${statusBadge}`, {
             sticky: true,
@@ -482,7 +483,11 @@ document.addEventListener('DOMContentLoaded', () => {
       updateBadgeAndRender();
     }
 
-    fetch(KCP_SHEET_EXPORT_URL)
+    fetch('/api/live-kcps')
+      .then(res => {
+        if (!res.ok) return fetch(KCP_SHEET_EXPORT_URL);
+        return res;
+      })
       .then(res => {
         if (!res.ok) return fetch(KCP_SHEET_CSV_URL);
         return res;
@@ -501,13 +506,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
     function updateBadgeAndRender() {
+      const microCount = liveKcpBranches.filter(b => b.hasMicro !== false).length;
+      const nonMicroCount = liveKcpBranches.filter(b => b.hasMicro === false).length;
+
       if (sheetStatusBadge) {
-        sheetStatusBadge.innerHTML = `<i class="fa-solid fa-circle" style="color: #34D399; font-size: 8px;"></i> Live Sheet: ${liveKcpBranches.length} Unit Active`;
+        sheetStatusBadge.innerHTML = `<i class="fa-solid fa-circle" style="color: #34D399; font-size: 8px;"></i> Live Sheet: ${liveKcpBranches.length} Cabang (${microCount} Micro, ${nonMicroCount} Non-Micro)`;
         sheetStatusBadge.style.color = '#34D399';
       }
 
       const kcpCounterBadge = document.getElementById('stat-total-branches-chip');
-      if (kcpCounterBadge) kcpCounterBadge.textContent = `${liveKcpBranches.length} Unit Operasional`;
+      if (kcpCounterBadge) kcpCounterBadge.textContent = `${liveKcpBranches.length} Cabang (${microCount} Micro 🔵 | ${nonMicroCount} Non-Micro 🔴)`;
 
       renderMapLayersAndList();
       renderDatabaseTable();
@@ -621,6 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const provIdx = headers.findIndex(h => h.includes('provinsi'));
     const clusterIdx = headers.findIndex(h => h.includes('area') || h.includes('cluster'));
     const codeIdx = headers.findIndex(h => h.includes('kode cabang') || (h.includes('cabang') && !h.includes('nama')) || h === 'kode');
+    const microIdx = headers.findIndex(h => h.includes('unit micro') || h.includes('micro banking') || h.includes('micro'));
     const latIdx = headers.findIndex(h => h === 'lat' || h.includes('latitude'));
     const lngIdx = headers.findIndex(h => h === 'lng' || h === 'long' || h.includes('longitude'));
 
@@ -641,6 +650,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const province = provIdx !== -1 ? vals[provIdx] : (vals[7 + defaultOffset] || '');
       const cluster = clusterIdx !== -1 ? vals[clusterIdx] : (vals[8 + defaultOffset] || '');
       const branchCode = codeIdx !== -1 ? vals[codeIdx] : (vals[9 + defaultOffset] || '');
+      const rawMicro = microIdx !== -1 && vals[microIdx] ? vals[microIdx].trim() : 'Ada';
+      const hasMicro = !(rawMicro.toLowerCase().includes('tidak') || rawMicro.toLowerCase().includes('non'));
 
       let stdCity = 'Bogor';
       if (rawCity.toLowerCase().includes('jakarta') || cluster.toLowerCase().includes('jakarta')) {
@@ -656,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 1. Check combined "Titik Koordinat" column from Google Sheet CSV first (e.g. "-6.7477605,106.801142")
       if (coordStr && coordStr.includes(',')) {
-        const parts = coordStr.split(',').map(s => parseFloat(s.trim()));
+        const parts = coordStr.replace(/[\r\n]/g, '').split(',').map(s => parseFloat(s.trim()));
         if (!isNaN(parts[0]) && !isNaN(parts[1]) && parts[0] !== 0) {
           baseLat = parts[0];
           baseLng = parts[1];
@@ -698,8 +709,6 @@ document.addEventListener('DOMContentLoaded', () => {
         baseLng = cent ? cent[1] : (cityCenters[stdCity] ? cityCenters[stdCity][1] : 106.7996);
       }
 
-      // Hard override removed - respect exact Google Sheet coordinates
-
       branches.push({
         id: 'KCP-' + (branchCode || i),
         no: vals[0],
@@ -714,7 +723,9 @@ document.addEventListener('DOMContentLoaded', () => {
         provinsi: province,
         cluster: cluster,
         lat: baseLat,
-        lng: baseLng
+        lng: baseLng,
+        unitMicro: rawMicro,
+        hasMicro: hasMicro
       });
     }
 
@@ -759,28 +770,43 @@ document.addEventListener('DOMContentLoaded', () => {
           if (currentCityFilter !== 'ALL' && kcpItem.city !== currentCityFilter) return;
           if (currentAreaFilter !== 'ALL' && kcpItem.cluster !== currentAreaFilter && kcpItem.area !== currentAreaFilter) return;
 
-          // When "Tampilkan Semua Unit" (showRadius) is false and search query is present, filter unit markers.
-          // When "Tampilkan Semua Unit" (showRadius) is true, show ALL unit markers on map regardless of search query!
-          if (!showRadius && searchQuery.trim() !== '') {
-            const q = searchQuery.toLowerCase();
-            const matchAddr = kcpItem.alamat ? kcpItem.alamat.toLowerCase().includes(q) : false;
-            const matchKcp = kcpItem.kcp ? kcpItem.kcp.toLowerCase().includes(q) : false;
-            const matchCluster = kcpItem.cluster ? kcpItem.cluster.toLowerCase().includes(q) : false;
-            const matchKec = kcpItem.kecamatan ? kcpItem.kecamatan.toLowerCase().includes(q) : false;
-            const matchKel = kcpItem.kelurahan ? kcpItem.kelurahan.toLowerCase().includes(q) : false;
-            const matchCode = kcpItem.kodeCabang ? kcpItem.kodeCabang.toLowerCase().includes(q) : false;
-            if (!matchAddr && !matchKcp && !matchCluster && !matchKec && !matchKel && !matchCode) return;
+          const isMicro = kcpItem.hasMicro !== false;
+
+          if (currentMode === 'branch-micro' && !isMicro) return;
+          if (currentMode === 'branch-nonmicro' && isMicro) return;
+          if (currentMode === 'blank') return;
+
+          // Universal Multi-Field Search Filter (matches search query against name, address, kecamatan, kelurahan, cluster, city, code)
+          if (searchQuery.trim() !== '') {
+            const terms = searchQuery.toLowerCase().trim().split(/\s+/);
+            const searchableText = [
+              kcpItem.kcp,
+              kcpItem.alamat,
+              kcpItem.kecamatan,
+              kcpItem.kelurahan,
+              kcpItem.city,
+              kcpItem.rawCity,
+              kcpItem.cluster,
+              kcpItem.area,
+              kcpItem.kodeCabang
+            ].filter(Boolean).join(' ').toLowerCase();
+
+            const isMatch = terms.every(term => searchableText.includes(term));
+            if (!isMatch) return;
           }
 
           filteredKcps.push(kcpItem);
+
+          const markerBg = isMicro ? '#003D79' : '#DC2626'; // Signature Mandiri Blue for Micro, Red for Non-Micro
+          const markerBorder = isMicro ? '#FFB700' : '#FCA5A5';
 
           const branchIcon = L.divIcon({
             className: 'custom-branch-marker',
             html: `
               <div style="
                 width: 34px; height: 34px;
-                background: #003D79;
-                border: 2px solid #FFB700;
+                background: ${markerBg};
+                border: 2px solid ${markerBorder};
                 border-radius: 50%;
                 color: white;
                 display: flex; align-items: center; justify-content: center;
@@ -796,18 +822,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const marker = L.marker([kcpItem.lat, kcpItem.lng], { icon: branchIcon });
 
+          const microBadgeHtml = isMicro
+            ? `<p style="color: #059669; font-weight: 700; margin-top: 4px;"><i class="fa-solid fa-circle-check"></i> Unit Micro Banking: <strong>Ada</strong></p>`
+            : `<p style="color: #DC2626; font-weight: 700; margin-top: 4px;"><i class="fa-solid fa-circle-xmark"></i> Unit Micro Banking: <strong>Tidak Ada (Cabang Reguler)</strong></p>`;
+
           marker.bindPopup(`
             <div class="popup-card">
-              <div class="popup-header"><i class="fa-solid fa-building-columns"></i> ${kcpItem.kcp}</div>
+              <div class="popup-header" style="background: ${markerBg}; color: white; padding: 6px 10px; border-radius: 6px 6px 0 0;"><i class="fa-solid fa-building-columns"></i> ${kcpItem.kcp}</div>
               <div class="popup-body">
                 <p style="margin-bottom: 4px;"><strong>Alamat Kantor:</strong> ${kcpItem.alamat}</p>
                 <p style="margin-bottom: 4px;"><strong>Cluster / Area:</strong> ${kcpItem.cluster || '-'}</p>
                 <p style="margin-bottom: 4px;"><strong>Kecamatan / Kelurahan:</strong> ${kcpItem.kecamatan || ''} (${kcpItem.kelurahan || ''})</p>
                 <p style="margin-bottom: 4px;"><strong>Kab / Kota:</strong> ${kcpItem.city}</p>
                 <p style="margin-bottom: 4px;"><strong>Koordinat GPS:</strong> <code>${kcpItem.lat.toFixed(6)}, ${kcpItem.lng.toFixed(6)}</code></p>
-                <p style="color: #10B981; font-weight: 700; margin-top: 4px;">
-                  <i class="fa-solid fa-circle-check"></i> Live Master Google Sheet
-                </p>
+                ${microBadgeHtml}
               </div>
             </div>
           `, { className: 'custom-leaflet-popup' });
@@ -820,16 +848,16 @@ document.addEventListener('DOMContentLoaded', () => {
           visibleBounds.extend([kcpItem.lat, kcpItem.lng]);
           hasPoints = true;
 
-          if (currentBoundaryMode === 'radius' && showRadius) {
+          if (currentBoundaryMode === 'radius' && showRadius && isMicro) {
             const circle = L.circle([kcpItem.lat, kcpItem.lng], {
               radius: 2500, // 2.5 Km Radius
               color: '#F59E0B', // Warm Golden Yellow
               weight: 1.5,
               dashArray: '6, 5',
-              fill: false, // Disables fill completely to prevent color stacking/overlap!
+              fill: false,
               fillOpacity: 0.0,
               opacity: 0.85,
-              interactive: false // Non-interactive so mouse hover passes straight through to kecamatan polygon underneath!
+              interactive: false
             });
             radiusCirclesGroup.addLayer(circle);
           }
@@ -892,7 +920,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="popup-body">
                   <p style="margin-bottom: 4px;"><strong>Kecamatan:</strong> ${spot.kecamatan}</p>
                   <p style="margin-bottom: 4px;"><strong>Area Induk:</strong> ${area.name}</p>
-                  <p style="margin-bottom: 4px;"><strong>Unit Terdekat:</strong> ${area.branchName} (~${spot.nearestBranchKm} km)</p>
+                  <p style="margin-bottom: 4px;"><strong>Cabang Terdekat:</strong> ${area.branchName} (~${spot.nearestBranchKm} km)</p>
                   <p style="margin-bottom: 4px;"><strong>Prioritas:</strong> <span class="priority-tag ${spot.priority}">${spot.priority}</span></p>
                   <p style="font-size: 11px; color: #475569; margin-top: 6px;">${spot.reason}</p>
                 </div>
@@ -924,18 +952,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Auto-center / fly to searched item if user entered a search query
     if (searchQuery.trim() !== '') {
-      const q = searchQuery.toLowerCase();
-      const blankSpotKecs = (currentMode === 'all' || currentMode === 'blank') ? getBlankSpotKecamatans() : [];
-      const matchKec = blankSpotKecs.find(s => s.kecamatan.toLowerCase().includes(q) || s.name.toLowerCase().includes(q));
-      
-      if (matchKec && matchKec.centroid) {
-        map.flyTo([matchKec.centroid[0], matchKec.centroid[1]], 13, { duration: 1.0 });
-      } else if (filteredKcps.length > 0) {
-        const firstKcp = filteredKcps[0];
-        map.flyTo([firstKcp.lat, firstKcp.lng], 14, { duration: 1.0 });
-      } else if (allFilteredBlankSpots.length > 0) {
-        const firstSpot = allFilteredBlankSpots[0];
-        map.flyTo([firstSpot.lat, firstSpot.lng], 14, { duration: 1.0 });
+      const firstBranch = filteredKcps[0];
+      const firstKec = (allFilteredBlankSpots && allFilteredBlankSpots.length > 0) ? allFilteredBlankSpots[0] : null;
+
+      if (firstBranch && typeof firstBranch.lat === 'number' && typeof firstBranch.lng === 'number') {
+        map.flyTo([firstBranch.lat, firstBranch.lng], 14, { duration: 1.0 });
+      } else if (firstKec && firstKec.centroid) {
+        map.flyTo([firstKec.centroid[0], firstKec.centroid[1]], 13, { duration: 1.0 });
       }
     }
   }
@@ -975,7 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!window.KECAMATAN_REAL_GEOJSON) return [];
 
     const activeUnits = (liveKcpBranches && liveKcpBranches.length > 0)
-      ? liveKcpBranches
+      ? liveKcpBranches.filter(u => u.hasMicro !== false)
       : (window.MASTER_KCPS_DATA || []);
 
     const jakselKecs = ['Tebet', 'Setiabudi', 'Pancoran', 'Mampang Prapatan', 'Kebayoran Baru', 'Kebayoran Lama', 'Cilandak', 'Pasar Minggu', 'Jagakarsa', 'Pesanggrahan'];
@@ -1008,10 +1031,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (unitCount > 0) return;
 
       if (searchQuery.trim() !== '') {
-        const q = searchQuery.toLowerCase();
-        const matchKec = kecName.toLowerCase().includes(q);
-        const matchCity = cityGroup.toLowerCase().includes(q) || fullCityName.toLowerCase().includes(q);
-        if (!matchKec && !matchCity) return;
+        const terms = searchQuery.toLowerCase().trim().split(/\s+/);
+        const nearestName = nearestUnit ? nearestUnit.kcp : '';
+        const nearestAddr = nearestUnit ? nearestUnit.alamat : '';
+        const nearestCluster = nearestUnit ? nearestUnit.cluster : '';
+        
+        const searchableText = [
+          kecName,
+          fullCityName,
+          cityGroup,
+          nearestName,
+          nearestAddr,
+          nearestCluster
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const isMatch = terms.every(term => searchableText.includes(term));
+        if (!isMatch) return;
       }
 
       const centroid = getPolygonCentroid(item.coords);
@@ -1067,19 +1102,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderSidebarCards(spotsList = [], kcpList = []) {
     const listTitleElem = document.querySelector('.list-title span:first-child');
     if (listTitleElem) {
-      if (currentMode === 'branch') {
-        listTitleElem.textContent = 'Daftar Unit Operasional';
+      if (currentMode === 'branch-micro') {
+        listTitleElem.textContent = 'Daftar Cabang Micro Banking';
+      } else if (currentMode === 'branch-nonmicro') {
+        listTitleElem.textContent = 'Daftar Cabang Non-Micro (Reguler)';
       } else if (currentMode === 'blank') {
         listTitleElem.textContent = 'Daftar Kawasan Blank Spot';
       } else {
-        listTitleElem.textContent = 'Daftar Unit & Blank Spot';
+        listTitleElem.textContent = 'Daftar Cabang & Blank Spot';
       }
     }
 
     const blankSpotKecs = (currentMode === 'all' || currentMode === 'blank') ? getBlankSpotKecamatans() : [];
 
     let totalCount = 0;
-    if (currentMode === 'branch') {
+    if (currentMode.startsWith('branch')) {
       totalCount = kcpList.length;
     } else if (currentMode === 'blank') {
       totalCount = blankSpotKecs.length;
@@ -1090,33 +1127,56 @@ document.addEventListener('DOMContentLoaded', () => {
     if (blankspotCounter) {
       if (currentMode === 'blank') {
         blankspotCounter.textContent = `${blankSpotKecs.length} Kecamatan`;
-      } else if (currentMode === 'branch') {
-        blankspotCounter.textContent = `${kcpList.length} Unit`;
+      } else if (currentMode.startsWith('branch')) {
+        blankspotCounter.textContent = `${kcpList.length} Cabang`;
       } else {
         blankspotCounter.textContent = `${totalCount} Titik`;
       }
     }
 
     if (totalCount === 0) {
+      const isSearching = searchQuery.trim() !== '';
       cardsWrapper.innerHTML = `
-        <div style="padding: 30px 20px; text-align: center; color: #64748B;">
-          <i class="fa-solid fa-folder-open" style="font-size: 28px; margin-bottom: 8px; color: #CBD5E1;"></i>
-          <p style="font-size: 12px; font-weight: 600;">Tidak ada Unit atau Blank Spot ditemukan</p>
+        <div style="padding: 24px 16px; text-align: center; color: #64748B;">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 8px; color: #94A3B8;"></i>
+          <p style="font-size: 13px; font-weight: 700; color: #1E293B;">Tidak ada hasil ditemukan</p>
+          <p style="font-size: 11px; margin-top: 4px; color: #64748B; line-height: 1.4;">
+            ${isSearching ? `Tidak ada cabang / wilayah yang cocok dengan "<strong>${searchQuery}</strong>" pada filter aktif.` : 'Tidak ada data untuk filter ini.'}
+          </p>
+          ${isSearching && currentMode !== 'all' ? `<button id="btn-reset-mode-search" style="margin-top: 10px; background: #003D79; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;"><i class="fa-solid fa-arrows-rotate"></i> Cari di Semua Filter</button>` : ''}
         </div>
       `;
+      const btnResetSearch = document.getElementById('btn-reset-mode-search');
+      if (btnResetSearch) {
+        btnResetSearch.addEventListener('click', () => {
+          const btnAll = document.getElementById('btn-mode-all');
+          if (btnAll) btnAll.click();
+        });
+      }
       return;
     }
 
     let html = '';
 
-    // Render KCP Branches First if matching mode 'all' or 'branch'
-    if (kcpList.length > 0 && (currentMode === 'all' || currentMode === 'branch')) {
+    // Render KCP Branches First if matching mode 'all' or 'branch*'
+    if (kcpList.length > 0 && (currentMode === 'all' || currentMode.startsWith('branch'))) {
       kcpList.forEach(kcp => {
+        const isMicro = kcp.hasMicro !== false;
+        const itemBorderColor = isMicro ? '#003D79' : '#DC2626';
+        const itemTitleColor = isMicro ? '#003D79' : '#DC2626';
+        const tagBg = isMicro ? '#DBEAFE' : '#FEE2E2';
+        const tagColor = isMicro ? '#1E40AF' : '#991B1B';
+        const tagBorder = isMicro ? '#BFDBFE' : '#FCA5A5';
+        const tagLabel = isMicro ? 'Micro' : 'Non-Micro';
+        const statusText = isMicro ? 'Unit Micro Active' : 'Cabang Non-Micro';
+        const statusIcon = isMicro ? 'fa-circle-check' : 'fa-circle-xmark';
+        const statusColor = isMicro ? '#059669' : '#DC2626';
+
         html += `
-          <div class="blankspot-item kcp-sidebar-item" data-kcp-id="${kcp.id || kcp.kcp}" style="border-left: 4px solid #003D79; cursor: pointer;">
+          <div class="blankspot-item kcp-sidebar-item" data-kcp-id="${kcp.id || kcp.kcp}" style="border-left: 4px solid ${itemBorderColor}; cursor: pointer;">
             <div class="item-header-top">
-              <span class="spot-name" style="color: #003D79; font-weight: 700;"><i class="fa-solid fa-building-columns"></i> ${kcp.kcp}</span>
-              <span class="priority-tag" style="background: #DBEAFE; color: #1E40AF; border-color: #BFDBFE;">KCP</span>
+              <span class="spot-name" style="color: ${itemTitleColor}; font-weight: 700;"><i class="fa-solid fa-building-columns"></i> ${kcp.kcp}</span>
+              <span class="priority-tag" style="background: ${tagBg}; color: ${tagColor}; border-color: ${tagBorder};">${tagLabel}</span>
             </div>
             <div class="spot-meta">
               <span><i class="fa-solid fa-location-dot"></i> ${kcp.city}</span>
@@ -1124,8 +1184,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <p class="spot-reason" style="font-size: 11px; color: #475569; margin: 4px 0;">${kcp.alamat}</p>
             <div class="item-action-link">
-              <span style="font-size: 10px; color: #059669; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Unit Operasional</span>
-              <span style="margin-left: auto; font-weight: 700; color: #003D79;">Lihat di Map <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i></span>
+              <span style="font-size: 10px; color: ${statusColor}; font-weight: 600;"><i class="fa-solid ${statusIcon}"></i> ${statusText}</span>
+              <span style="margin-left: auto; font-weight: 700; color: ${itemTitleColor};">Lihat di Map <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i></span>
             </div>
           </div>
         `;
@@ -1139,7 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedClass = isSelected ? 'selected' : '';
         const nearestText = spot.nearestUnit
           ? `${spot.nearestUnit.kcp} (${spot.nearestKm} km)`
-          : 'Unit Region V';
+          : 'Cabang Region V';
 
         html += `
           <div class="blankspot-item kec-blankspot-sidebar-item ${selectedClass}" data-kec-name="${spot.kecamatan}" style="border-left: 4px solid #EF4444; cursor: pointer;">
@@ -1147,17 +1207,17 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="spot-name" style="color: #DC2626; font-weight: 700;">
                 <i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Kecamatan ${spot.kecamatan}, ${spot.fullCity}
               </span>
-              <span class="priority-tag" style="background: #FEE2E2; color: #991B1B; border-color: #FCA5A5; font-weight: 700;">0 unit</span>
+              <span class="priority-tag" style="background: #FEE2E2; color: #991B1B; border-color: #FCA5A5; font-weight: 700;">0 Cabang</span>
             </div>
             <div class="spot-meta" style="margin-top: 3px;">
               <span><i class="fa-solid fa-location-dot"></i> ${spot.fullCity}</span>
               ${spot.jumlahUMKM ? `<span style="color: #0284C7; font-weight: 700;"><i class="fa-solid fa-store"></i> ${spot.jumlahUMKM.toLocaleString('id-ID')} UMKM</span>` : ''}
             </div>
             <div class="spot-reason" style="font-size: 11.5px; color: #1E293B; margin: 6px 0 4px 0; background: #FFF1F2; padding: 6px 8px; border-radius: 6px; border: 1px solid #FECDD3;">
-              <i class="fa-solid fa-route" style="color: #EA7200;"></i> <strong>Unit terdekat:</strong> ${nearestText}
+              <i class="fa-solid fa-route" style="color: #EA7200;"></i> <strong>Cabang terdekat:</strong> ${nearestText}
             </div>
             <div class="item-action-link" style="margin-top: 4px; display: flex; align-items: center;">
-              <span style="font-size: 10.5px; color: #EF4444; font-weight: 600;"><i class="fa-solid fa-circle-exclamation"></i> 0 Unit (Kawasan Blank Spot)</span>
+              <span style="font-size: 10.5px; color: #EF4444; font-weight: 600;"><i class="fa-solid fa-circle-exclamation"></i> 0 Cabang (Kawasan Blank Spot)</span>
               <span style="margin-left: auto; font-size: 11px; font-weight: 700; color: #DC2626;">Lihat di Map <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i></span>
             </div>
           </div>
@@ -1211,7 +1271,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="detail-section">
         <span class="detail-label">Status Kawasan</span>
         <span class="detail-value" style="color: #EF4444; font-weight: 700;">
-          <i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Unit Operasional)
+          <i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Cabang Operasional)
         </span>
       </div>
 
@@ -1227,13 +1287,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <div class="detail-section" style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 8px; padding: 10px; margin: 10px 0;">
         <span class="detail-label" style="color: #991B1B; font-weight: 700;">
-          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Unit Terdekat dari Kecamatan:
+          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Cabang Terdekat dari Kecamatan:
         </span>
         <span class="detail-value" style="font-size: 13px; font-weight: 700; color: #0F172A; display: block; margin-top: 4px;">
           ${nearestText}
         </span>
         <p style="font-size: 11px; color: #475569; margin: 4px 0 0 0;">
-          <strong>Alamat Unit:</strong> ${nearestAddr}
+          <strong>Alamat Cabang:</strong> ${nearestAddr}
         </p>
       </div>
 
@@ -1261,12 +1321,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Show Floating Detail Panel for KCP Unit
   function showKcpDetailPanel(kcpItem) {
-    panelTitle.innerHTML = `<i class="fa-solid fa-building-columns" style="color: #FFB700;"></i> Detail Unit KCP`;
+    const isMicro = kcpItem.hasMicro !== false;
+    const headerColor = isMicro ? '#FFB700' : '#EF4444';
+    const statusText = isMicro
+      ? '<i class="fa-solid fa-circle-check" style="color: #059669;"></i> Ada Unit Micro Banking'
+      : '<i class="fa-solid fa-circle-xmark" style="color: #DC2626;"></i> Tidak Ada Unit Micro (Cabang Reguler)';
+    const statusColor = isMicro ? '#059669' : '#DC2626';
+
+    panelTitle.innerHTML = `<i class="fa-solid fa-building-columns" style="color: ${headerColor};"></i> Detail Cabang KCP`;
     
     panelContent.innerHTML = `
       <div class="detail-section">
-        <span class="detail-label">Nama Unit KCP</span>
+        <span class="detail-label">Nama Cabang KCP</span>
         <span class="detail-value highlight" style="font-size: 14px;">${kcpItem.kcp}</span>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Unit Micro Banking</span>
+        <span class="detail-value" style="color: ${statusColor}; font-weight: 700;">${statusText}</span>
       </div>
 
       <div class="detail-section">
@@ -1275,7 +1347,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="detail-section">
-        <span class="detail-label">Alamat Lengkap Unit KCP</span>
+        <span class="detail-label">Alamat Lengkap Cabang KCP</span>
         <span class="detail-value" style="font-weight: 400; font-size: 11px;">${kcpItem.alamat}</span>
       </div>
 
@@ -1284,11 +1356,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="detail-value"><code>${kcpItem.lat.toFixed(6)}, ${kcpItem.lng.toFixed(6)}</code></span>
       </div>
 
-      <div class="action-card" style="background: #E0F2FE; border-color: #0284C7;">
-        <div style="font-size: 11px; font-weight: 700; color: #0369A1; margin-bottom: 4px;">
+      <div class="action-card" style="background: ${isMicro ? '#E0F2FE' : '#FFF1F2'}; border-color: ${isMicro ? '#0284C7' : '#FDA4AF'};">
+        <div style="font-size: 11px; font-weight: 700; color: ${isMicro ? '#0369A1' : '#991B1B'}; margin-bottom: 4px;">
           <i class="fa-solid fa-circle-check"></i> Status Integrasi Data:
         </div>
-        <p style="font-size: 11px; color: #0C4A6E;">
+        <p style="font-size: 11px; color: ${isMicro ? '#0C4A6E' : '#991B1B'};">
           Kantor cabang ini terhubung secara <strong>Real-Time</strong> dari Master KCP Google Sheet.
         </p>
       </div>
@@ -1380,7 +1452,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="detail-section">
         <span class="detail-label">Status Outlets</span>
         <span class="detail-value" style="color: #DC2626; font-weight: 700;">
-          <i class="fa-solid fa-triangle-exclamation"></i> 0 Unit (Blank Spot)
+          <i class="fa-solid fa-triangle-exclamation"></i> 0 Cabang (Blank Spot)
         </span>
       </div>
 
@@ -1391,13 +1463,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <div class="action-card" style="background: #FFF1F2; border-color: #FDA4AF; margin-top: 10px;">
         <span class="detail-label" style="color: #991B1B; font-weight: 700;">
-          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Unit Terdekat dari Kecamatan:
+          <i class="fa-solid fa-route" style="color: #EA7200;"></i> Cabang Terdekat dari Kecamatan:
         </span>
         <span class="detail-value" style="font-size: 13px; font-weight: 700; color: #0F172A; display: block; margin-top: 4px;">
           ${nearestText}
         </span>
         <p style="font-size: 11px; color: #475569; margin: 4px 0 0 0;">
-          <strong>Alamat Unit:</strong> ${nearestAddr}
+          <strong>Alamat Cabang:</strong> ${nearestAddr}
         </p>
       </div>
 
@@ -1438,11 +1510,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (filter && !match) return;
 
+        const isMicro = kcpItem.hasMicro !== false;
+        const microBadge = isMicro
+          ? `<span style="background: #D1FAE5; color: #065F46; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">MICRO</span>`
+          : `<span style="background: #FEE2E2; color: #991B1B; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">NON-MICRO</span>`;
+
         rowsHtml += `
           <tr>
             <td><strong style="color: #003D79;">KCP-${idx+1}</strong></td>
             <td><strong>${kcpItem.kcp}</strong></td>
-            <td><span style="background: #D1FAE5; color: #065F46; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">LIVE KCP</span></td>
+            <td>${microBadge}</td>
             <td>${kcpItem.city}</td>
             <td>${kcpItem.alamat}</td>
             <td><code>${kcpItem.lat.toFixed(6)}, ${kcpItem.lng.toFixed(6)}</code></td>
@@ -1491,11 +1568,11 @@ document.addEventListener('DOMContentLoaded', () => {
           "Nama Kawasan": `Kecamatan ${spot.kecamatan}`,
           "Nama Lengkap": spot.name,
           "Kab./Kodya": spot.fullCity || spot.city,
-          "Status Coverage": "Blank Spot (0 Unit)",
-          "Jumlah Unit": 0,
-          "Unit Operasional Terdekat": spot.nearestUnit ? spot.nearestUnit.kcp : "-",
-          "Alamat Unit Terdekat": spot.nearestUnit && spot.nearestUnit.alamat ? spot.nearestUnit.alamat : "-",
-          "Jarak Ke Unit Terdekat (Km)": spot.nearestKm !== null ? spot.nearestKm : "-",
+          "Status Coverage": "Blank Spot (0 Cabang)",
+          "Jumlah Cabang": 0,
+          "Cabang Operasional Terdekat": spot.nearestUnit ? spot.nearestUnit.kcp : "-",
+          "Alamat Cabang Terdekat": spot.nearestUnit && spot.nearestUnit.alamat ? spot.nearestUnit.alamat : "-",
+          "Jarak Ke Cabang Terdekat (Km)": spot.nearestKm !== null ? spot.nearestKm : "-",
           "Latitude Centroid": spot.centroid ? spot.centroid[0].toFixed(6) : "-",
           "Longitude Centroid": spot.centroid ? spot.centroid[1].toFixed(6) : "-",
           "Prioritas Expansion": spot.prioritasExpansion || "-",
@@ -1512,11 +1589,11 @@ document.addEventListener('DOMContentLoaded', () => {
               "Nama Kawasan": spot.name,
               "Nama Lengkap": `Kecamatan ${spot.kecamatan}, ${area.city}`,
               "Kab./Kodya": area.city,
-              "Status Coverage": "Blank Spot (0 Unit)",
-              "Jumlah Unit": 0,
-              "Unit Operasional Terdekat": area.branchName || "-",
-              "Alamat Unit Terdekat": "-",
-              "Jarak Ke Unit Terdekat (Km)": spot.nearestBranchKm || "-",
+              "Status Coverage": "Blank Spot (0 Cabang)",
+              "Jumlah Cabang": 0,
+              "Cabang Operasional Terdekat": area.branchName || "-",
+              "Alamat Cabang Terdekat": "-",
+              "Jarak Ke Cabang Terdekat (Km)": spot.nearestBranchKm || "-",
               "Latitude Centroid": spot.lat ? spot.lat.toFixed(6) : "-",
               "Longitude Centroid": spot.lng ? spot.lng.toFixed(6) : "-",
               "Prioritas Expansion": spot.priority || "High"
@@ -1554,7 +1631,7 @@ document.addEventListener('DOMContentLoaded', () => {
       branchRows.push({
         "No": idx + 1,
         "Kode Cabang": b.kodeCabang || "-",
-        "Nama KCP / Unit": b.kcp,
+        "Nama KCP / Cabang": b.kcp,
         "Kab./Kodya": b.city || b.rawCity || "-",
         "Cluster / Area": b.cluster || "-",
         "Kecamatan": b.kecamatan || "-",
@@ -1570,9 +1647,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const worksheet = XLSX.utils.json_to_sheet(branchRows);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Database Master Unit");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Database Master Cabang");
 
-    const fileName = `Mandiri_RegionV_Database_Master_Unit_${new Date().toISOString().slice(0,10)}.xlsx`;
+    const fileName = `Mandiri_RegionV_Database_Master_Cabang_${new Date().toISOString().slice(0,10)}.xlsx`;
     XLSX.writeFile(workbook, fileName);
   }
 
@@ -1645,12 +1722,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (btnModeAll) btnModeAll.addEventListener('click', () => setMode('all', btnModeAll));
+    if (btnModeMicro) btnModeMicro.addEventListener('click', () => setMode('branch-micro', btnModeMicro));
+    if (btnModeNonMicro) btnModeNonMicro.addEventListener('click', () => setMode('branch-nonmicro', btnModeNonMicro));
     if (btnModeBlank) btnModeBlank.addEventListener('click', () => setMode('blank', btnModeBlank));
-    if (btnModeBranch) btnModeBranch.addEventListener('click', () => setMode('branch', btnModeBranch));
 
     function setMode(mode, activeBtn) {
       currentMode = mode;
-      [btnModeAll, btnModeBlank, btnModeBranch].forEach(b => {
+      [btnModeAll, btnModeMicro, btnModeNonMicro, btnModeBlank].forEach(b => {
         if (b) b.classList.remove('active');
       });
       if (activeBtn) activeBtn.classList.add('active');

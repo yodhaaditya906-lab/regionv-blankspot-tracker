@@ -34,7 +34,7 @@
       </div>
       <div class="brand-divider"></div>
       <div class="header-title-group">
-        <h1>Dashboard Tracking Unit Micro Banking Region V / Jakarta 3</h1>
+        <h1>Dashboard Tracking Cabang Micro Banking Region V / Jakarta 3</h1>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
 
       <!-- Database Explorer Button -->
       <button class="btn-header-outlined" id="btn-open-db">
-        <i class="fa-solid fa-database"></i> Database Profil Unit
+        <i class="fa-solid fa-database"></i> Database Profil Cabang
       </button>
 
       <!-- Excel Export Dropdown Button -->
@@ -60,14 +60,14 @@
             <i class="fa-solid fa-file-excel" style="color: #DC2626;"></i>
             <div>
               <strong>1. Excel Database Blank Spot</strong>
-              <small>Daftar Kecamatan Blank Spot (0 Unit) & Unit Terdekat</small>
+              <small>Daftar Kecamatan Blank Spot (0 Cabang) & Cabang Terdekat</small>
             </div>
           </a>
           <a href="#" id="btn-export-excel-branches">
             <i class="fa-solid fa-file-excel" style="color: #107C41;"></i>
             <div>
-              <strong>2. Excel Database Master Unit</strong>
-              <small>Daftar 93 Unit Operasional & Koordinat Presisi</small>
+              <strong>2. Excel Database Master Cabang</strong>
+              <small>Daftar 93 Cabang Operasional & Koordinat Presisi</small>
             </div>
           </a>
         </div>
@@ -83,7 +83,7 @@
     </div>
     <div class="metric-chip">
       <span class="chip-dot yellow"></span>
-      <span><strong id="stat-total-branches-chip">93 Unit Operasional</strong></span>
+      <span><strong id="stat-total-branches-chip">93 Cabang Operasional</strong></span>
     </div>
     <div class="metric-chip">
       <span class="chip-dot red"></span>
@@ -154,18 +154,19 @@
 
         <!-- View Mode Segmented Control -->
         <div class="form-field">
-          <label>Filter Status Outlet</label>
-          <div class="mode-toggle">
+          <label>Filter Status Cabang & Wilayah</label>
+          <div class="mode-toggle" style="display: flex; gap: 4px;">
             <button class="btn-mode active" data-mode="all" id="btn-mode-all">Semua</button>
-            <button class="btn-mode" data-mode="blank" id="btn-mode-blank">🔴 Blank Spot</button>
-            <button class="btn-mode" data-mode="branch" id="btn-mode-branch">🔵 Unit</button>
+            <button class="btn-mode" data-mode="branch-micro" id="btn-mode-micro">🔵 Micro</button>
+            <button class="btn-mode" data-mode="branch-nonmicro" id="btn-mode-nonmicro">🔴 Non-Micro</button>
+            <button class="btn-mode" data-mode="blank" id="btn-mode-blank">⚠️ Blank Spot</button>
           </div>
         </div>
 
         <!-- Radius / All Units Checkbox -->
         <label class="checkbox-field">
           <input type="checkbox" id="chk-show-radius" checked>
-          <span>Tampilkan Semua Unit</span>
+          <span>Tampilkan Semua Cabang</span>
         </label>
 
         <!-- Dedicated Market Layer Toggle (Default: OFF) -->
@@ -214,8 +215,12 @@
         </div>
         <div class="legend-items">
           <div class="legend-item">
-            <span class="legend-dot branch"></span>
-            <span>Kantor Cabang / KCP Eksisting</span>
+            <span style="display: inline-block; width: 10px; height: 10px; background: #003D79; border: 1.5px solid #FFB700; border-radius: 50%; margin-right: 4px;"></span>
+            <span>Cabang Ada Unit Micro (Pin Biru)</span>
+          </div>
+          <div class="legend-item">
+            <span style="display: inline-block; width: 10px; height: 10px; background: #DC2626; border: 1.5px solid #FCA5A5; border-radius: 50%; margin-right: 4px;"></span>
+            <span>Cabang Tanpa Unit Micro / Reguler (Pin Merah)</span>
           </div>
           <div class="legend-item">
             <span class="legend-dot blank"></span>
@@ -298,7 +303,7 @@
           <i class="fa-solid fa-file-excel"></i> Export Excel Blank Spot (.xlsx)
         </button>
         <button class="btn-excel-quick" id="btn-export-excel-branches-modal">
-          <i class="fa-solid fa-file-excel"></i> Export Excel Master Unit (.xlsx)
+          <i class="fa-solid fa-file-excel"></i> Export Excel Master Cabang (.xlsx)
         </button>
       </div>
 
@@ -349,12 +354,12 @@
   <script src="kota_bogor_real_geojson.js"></script>
   <script src="kab_bogor_real_geojson.js?v=1788660000000"></script>
   <script src="kecamatan_real_geojson.js?v=1788590000000"></script>
-  <script src="master_kcps_data.js?v=1788660000000"></script>
+  <script src="master_kcps_data.js?v=1790000000004"></script>
   <script src="master_markets_data.js?v=1789999999999"></script>
   <script src="master_agents_data.js?v=1789999999999"></script>
   <script src="master_blankspots_umkm_data.js?v=1790000000000"></script>
 
   <!-- App JS -->
-  <script src="app.js?v=1789999999999"></script>
+  <script src="app.js?v=1790000000005"></script>
 </body>
 </html>

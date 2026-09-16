@@ -18,8 +18,40 @@ const mimeTypes = {
   '.ico': 'image/x-icon'
 };
 
+const https = require('https');
+
 const server = http.createServer((req, res) => {
   let pathname = decodeURIComponent(url.parse(req.url).pathname);
+
+  // Proxy endpoint for live Google Sheets CSV to avoid browser CORS/redirect issues
+  if (pathname === '/api/live-kcps') {
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/1RwQOVuf4rzV3Uc7ASQ3Mu58zmq7znPmCdyeJRLfKiR0/export?format=csv';
+    https.get(sheetUrl, (gRes) => {
+      if (gRes.statusCode >= 300 && gRes.statusCode < 400 && gRes.headers.location) {
+        https.get(gRes.headers.location, (redirectRes) => {
+          res.writeHead(200, {
+            'Content-Type': 'text/csv; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*'
+          });
+          redirectRes.pipe(res);
+        }).on('error', (err) => {
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          res.end('Proxy Error: ' + err.message);
+        });
+        return;
+      }
+      res.writeHead(200, {
+        'Content-Type': 'text/csv; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*'
+      });
+      gRes.pipe(res);
+    }).on('error', (err) => {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Proxy Error: ' + err.message);
+    });
+    return;
+  }
+
   if (pathname === '/') pathname = '/index.html';
 
   const safePath = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');

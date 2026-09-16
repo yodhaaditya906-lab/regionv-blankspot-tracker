@@ -1,6 +1,9 @@
+/* ==========================================================================
+   BANK MANDIRI REGION V - MASTER KCP & BRANCH DATABASE (AUDITED 169 BRANCHES)
+   ========================================================================== */
+
 window.MASTER_KCPS_DATA = [
   {
-    "id": "KCP-13379",
     "no": "1",
     "kcp": "Bogor Cigombong 1",
     "kodeCabang": "13379",
@@ -12,12 +15,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16740",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 1",
-    "lat": -6.747761,
+    "lat": -6.7477605,
     "lng": 106.801142,
-    "rawCoord": "-6.7477605,106.801142"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13310",
     "no": "2",
     "kcp": "Bogor Tajur 1",
     "kodeCabang": "13310",
@@ -31,10 +34,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 1",
     "lat": -6.632727,
     "lng": 106.825586,
-    "rawCoord": "-6.632727, 106.825586"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13380",
     "no": "3",
     "kcp": "Bogor Cisarua 1",
     "kodeCabang": "13380",
@@ -48,10 +51,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 1",
     "lat": -6.677578,
     "lng": 106.929379,
-    "rawCoord": "-6.677578, 106.929379"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13313",
     "no": "4",
     "kcp": "Bogor Pajajaran 1",
     "kodeCabang": "13313",
@@ -65,10 +68,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 1",
     "lat": -6.610365,
     "lng": 106.811275,
-    "rawCoord": "-6.610365, 106.811275"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13300",
     "no": "5",
     "kcp": "Bogor Juanda 1",
     "kodeCabang": "13300",
@@ -82,10 +85,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 1",
     "lat": -6.596314,
     "lng": 106.793594,
-    "rawCoord": "-6.596314, 106.793594"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13302",
     "no": "6",
     "kcp": "Bogor Suryakencana 1",
     "kodeCabang": "13302",
@@ -97,12 +100,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16123",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 1",
-    "lat": -6.610631,
-    "lng": 106.804809,
-    "rawCoord": "-6.6106311,106.8048086"
+    "lat": -6.6106311,
+    "lng": 106.8048086,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13324",
     "no": "7",
     "kcp": "Bogor Nirwana Residence 1",
     "kodeCabang": "13324",
@@ -116,10 +119,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 1",
     "lat": -6.614302,
     "lng": 106.803703,
-    "rawCoord": "-6.614302, 106.803703"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13316",
     "no": "8",
     "kcp": "Bogor Ciluar 1",
     "kodeCabang": "13316",
@@ -133,10 +136,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 2",
     "lat": -6.547473,
     "lng": 106.823206,
-    "rawCoord": "-6.547473, 106.823206"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13382",
     "no": "9",
     "kcp": "Bogor Bojong Gede 1",
     "kodeCabang": "13382",
@@ -150,10 +153,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR 2",
     "lat": -6.483992,
     "lng": 106.798994,
-    "rawCoord": "-6.483992, 106.798994"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13392",
     "no": "10",
     "kcp": "Bogor Karadenan 1",
     "kodeCabang": "13392",
@@ -165,12 +168,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16913",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 2",
-    "lat": -6.511413,
-    "lng": 106.806641,
-    "rawCoord": "-6.5114134,106.8066406"
+    "lat": -6.5114134,
+    "lng": 106.8066406,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13315",
     "no": "11",
     "kcp": "Bogor Pasar Anyar 1",
     "kodeCabang": "13315",
@@ -182,12 +185,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16121",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 2",
-    "lat": -6.59084,
-    "lng": 106.793152,
-    "rawCoord": "-6.5908399,106.7931524"
+    "lat": -6.5908399,
+    "lng": 106.7931524,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13301",
     "no": "12",
     "kcp": "Bogor Kapten Muslihat 1",
     "kodeCabang": "13301",
@@ -199,12 +202,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16121",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 2",
-    "lat": -6.596138,
-    "lng": 106.792419,
-    "rawCoord": "-6.5961382,106.7924187"
+    "lat": -6.5961382,
+    "lng": 106.7924187,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13317",
     "no": "13",
     "kcp": "Bogor Sholeh Iskandar 1",
     "kodeCabang": "13317",
@@ -216,12 +219,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16161",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 2",
-    "lat": -6.560633,
-    "lng": 106.788288,
-    "rawCoord": "-6.5606334,106.7882881"
+    "lat": -6.5606334,
+    "lng": 106.7882881,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13308",
     "no": "14",
     "kcp": "Bogor Warung Jambu 1",
     "kodeCabang": "13308",
@@ -233,12 +236,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16128",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR 2",
-    "lat": -6.581387,
-    "lng": 106.806823,
-    "rawCoord": "-6.5813873,106.8068229"
+    "lat": -6.5813873,
+    "lng": 106.8068229,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13384",
     "no": "15",
     "kcp": "Leuwiliang 1",
     "kodeCabang": "13384",
@@ -252,10 +255,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.572996,
     "lng": 106.629636,
-    "rawCoord": "-6.572996, 106.629636"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13383",
     "no": "16",
     "kcp": "Dramaga 1",
     "kodeCabang": "13383",
@@ -269,10 +272,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.55919,
     "lng": 106.712107,
-    "rawCoord": "-6.559190, 106.712107"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13375",
     "no": "17",
     "kcp": "Bogor Gunung Sindur 1",
     "kodeCabang": "13375",
@@ -284,12 +287,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16340",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR YASMIN",
-    "lat": -6.383051,
-    "lng": 106.685947,
-    "rawCoord": "-6.3830509,106.6859466"
+    "lat": -6.3830509,
+    "lng": 106.6859466,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13326",
     "no": "18",
     "kcp": "Bogor ATC Parung 1",
     "kodeCabang": "13326",
@@ -303,10 +306,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.426155,
     "lng": 106.731751,
-    "rawCoord": "-6.426155, 106.731751"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13386",
     "no": "19",
     "kcp": "Bogor Ciomas 1",
     "kodeCabang": "13386",
@@ -320,10 +323,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.601695,
     "lng": 106.773306,
-    "rawCoord": "-6.601695, 106.773306"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13391",
     "no": "20",
     "kcp": "Bogor Kemang 1",
     "kodeCabang": "13391",
@@ -337,10 +340,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.496996,
     "lng": 106.753653,
-    "rawCoord": "-6.496996, 106.753653"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13393",
     "no": "21",
     "kcp": "Bogor Yasmin 1",
     "kodeCabang": "13393",
@@ -352,12 +355,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16113",
     "provinsi": "JAWA BARAT",
     "cluster": "BOGOR YASMIN",
-    "lat": -6.55919,
-    "lng": 106.768077,
-    "rawCoord": "-6.5591905,106.7680771"
+    "lat": -6.5591905,
+    "lng": 106.7680771,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13318",
     "no": "22",
     "kcp": "Bogor Kampus IPB Darmaga 1",
     "kodeCabang": "13318",
@@ -371,10 +374,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "BOGOR YASMIN",
     "lat": -6.56029,
     "lng": 106.727018,
-    "rawCoord": "-6.560290, 106.727018"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13320",
     "no": "23",
     "kcp": "Citeureup 1",
     "kodeCabang": "13320",
@@ -386,12 +389,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16810",
     "provinsi": "JAWA BARAT",
     "cluster": "CIBINONG MAYOR OKING",
-    "lat": -6.486426,
-    "lng": 106.876459,
-    "rawCoord": "-6.4864261,106.8764595"
+    "lat": -6.4864261,
+    "lng": 106.8764595,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13323",
     "no": "24",
     "kcp": "Bogor Grand Nusa Dua 1",
     "kodeCabang": "13323",
@@ -405,10 +408,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.322634,
     "lng": 106.968534,
-    "rawCoord": "-6.322634, 106.968534"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13376",
     "no": "25",
     "kcp": "Bogor Gunung Putri 1",
     "kodeCabang": "13376",
@@ -422,10 +425,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.445754,
     "lng": 106.914938,
-    "rawCoord": "-6.445754, 106.914938"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13325",
     "no": "26",
     "kcp": "Cibinong Mayor Oking 1",
     "kodeCabang": "13325",
@@ -439,10 +442,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.47379,
     "lng": 106.863072,
-    "rawCoord": "-6.473790, 106.863072"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13321",
     "no": "27",
     "kcp": "Cileungsi 1",
     "kodeCabang": "13321",
@@ -454,12 +457,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16820",
     "provinsi": "JAWA BARAT",
     "cluster": "CIBINONG MAYOR OKING",
-    "lat": -6.408315,
-    "lng": 106.961529,
-    "rawCoord": "-6.4083149,106.9615288"
+    "lat": -6.4083149,
+    "lng": 106.9615288,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13397",
     "no": "28",
     "kcp": "Bogor Klapanunggal 1",
     "kodeCabang": "13397",
@@ -471,12 +474,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16710",
     "provinsi": "JAWA BARAT",
     "cluster": "CIBINONG MAYOR OKING",
-    "lat": -6.451922,
-    "lng": 106.957998,
-    "rawCoord": "-6.4519218,106.9579981"
+    "lat": -6.4519218,
+    "lng": 106.9579981,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13395",
     "no": "29",
     "kcp": "Bogor Metland Cileungsi 1",
     "kodeCabang": "13395",
@@ -490,10 +493,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.40444,
     "lng": 106.976516,
-    "rawCoord": "-6.404440, 106.976516"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13319",
     "no": "30",
     "kcp": "Bogor Sentul City 1",
     "kodeCabang": "13319",
@@ -507,10 +510,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.566432,
     "lng": 106.845661,
-    "rawCoord": "-6.566432, 106.845661"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13381",
     "no": "31",
     "kcp": "Bogor Jonggol 1",
     "kodeCabang": "13381",
@@ -524,10 +527,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "CIBINONG MAYOR OKING",
     "lat": -6.435688,
     "lng": 107.05127,
-    "rawCoord": "-6.435688, 107.051270"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-13307",
     "no": "32",
     "kcp": "Cibinong City Center 1",
     "kodeCabang": "13307",
@@ -539,12 +542,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16915",
     "provinsi": "JAWA BARAT",
     "cluster": "CIBINONG MAYOR OKING",
-    "lat": -6.485573,
-    "lng": 106.839647,
-    "rawCoord": "-6.4855728,106.8396465"
+    "lat": -6.4855728,
+    "lng": 106.8396465,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15715",
     "no": "33",
     "kcp": "Depok Jatijajar 1",
     "kodeCabang": "15715",
@@ -558,10 +561,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 1",
     "lat": -6.416233,
     "lng": 106.858713,
-    "rawCoord": "-6.416233, 106.858713"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15705",
     "no": "34",
     "kcp": "Depok Cisalak 1",
     "kodeCabang": "15705",
@@ -573,12 +576,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16416",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK 1",
-    "lat": -6.377454,
-    "lng": 106.864728,
-    "rawCoord": "-6.3774536,106.8647279"
+    "lat": -6.3774536,
+    "lng": 106.8647279,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15788",
     "no": "35",
     "kcp": "Depok Pekapuran 1",
     "kodeCabang": "15788",
@@ -590,12 +593,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16455",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK 1",
-    "lat": -6.402774,
-    "lng": 106.881141,
-    "rawCoord": "-6.4027742,106.8811413"
+    "lat": -6.4027742,
+    "lng": 106.8811413,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15704",
     "no": "36",
     "kcp": "Depok Kelapa Dua 2",
     "kodeCabang": "15704",
@@ -609,10 +612,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 1",
     "lat": -6.354568,
     "lng": 106.845728,
-    "rawCoord": "-6.354568, 106.845728"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15709",
     "no": "37",
     "kcp": "Depok Timur 1",
     "kodeCabang": "15709",
@@ -626,10 +629,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 1",
     "lat": -6.391033,
     "lng": 106.851081,
-    "rawCoord": "-6.391033, 106.851081"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15703",
     "no": "38",
     "kcp": "Depok Tengah 2",
     "kodeCabang": "15703",
@@ -643,10 +646,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 1",
     "lat": -6.403838,
     "lng": 106.838997,
-    "rawCoord": "-6.403838, 106.838997"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15708",
     "no": "39",
     "kcp": "Depok ITC 1",
     "kodeCabang": "15708",
@@ -660,10 +663,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 2",
     "lat": -6.393319,
     "lng": 106.823409,
-    "rawCoord": "-6.393319, 106.823409"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15716",
     "no": "40",
     "kcp": "Depok Kartini 1",
     "kodeCabang": "15716",
@@ -677,10 +680,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 2",
     "lat": -6.405712,
     "lng": 106.818702,
-    "rawCoord": "-6.405712, 106.818702"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15706",
     "no": "41",
     "kcp": "Depok Satu 2",
     "kodeCabang": "15706",
@@ -694,10 +697,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 2",
     "lat": -6.391496,
     "lng": 106.814397,
-    "rawCoord": "-6.391496, 106.814397"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15714",
     "no": "42",
     "kcp": "Depok Margo City 1",
     "kodeCabang": "15714",
@@ -709,12 +712,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16423",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK 2",
-    "lat": -6.37201,
-    "lng": 106.834935,
-    "rawCoord": "-6.3720101,106.8349352"
+    "lat": -6.3720101,
+    "lng": 106.8349352,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15700",
     "no": "43",
     "kcp": "Depok 1",
     "kodeCabang": "15700",
@@ -728,10 +731,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 2",
     "lat": -6.383621,
     "lng": 106.829832,
-    "rawCoord": "-6.383621, 106.829832"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15777",
     "no": "44",
     "kcp": "Depok Citayam 1",
     "kodeCabang": "15777",
@@ -745,10 +748,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK 2",
     "lat": -6.44452,
     "lng": 106.804441,
-    "rawCoord": "-6.444520, 106.804441"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15713",
     "no": "45",
     "kcp": "Depok Universitas Indonesia 1",
     "kodeCabang": "15713",
@@ -760,12 +763,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16425",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK 2",
-    "lat": -6.362043,
-    "lng": 106.824908,
-    "rawCoord": "-6.3620432,106.8249083"
+    "lat": -6.3620432,
+    "lng": 106.8249083,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15717",
     "no": "46",
     "kcp": "Jakarta Cinere 1",
     "kodeCabang": "15717",
@@ -777,12 +780,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16514",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK GALERIA SAWANGAN",
-    "lat": -6.325066,
-    "lng": 106.784565,
-    "rawCoord": "-6.3250663,106.7845645"
+    "lat": -6.3250663,
+    "lng": 106.7845645,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15707",
     "no": "47",
     "kcp": "Sawangan Sari Plaza 2",
     "kodeCabang": "15707",
@@ -794,12 +797,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16516",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK GALERIA SAWANGAN",
-    "lat": -6.402337,
-    "lng": 106.742337,
-    "rawCoord": "-6.4023366,106.7423367"
+    "lat": -6.4023366,
+    "lng": 106.7423367,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15786",
     "no": "48",
     "kcp": "Depok Cinangka 2",
     "kodeCabang": "15786",
@@ -811,12 +814,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16517",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK GALERIA SAWANGAN",
-    "lat": -6.373988,
-    "lng": 106.745099,
-    "rawCoord": "-6.3739878,106.7450988"
+    "lat": -6.3739878,
+    "lng": 106.7450988,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15718",
     "no": "49",
     "kcp": "Depok Bukit Cinere Gandul 1",
     "kodeCabang": "15718",
@@ -830,10 +833,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "DEPOK GALERIA SAWANGAN",
     "lat": -6.339571,
     "lng": 106.793358,
-    "rawCoord": "-6.339571, 106.793358"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15711",
     "no": "50",
     "kcp": "Depok Cinere Limo 1",
     "kodeCabang": "15711",
@@ -845,12 +848,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16514",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK GALERIA SAWANGAN",
-    "lat": -6.343009,
-    "lng": 106.77888,
-    "rawCoord": "-6.3430095,106.7788801"
+    "lat": -6.3430095,
+    "lng": 106.7788801,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-15789",
     "no": "51",
     "kcp": "Galeria Sawangan 1",
     "kodeCabang": "15789",
@@ -862,12 +865,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "16435",
     "provinsi": "JAWA BARAT",
     "cluster": "DEPOK GALERIA SAWANGAN",
-    "lat": -6.3944,
-    "lng": 106.771761,
-    "rawCoord": "-6.3944002,106.7717608"
+    "lat": -6.3944002,
+    "lng": 106.7717608,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12620",
     "no": "52",
     "kcp": "Jakarta Mayestik 1",
     "kodeCabang": "12620",
@@ -881,10 +884,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FALATEHAN",
     "lat": -6.239661,
     "lng": 106.791118,
-    "rawCoord": "-6.239661, 106.791118"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12618",
     "no": "53",
     "kcp": "Jakarta Radio Dalam 1",
     "kodeCabang": "12618",
@@ -898,10 +901,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FALATEHAN",
     "lat": -6.256171,
     "lng": 106.789969,
-    "rawCoord": "-6.256171, 106.789969"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12606",
     "no": "54",
     "kcp": "Jakarta Melawai 1",
     "kodeCabang": "12606",
@@ -915,10 +918,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FALATEHAN",
     "lat": -6.245701,
     "lng": 106.80057,
-    "rawCoord": "-6.245701, 106.800570"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12675",
     "no": "55",
     "kcp": "Jakarta Jagakarsa 1",
     "kodeCabang": "12675",
@@ -930,12 +933,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12630",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FALATEHAN",
-    "lat": -6.362983,
-    "lng": 106.802412,
-    "rawCoord": "-6.3629829,106.8024122"
+    "lat": -6.3629829,
+    "lng": 106.8024122,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12600",
     "no": "56",
     "kcp": "Jakarta Falatehan 1",
     "kodeCabang": "12600",
@@ -949,10 +952,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FALATEHAN",
     "lat": -6.243073,
     "lng": 106.801714,
-    "rawCoord": "-6.243073, 106.801714"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12602",
     "no": "57",
     "kcp": "Jakarta Grand Wijaya 1",
     "kodeCabang": "12602",
@@ -964,12 +967,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12160",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FALATEHAN",
-    "lat": -6.25283,
+    "lat": -6.2528296,
     "lng": 106.800138,
-    "rawCoord": "-6.2528296,106.800138"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12700",
     "no": "58",
     "kcp": "Jakarta Fatmawati 1",
     "kodeCabang": "12700",
@@ -983,10 +986,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FATMAWATI",
     "lat": -6.280967,
     "lng": 106.796578,
-    "rawCoord": "-6.280967, 106.796578"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12710",
     "no": "59",
     "kcp": "Jakarta ITC Fatmawati 1",
     "kodeCabang": "12710",
@@ -998,12 +1001,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12150",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FATMAWATI",
-    "lat": -6.263648,
-    "lng": 106.797712,
-    "rawCoord": "-6.2636482,106.7977118"
+    "lat": -6.2636482,
+    "lng": 106.7977118,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12708",
     "no": "60",
     "kcp": "Jakarta Cilandak Barat 1",
     "kodeCabang": "12708",
@@ -1015,12 +1018,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12420",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FATMAWATI",
-    "lat": -6.29405,
-    "lng": 106.79477,
-    "rawCoord": "-6.2940496,106.7947705"
+    "lat": -6.2940496,
+    "lng": 106.7947705,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12714",
     "no": "61",
     "kcp": "Jakarta Jatipadang 1",
     "kodeCabang": "12714",
@@ -1034,10 +1037,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FATMAWATI",
     "lat": -6.285118,
     "lng": 106.838414,
-    "rawCoord": "-6.285118, 106.838414"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12713",
     "no": "62",
     "kcp": "Jakarta Cilandak KKO 1",
     "kodeCabang": "12713",
@@ -1049,12 +1052,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12560",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FATMAWATI",
-    "lat": -6.309507,
-    "lng": 106.813649,
-    "rawCoord": "-6.3095066,106.8136489"
+    "lat": -6.3095066,
+    "lng": 106.8136489,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12775",
     "no": "63",
     "kcp": "Jakarta Lenteng Agung 1",
     "kodeCabang": "12775",
@@ -1068,10 +1071,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA FATMAWATI",
     "lat": -6.327472,
     "lng": 106.824077,
-    "rawCoord": "-6.327472, 106.824077"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12720",
     "no": "64",
     "kcp": "Jakarta Universitas Pancasila 1",
     "kodeCabang": "12720",
@@ -1083,12 +1086,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12640",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA FATMAWATI",
-    "lat": -6.339636,
-    "lng": 106.83295,
-    "rawCoord": "-6.3396356,106.8329497"
+    "lat": -6.3396356,
+    "lng": 106.8329497,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12404",
     "no": "65",
     "kcp": "Jakarta Tebet Supomo 1",
     "kodeCabang": "12404",
@@ -1101,11 +1104,11 @@ window.MASTER_KCPS_DATA = [
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.237216,
-    "lng": 106.844522,
-    "rawCoord": "-6.237216,106.8445216"
+    "lng": 106.8445216,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12411",
     "no": "66",
     "kcp": "Jakarta Pasar Rumput 1",
     "kodeCabang": "12411",
@@ -1119,10 +1122,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.208301,
     "lng": 106.843753,
-    "rawCoord": "-6.208301, 106.843753"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12408",
     "no": "67",
     "kcp": "Jakarta Saharjo 1",
     "kodeCabang": "12408",
@@ -1136,10 +1139,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.226122,
     "lng": 106.847828,
-    "rawCoord": "-6.226122, 106.847828"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12406",
     "no": "68",
     "kcp": "Jakarta Lapangan Ros 1",
     "kodeCabang": "12406",
@@ -1151,12 +1154,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12840",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA MENARA CYBER 2",
-    "lat": -6.22462,
-    "lng": 106.85432,
-    "rawCoord": "-6.2246198,106.8543198"
+    "lat": -6.2246198,
+    "lng": 106.8543198,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12422",
     "no": "69",
     "kcp": "Jakarta M.T. Haryono 1",
     "kodeCabang": "12422",
@@ -1168,12 +1171,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12810",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA MENARA CYBER 2",
-    "lat": -6.242546,
-    "lng": 106.851917,
-    "rawCoord": "-6.2425456,106.8519167"
+    "lat": -6.2425456,
+    "lng": 106.8519167,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12409",
     "no": "70",
     "kcp": "Jakarta Tebet Barat 1",
     "kodeCabang": "12409",
@@ -1187,10 +1190,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.238399,
     "lng": 106.849825,
-    "rawCoord": "-6.238399, 106.849825"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12419",
     "no": "71",
     "kcp": "Jakarta Kalibata Rajawati 1",
     "kodeCabang": "12419",
@@ -1204,10 +1207,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.257553,
     "lng": 106.854593,
-    "rawCoord": "-6.257553, 106.854593"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12418",
     "no": "72",
     "kcp": "Jakarta Pasar Minggu 1",
     "kodeCabang": "12418",
@@ -1221,10 +1224,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.278385,
     "lng": 106.845097,
-    "rawCoord": "-6.278385, 106.845097"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-12417",
     "no": "73",
     "kcp": "Jakarta Kalibata 1",
     "kodeCabang": "12417",
@@ -1238,10 +1241,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA MENARA CYBER 2",
     "lat": -6.262664,
     "lng": 106.842929,
-    "rawCoord": "-6.262664, 106.842929"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-7010",
     "no": "74",
     "kcp": "Jakarta Gedung Patrajasa 1",
     "kodeCabang": "7010",
@@ -1255,10 +1258,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PLAZA MANDIRI",
     "lat": -6.233729,
     "lng": 106.82339,
-    "rawCoord": "-6.233729, 106.823390"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-7002",
     "no": "75",
     "kcp": "Jakarta Gedung Bidakara 1",
     "kodeCabang": "7002",
@@ -1272,10 +1275,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PLAZA MANDIRI",
     "lat": -6.241782,
     "lng": 106.841308,
-    "rawCoord": "-6.241782,106.841308,"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-7007",
     "no": "76",
     "kcp": "Jakarta Mampang 1",
     "kodeCabang": "7007",
@@ -1289,10 +1292,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PLAZA MANDIRI",
     "lat": -6.245336,
     "lng": 106.826054,
-    "rawCoord": "-6.245336, 106.826054"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-7008",
     "no": "77",
     "kcp": "Jakarta Graha Mitra 1",
     "kodeCabang": "7008",
@@ -1306,10 +1309,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PLAZA MANDIRI",
     "lat": -6.228906,
     "lng": 106.819677,
-    "rawCoord": "-6.228906, 106.819677"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-7018",
     "no": "78",
     "kcp": "Jakarta Warung Buncit Raya 1",
     "kodeCabang": "7018",
@@ -1322,11 +1325,11 @@ window.MASTER_KCPS_DATA = [
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA PLAZA MANDIRI",
     "lat": -6.264536,
-    "lng": 106.830645,
-    "rawCoord": "-6.264536,106.8306446"
+    "lng": 106.8306446,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10100",
     "no": "79",
     "kcp": "Jakarta Pondok Indah 1",
     "kodeCabang": "10100",
@@ -1338,12 +1341,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12310",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA PONDOK INDAH",
-    "lat": -6.286021,
-    "lng": 106.780408,
-    "rawCoord": "-6.2860206,106.7804084"
+    "lat": -6.2860206,
+    "lng": 106.7804084,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10119",
     "no": "80",
     "kcp": "Jakarta Bintaro Jaya 1",
     "kodeCabang": "10119",
@@ -1357,10 +1360,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.271075,
     "lng": 106.757102,
-    "rawCoord": "-6.271075, 106.757102"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10122",
     "no": "81",
     "kcp": "Jakarta Bintaro Veteran 1",
     "kodeCabang": "10122",
@@ -1374,10 +1377,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.274699,
     "lng": 106.76334,
-    "rawCoord": "-6.274699, 106.763340"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10106",
     "no": "82",
     "kcp": "Jakarta Lebak Bulus 1",
     "kodeCabang": "10106",
@@ -1389,12 +1392,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12440",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA PONDOK INDAH",
-    "lat": -6.300038,
-    "lng": 106.779491,
-    "rawCoord": "-6.3000376,106.7794909"
+    "lat": -6.3000376,
+    "lng": 106.7794909,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10123",
     "no": "83",
     "kcp": "Jakarta Petukangan 1",
     "kodeCabang": "10123",
@@ -1407,11 +1410,11 @@ window.MASTER_KCPS_DATA = [
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.236275,
-    "lng": 106.749577,
-    "rawCoord": "-6.236275,106.7495773"
+    "lng": 106.7495773,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10116",
     "no": "84",
     "kcp": "Jakarta Kebayoran Lama 1",
     "kodeCabang": "10116",
@@ -1425,10 +1428,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.230467,
     "lng": 106.779903,
-    "rawCoord": "-6.230467, 106.779903"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10110",
     "no": "85",
     "kcp": "Jakarta Pondok Pinang Center 1",
     "kodeCabang": "10110",
@@ -1442,10 +1445,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.274226,
     "lng": 106.773802,
-    "rawCoord": "-6.274226, 106.773802"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10107",
     "no": "86",
     "kcp": "Jakarta Aminta Plaza 1",
     "kodeCabang": "10107",
@@ -1457,12 +1460,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12310",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA PONDOK INDAH",
-    "lat": -6.290935,
-    "lng": 106.784027,
-    "rawCoord": "-6.2909351,106.7840268"
+    "lat": -6.2909351,
+    "lng": 106.7840268,
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10111",
     "no": "87",
     "kcp": "Jakarta Arteri Pondok Indah 1",
     "kodeCabang": "10111",
@@ -1476,10 +1479,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA PONDOK INDAH",
     "lat": -6.248832,
     "lng": 106.781447,
-    "rawCoord": "-6.248832, 106.781447"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10220",
     "no": "88",
     "kcp": "Jakarta World Trade Center 1",
     "kodeCabang": "10220",
@@ -1493,10 +1496,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA SUDIRMAN",
     "lat": -6.213683,
     "lng": 106.819708,
-    "rawCoord": "-6.213683, 106.819708"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10211",
     "no": "89",
     "kcp": "Jakarta Pakubuwono 1",
     "kodeCabang": "10211",
@@ -1510,10 +1513,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA SUDIRMAN",
     "lat": -6.232668,
     "lng": 106.796338,
-    "rawCoord": "-6.232668, 106.796338"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10202",
     "no": "90",
     "kcp": "Jakarta Simprug 1",
     "kodeCabang": "10202",
@@ -1527,10 +1530,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA SUDIRMAN",
     "lat": -6.234869,
     "lng": 106.785937,
-    "rawCoord": "-6.234869, 106.785937"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10212",
     "no": "91",
     "kcp": "Jakarta ITC Permata Hijau 2",
     "kodeCabang": "10212",
@@ -1542,12 +1545,12 @@ window.MASTER_KCPS_DATA = [
     "kodePos": "12210",
     "provinsi": "DKI JAKARTA",
     "cluster": "JAKARTA SUDIRMAN",
-    "lat": -6.221429,
+    "lat": -6.2214285,
     "lng": 106.783983,
-    "rawCoord": "-6.2214285,106.783983"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10229",
     "no": "92",
     "kcp": "Jakarta Sudirman Plaza 1",
     "kodeCabang": "10229",
@@ -1561,10 +1564,10 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA SUDIRMAN",
     "lat": -6.208941,
     "lng": 106.82228,
-    "rawCoord": "-6.208941, 106.822280"
+    "unitMicro": "Ada",
+    "hasMicro": true
   },
   {
-    "id": "KCP-10207",
     "no": "93",
     "kcp": "Jakarta Tendean 1",
     "kodeCabang": "10207",
@@ -1578,6 +1581,1282 @@ window.MASTER_KCPS_DATA = [
     "cluster": "JAKARTA SUDIRMAN",
     "lat": -6.238635,
     "lng": 106.816716,
-    "rawCoord": "-6.238635, 106.816716"
+    "unitMicro": "Ada",
+    "hasMicro": true
+  },
+  {
+    "no": "94",
+    "kcp": "Cibubur Kota Wisata",
+    "kodeCabang": "13322",
+    "alamat": "Ruko Sentra Eropa Blok A No. 5 & 6, Perumahan Kota Wisata, Jl. Transyogie Km.6, Cibubur",
+    "kelurahan": "Ciangsana",
+    "kecamatan": "Gunung Putri",
+    "rawCity": "Kab. Bogor",
+    "city": "Bogor",
+    "kodePos": "16968",
+    "provinsi": "JAWA BARAT",
+    "cluster": "",
+    "lat": -6.371022,
+    "lng": 106.957175,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "95",
+    "kcp": "Bogor Universitas Pakuan",
+    "kodeCabang": "13327",
+    "alamat": "Jl. Pakuan, Po Box 452 Bogor",
+    "kelurahan": "Tegallega",
+    "kecamatan": "Bogor Tengah",
+    "rawCity": "Kota Bogor",
+    "city": "Bogor",
+    "kodePos": "16129",
+    "provinsi": "JAWA BARAT",
+    "cluster": "",
+    "lat": -6.600342,
+    "lng": 106.8114481,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "96",
+    "kcp": "Jakarta Iskandarsyah",
+    "kodeCabang": "12601",
+    "alamat": "Graha Iskandarsyah, Jl. Iskandarsyah Raya No. 66",
+    "kelurahan": "Melawai",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12160",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.243698,
+    "lng": 106.803481,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "97",
+    "kcp": "Jakarta Kemang Raya",
+    "kodeCabang": "12603",
+    "alamat": "Jl. Kemang Raya No. 18 A",
+    "kelurahan": "Bangka",
+    "kecamatan": "Mampang Prapatan",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12730",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2590493,
+    "lng": 106.8150492,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "98",
+    "kcp": "Jakarta Panglima Polim",
+    "kodeCabang": "12605",
+    "alamat": "Jl. Panglima Polim Raya No. 192 Blok A, Kebayoran Baru",
+    "kelurahan": "Pulo",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12160",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.25243,
+    "lng": 106.7970891,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "99",
+    "kcp": "Jakarta Kementerian PUPR",
+    "kodeCabang": "12607",
+    "alamat": "Jl. Patimura No. 20, Kebayoran Baru",
+    "kelurahan": "Selong",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12110",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2374822,
+    "lng": 106.80144,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "100",
+    "kcp": "Jakarta Wolter Monginsidi",
+    "kodeCabang": "12609",
+    "alamat": "Jl. Wolter Monginsidi No. 57, Kebayoran Baru",
+    "kelurahan": "Rawa Barat",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12180",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.238959,
+    "lng": 106.811355,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "101",
+    "kcp": "Jakarta PLN Pusat",
+    "kodeCabang": "12610",
+    "alamat": "Jl. Trunojoyo M 1 No. 135, Kebayoran Baru",
+    "kelurahan": "Melawai",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12160",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2406232,
+    "lng": 106.8030085,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "103",
+    "kcp": "Jakarta Mabes Polri",
+    "kodeCabang": "12614",
+    "alamat": "Gedung Bhayangkari, Jl. Senjaya I No.1",
+    "kelurahan": "Selong",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12110",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2385889,
+    "lng": 106.8029276,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "104",
+    "kcp": "Jakarta Gandaria",
+    "kodeCabang": "12619",
+    "alamat": "Jl. Gandaria Tengah III No. 21, Kebayoran Baru",
+    "kelurahan": "Kramat Pela",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12130",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2465498,
+    "lng": 106.7901263,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "105",
+    "kcp": "Jakarta R.S. Pusat Pertamina",
+    "kodeCabang": "12622",
+    "alamat": "Jl. Kyai Maja No. 43, Kebayoran Baru",
+    "kelurahan": "Gunung",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12120",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.239743,
+    "lng": 106.794525,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "106",
+    "kcp": "Jakarta Kejaksaan Agung",
+    "kodeCabang": "12600CT",
+    "alamat": "Gedung Kejaksaan Agung, Jl Sultan Hasanudin No. 1",
+    "kelurahan": "Kramat Pela",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Falatehan",
+    "lat": -6.2431778,
+    "lng": 106.8016866,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "107",
+    "kcp": "Jakarta Ragunan",
+    "kodeCabang": "12701",
+    "alamat": "Jl. Harsono RM No.3, Gedung D, KP Departemen Pertanian",
+    "kelurahan": "Ragunan",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12550",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.2972149,
+    "lng": 106.8224508,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "108",
+    "kcp": "Jakarta Cibis Nine",
+    "kodeCabang": "12703",
+    "alamat": "Gedung Cibis Nine LD Unit H Jl.TB. Simatupang No. 2",
+    "kelurahan": "Cilandak Timur",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12560",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.2950209,
+    "lng": 106.8154265,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "109",
+    "kcp": "Jakarta Gedung Elnusa",
+    "kodeCabang": "12705",
+    "alamat": "Graha Elnusa, Jl. Letjend. T.B. Simatupang Kav. 1 B",
+    "kelurahan": "Cilandak Timur",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12560",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.289799,
+    "lng": 106.809545,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "110",
+    "kcp": "Jakarta Cipete IBI",
+    "kodeCabang": "12706",
+    "alamat": "Gedung Menara IBI, Ground Floor, Jl. RS Fatmawati No. 2-4 RT 01 RW 04",
+    "kelurahan": "Kel. Gandaria Selatan",
+    "kecamatan": "Cilandak",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12420",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.2695765,
+    "lng": 106.7971621,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "111",
+    "kcp": "Jakarta South Quarter",
+    "kodeCabang": "12709",
+    "alamat": "South Quarter Tower C, Jl. RA Kartini Kav. 8",
+    "kelurahan": "Cilandak Barat",
+    "kecamatan": "Cilandak",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12430",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.294632,
+    "lng": 106.785399,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "112",
+    "kcp": "Jakarta Gedung Arkadia",
+    "kodeCabang": "12715",
+    "alamat": "Perkantoran Hijau Arkadia, tower B Ground Floor unit 101 dan 103, Jl. Letjen. TB Simatupang Kav. 88,",
+    "kelurahan": "Kebagusan",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12520",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.3008087,
+    "lng": 106.8330154,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "113",
+    "kcp": "Jakarta Margasatwa",
+    "kodeCabang": "12716",
+    "alamat": "Ruko Margasatwa View,Jl. Margasatwa No.45 B, Pondok Labu",
+    "kelurahan": "Pondok Labu",
+    "kecamatan": "Cilandak",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12450",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.311105,
+    "lng": 106.803119,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "114",
+    "kcp": "Jakarta Kemang Selatan",
+    "kodeCabang": "12717",
+    "alamat": "Jl. Kemang Selatan Raya No. 111",
+    "kelurahan": "Cilandak Timur",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12560",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.2738256,
+    "lng": 106.8199145,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "115",
+    "kcp": "Jakarta Ampera Raya",
+    "kodeCabang": "12718",
+    "alamat": "Gd Grha STR, Jl Ampera Raya No. 11",
+    "kelurahan": "Ragunan",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12550",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.287149,
+    "lng": 106.81871,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "116",
+    "kcp": "Jakarta Gedung Aneka Tambang",
+    "kodeCabang": "12719",
+    "alamat": "Jl. Letjend. T.B. Simatupang, Tanjung Barat",
+    "kelurahan": "Tanjung Barat",
+    "kecamatan": "Jagakarsa",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12530",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.302332,
+    "lng": 106.843062,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "117",
+    "kcp": "Jakarta Gedung Talavera",
+    "kodeCabang": "12721",
+    "alamat": "Talavera Office Park, Ground Floor - Suite #01, Jl. Let. Jend. T.B. Simatupang Kav.22 - 26",
+    "kelurahan": "Cilandak Barat",
+    "kecamatan": "Cilandak",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12430",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.2916025,
+    "lng": 106.803675,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "118",
+    "kcp": "Jakarta PHE Tower",
+    "kodeCabang": "12723",
+    "alamat": "PHE Tower GF Jl. TB Simatupang Kav 99",
+    "kelurahan": "Kebagusan",
+    "kecamatan": "Pasar Minggu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12520",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.300336,
+    "lng": 106.832886,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "119",
+    "kcp": "Jakarta RSUP Fatmawati",
+    "kodeCabang": "12708CT",
+    "alamat": "RSUP Fatmawati, Jl. RS. Fatmawati,",
+    "kelurahan": "Cilandak Barat",
+    "kecamatan": "Pondok Labu",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12430",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Fatmawati",
+    "lat": -6.294023,
+    "lng": 106.79483,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "120",
+    "kcp": "Jakarta Mal Pondok Indah",
+    "kodeCabang": "10105",
+    "alamat": "Pondok Indah Mal Blok B/ 2, Jl. Metro Pondok Indah",
+    "kelurahan": "Pondok Pinang",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12310",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.265316,
+    "lng": 106.784208,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "121",
+    "kcp": "Jakarta Mal Pondok Indah 2",
+    "kodeCabang": "10115",
+    "alamat": "Mal Pondok Indah 2 No. G 33 A & C, Jl. Metro Pondok Indah",
+    "kelurahan": "Pondok Pinang",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12310",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.264758,
+    "lng": 106.782568,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "122",
+    "kcp": "Jakarta Gedung Lemigas",
+    "kodeCabang": "10121",
+    "alamat": "Kanpus. PPPTMGB Lemigas, Jl. Ciledug Raya",
+    "kelurahan": "Cipulir",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12230",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.2384703,
+    "lng": 106.7668034,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "123",
+    "kcp": "Jakarta Gandaria City",
+    "kodeCabang": "10124",
+    "alamat": "Gandaria City Mall, UG M-U 35 Jl. Sultan Iskandar Muda",
+    "kelurahan": "Kebayoran Lama",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12240",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.243726,
+    "lng": 106.784178,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "124",
+    "kcp": "Jakarta Pondok Indah Office 3",
+    "kodeCabang": "10125",
+    "alamat": "Pondok Indah Office Tower 3, Jl. Sultan Iskandar Muda Kav. V. TA",
+    "kelurahan": "Pondok Pinang",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12310",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.262874,
+    "lng": 106.781842,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "125",
+    "kcp": "Jakarta Palma Tower",
+    "kodeCabang": "10126",
+    "alamat": "Gd Palma Tower, Jl. RA Kartini II.S Kav. 6 Sektor II",
+    "kelurahan": "Pondok Pinang",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12310",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.2905701,
+    "lng": 106.7823021,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "126",
+    "kcp": "Jakarta Pondok Indah Metro",
+    "kodeCabang": "10100P",
+    "alamat": "Jl. Metro Pondok Indah Kav.II UA No. 24-27, Pondok Indah",
+    "kelurahan": "Pondok Pinang",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12310",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Pondok Indah",
+    "lat": -6.2652235,
+    "lng": 106.7843578,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "127",
+    "kcp": "Jakarta Sudirman",
+    "kodeCabang": "10200",
+    "alamat": "Plaza Bapindo, Jl. Jend. Sudirman Kav. 54-55",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2086681,
+    "lng": 106.8223316,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "128",
+    "kcp": "Jakarta Puncak Emas",
+    "kodeCabang": "10204",
+    "alamat": "Jl. Jend. Sudirman Kav. 61-62",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2265831,
+    "lng": 106.8036546,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "129",
+    "kcp": "Jakarta Energi",
+    "kodeCabang": "10213",
+    "alamat": "Gedung The Energy, Kawasan SCBD Lot 11 A,Jl. Jend. Sudirman Kav.52-53",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2254765,
+    "lng": 106.8061457,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "130",
+    "kcp": "Jakarta Kebayoran Lama 2",
+    "kodeCabang": "10216",
+    "alamat": "Jl. Kebayoran Lama Raya No. 309A",
+    "kelurahan": "Grogol Utara",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12210",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2136908,
+    "lng": 106.7785834,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "131",
+    "kcp": "Jakarta R.S. Jakarta",
+    "kodeCabang": "10218",
+    "alamat": "Jl. Jend. Sudirman Kav. 49",
+    "kelurahan": "Karet Semanggi",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12930",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.218453,
+    "lng": 106.816601,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "132",
+    "kcp": "Jakarta Wisma Indosemen",
+    "kodeCabang": "10219",
+    "alamat": "Jl. Jend. Sudirman Kav. 70-71",
+    "kelurahan": "Setiabudi",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12910",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2049703,
+    "lng": 106.8230949,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "133",
+    "kcp": "Jakarta Permata Senayan",
+    "kodeCabang": "10221",
+    "alamat": "Ruko Patal Senayan, Perkantoran Permata Senayan, Jl. Tentara Pelajar Blok B-12 dan B-15",
+    "kelurahan": "Grogol Utara",
+    "kecamatan": "Kebayoran Lama",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12210",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2222225,
+    "lng": 106.7908847,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "134",
+    "kcp": "Jakarta Mayapada Tower",
+    "kodeCabang": "10222",
+    "alamat": "Mayapada Tower GFth Floor Suite 03 Jl Jend. Sudirman Kav. 28",
+    "kelurahan": "Karet",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12920",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2136458,
+    "lng": 106.8199517,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "135",
+    "kcp": "Jakarta Gd. Sampoerna Strategic",
+    "kodeCabang": "10224",
+    "alamat": "Gedung Samporna Strategic Square Lt. Mezzanine Jl. Jend Sudirman Kav 45-46",
+    "kelurahan": "Karet Semanggi",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12930",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.216784,
+    "lng": 106.818186,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "136",
+    "kcp": "Jakarta Ambassador",
+    "kodeCabang": "10225",
+    "alamat": "Mall Ambassador, Jl. Prof. Dr. Satrio",
+    "kelurahan": "Karet Kuningan",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12940",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.224,
+    "lng": 106.8269,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "137",
+    "kcp": "Jakarta Kuningan City",
+    "kodeCabang": "10226",
+    "alamat": "AXA Tower Jl. Prof. Dr. Satrio Kav 18",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12940",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.224299,
+    "lng": 106.828693,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "138",
+    "kcp": "Jakarta Ciputra World Love",
+    "kodeCabang": "10227",
+    "alamat": "Lotte Shopping Avenue, Lantai LG, Jl. Dr. Satrio Kav. 3 & 5",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.224603,
+    "lng": 106.822775,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "139",
+    "kcp": "Jakarta Kresna SCBD",
+    "kodeCabang": "10228",
+    "alamat": "Kresna SCBD Lot 18, Gd. B, Jl. Jend. Sudirman Kav. 52-53",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.22887792,
+    "lng": 106.809583,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "140",
+    "kcp": "Jakarta Satrio Tower",
+    "kodeCabang": "10230",
+    "alamat": "Satrio Tower, GF Unit A Jl. Prof. Dr.Satrio Kav 1–4 Blok C4",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.2249375,
+    "lng": 106.8279375,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "141",
+    "kcp": "Jakarta Bursa Efek",
+    "kodeCabang": "10400",
+    "alamat": "Gedung Bursa Efek Jakarta, Jl. Jend. Sudirman Kav. 52-53",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Sudirman",
+    "lat": -6.223366,
+    "lng": 106.8085478,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "142",
+    "kcp": "Jakarta Casablanca",
+    "kodeCabang": "12400",
+    "alamat": "Jl. Casablanca Kav. 18",
+    "kelurahan": "Menteng Dalam",
+    "kecamatan": "Tebet",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12180",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2249352,
+    "lng": 106.8403728,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "143",
+    "kcp": "Jakarta Rasuna Said",
+    "kodeCabang": "12401",
+    "alamat": "Gedung Enterprise, Jl. H.R. Rasuna Said Kav. C-5",
+    "kelurahan": "Karet",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12920",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2137939,
+    "lng": 106.8306651,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "144",
+    "kcp": "Jakarta Graha Irama",
+    "kodeCabang": "12402",
+    "alamat": "Graha Irama Lantai Dasar Jl. H.R. Rasuna Said Kav. X-1, No. 1-2",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2336713,
+    "lng": 106.831741,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "145",
+    "kcp": "Jakarta Kuningan",
+    "kodeCabang": "12403",
+    "alamat": "Gedung Menara Duta, Jl. H.R. Rasuna Said Kav. B-9",
+    "kelurahan": "Setiabudi",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12920",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2087775,
+    "lng": 106.8299559,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "146",
+    "kcp": "Jakarta Plaza Setiabudi",
+    "kodeCabang": "12405",
+    "alamat": "Gd Setiabudi 2 Lt 1 R. 101 & 101 DD Jl. H.R. Rasuna Said Kav. 62",
+    "kelurahan": "Karet",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12920",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2166667,
+    "lng": 106.8299187,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "147",
+    "kcp": "Jakarta Wisma Tugu",
+    "kodeCabang": "12410",
+    "alamat": "Jl. H.R. Rasuna Said Kav. C 8/9",
+    "kelurahan": "Karet",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12940",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2146278,
+    "lng": 106.8310092,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "148",
+    "kcp": "Jakarta Tebet Timur",
+    "kodeCabang": "12412",
+    "alamat": "Jl. Tebet Timur Dalam Raya No. 115",
+    "kelurahan": "Tebet Timur",
+    "kecamatan": "Tebet",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12820",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2375692,
+    "lng": 106.8570643,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "149",
+    "kcp": "Jakarta Trinity Tower",
+    "kodeCabang": "12414",
+    "alamat": "Trinity Tower, Ground Floor/Suite 0102, Jl. H.R Rasuna Said Kav. C-22 Blok IIB",
+    "kelurahan": "Karet Kuningan",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12940",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2248867,
+    "lng": 106.8327956,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "150",
+    "kcp": "Jakarta Rasuna Episentrum",
+    "kodeCabang": "12415",
+    "alamat": "Mediawalk Area Lt. Dasar Unit W141-143, Jl. HR Rasuna Said",
+    "kelurahan": "Karet Kuningan",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12960",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.217524,
+    "lng": 106.8351322,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "151",
+    "kcp": "Jakarta Duren Tiga",
+    "kodeCabang": "12423",
+    "alamat": "Ruko Lantai Dasar Unit G-05, Jl. KH. Guru Amin No. 44",
+    "kelurahan": "Kel. Duren Tiga",
+    "kecamatan": "Pancoran",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12760",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2529957,
+    "lng": 106.842565,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "152",
+    "kcp": "Jakarta Wisma IKPT",
+    "kodeCabang": "12424",
+    "alamat": "Wisma IKPT, Jl. M.T. Haryono Kav.4-5",
+    "kelurahan": "Kebon Baru",
+    "kecamatan": "Tebet",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12820",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2428252,
+    "lng": 106.8602394,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "153",
+    "kcp": "Jakarta Gedung Sucofindo",
+    "kodeCabang": "12425",
+    "alamat": "Jl. Raya Pasar Minggu Kav. 34",
+    "kelurahan": "Pancoran",
+    "kecamatan": "Pancoran",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12780",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2519928,
+    "lng": 106.84186,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "154",
+    "kcp": "Jakarta Multivision Tower",
+    "kodeCabang": "12426",
+    "alamat": "Lt. Dasar Unit Banking Hall Multivision Tower, Jl. Kuningan Mulia Lot 9B",
+    "kelurahan": "Kel. Guntur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12920",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2118325,
+    "lng": 106.8335059,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "155",
+    "kcp": "Jakarta Kota Kasablanka",
+    "kodeCabang": "12428",
+    "alamat": "Kota Kasablanka LG 99 Jl. Casablanca Raya Kav. 88",
+    "kelurahan": "Menteng Dalam",
+    "kecamatan": "Tebet",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12870",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.223845,
+    "lng": 106.8424079,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "156",
+    "kcp": "Jakarta Kementerian Kesehatan",
+    "kodeCabang": "12431",
+    "alamat": "Jl. HR Rasuna Said Blok X5 Kav. 4 - 9",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.230455,
+    "lng": 106.8326732,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "157",
+    "kcp": "Jakarta Menara Cyber 2",
+    "kodeCabang": "12432",
+    "alamat": "Cyber 2 Tower, Jl. HR Rasuna Said Blok X-5 No.13",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2262903,
+    "lng": 106.8325905,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "158",
+    "kcp": "Jakarta Plaza BP Jamsostek",
+    "kodeCabang": "12433",
+    "alamat": "Jl. HR Rasuna Said No.112-114 Blok B",
+    "kelurahan": "Setiabudi",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12940",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.2075801,
+    "lng": 106.8285211,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "159",
+    "kcp": "Jakarta Kalibata City",
+    "kodeCabang": "12417DB",
+    "alamat": "Kalibata City Square, Jl. Taman Makam Pahlawan Kalibata No.1",
+    "kelurahan": "Rawajati",
+    "kecamatan": "Pancoran",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12750",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.262664,
+    "lng": 106.842906,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "160",
+    "kcp": "Jakarta MD Place",
+    "kodeCabang": "12433DB",
+    "alamat": "MD Place Jl. Setiabudi Selatan No.7",
+    "kelurahan": "Kuningan",
+    "kecamatan": "Setiabudi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12910",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Tebet Supomo",
+    "lat": -6.209524,
+    "lng": 106.821234,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "161",
+    "kcp": "Jakarta Wisma Danantara Indonesia",
+    "kodeCabang": "7000",
+    "alamat": "Jl. Jend. Gatot Subroto Kav. 36-38",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.2248588,
+    "lng": 106.8145659,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "162",
+    "kcp": "Jakarta Krakatau Steel",
+    "kodeCabang": "7004",
+    "alamat": "Jl. Jend. Gatot Subroto Kav. 54",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setia Budi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12170",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.238872,
+    "lng": 106.831754,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "163",
+    "kcp": "Jakarta Telkom Landmark Tower",
+    "kodeCabang": "7005",
+    "alamat": "Gedung Landmark Tower 2, Jl. Jend. Gatot Subroto No. 52",
+    "kelurahan": "Kuningan Barat",
+    "kecamatan": "Mampang Prapatan",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12710",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.230814,
+    "lng": 106.817466,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "164",
+    "kcp": "Jakarta Gatot Subroto",
+    "kodeCabang": "7009",
+    "alamat": "Gedung Menara Jamsostek, Jl. Jend. Gatot Subroto Kav. 38",
+    "kelurahan": "Kuningan Barat",
+    "kecamatan": "Mampang Prapatan",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12710",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.233571,
+    "lng": 106.821691,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "165",
+    "kcp": "Jakarta BKPM",
+    "kodeCabang": "7011",
+    "alamat": "Gedung BKPM, Jl. Jend. Gatot Subroto Kav. 44",
+    "kelurahan": "Senayan",
+    "kecamatan": "Kebayoran Baru",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12190",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.226612,
+    "lng": 106.816292,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "166",
+    "kcp": "Jakarta Sopo Del Tower",
+    "kodeCabang": "7017",
+    "alamat": "Gedung Sopo Del Office Tower & lifestyle, Ground Floor Tower B unit GF-19, Jl. Mega Kuningan Barat III",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setia Budi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.230793,
+    "lng": 106.824149,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "167",
+    "kcp": "Jakarta Graha Pulo",
+    "kodeCabang": "7019",
+    "alamat": "Gedung Graha Pulo, Lantai Dasar, Jl. Buncit Raya No. 89",
+    "kelurahan": "Kel. Kalibata",
+    "kecamatan": "Pancoran",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12740",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.2630729,
+    "lng": 106.8273341,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "168",
+    "kcp": "Jakarta Wisma Mulia",
+    "kodeCabang": "7020",
+    "alamat": "Suite UG02 City Plaza, Wisma Mulia Jl Gatot Subroto No 44",
+    "kelurahan": "Kuningan Barat",
+    "kecamatan": "Mampang Prapatan",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12710",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.235921,
+    "lng": 106.823614,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
+  },
+  {
+    "no": "169",
+    "kcp": "Jakarta Oakwood",
+    "kodeCabang": "7021",
+    "alamat": "The Arcade @Oakwood Lt 1, Unit No. 5A - 6, Jl. Lingkar Mega Kuningan Blok E4.2 No. 1",
+    "kelurahan": "Kuningan Timur",
+    "kecamatan": "Setia Budi",
+    "rawCity": "Wil. Kota Jakarta Selatan",
+    "city": "Jakarta Selatan",
+    "kodePos": "12950",
+    "provinsi": "DKI JAKARTA",
+    "cluster": "Jakarta Wisma Danantara Indonesia",
+    "lat": -6.227532,
+    "lng": 106.825463,
+    "unitMicro": "Tidak Ada",
+    "hasMicro": false
   }
 ];
