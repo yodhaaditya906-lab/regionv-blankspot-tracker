@@ -778,7 +778,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Universal Multi-Field Search Filter (matches search query against name, address, kecamatan, kelurahan, cluster, city, code)
           if (searchQuery.trim() !== '') {
-            const terms = searchQuery.toLowerCase().trim().split(/\s+/);
+            const rawQ = searchQuery.toLowerCase().trim();
+            const compactQ = rawQ.replace(/[\s\-_]+/g, '');
+            const stopWords = ['alamat', 'daerah', 'kawasan', 'kecamatan', 'kec', 'kelurahan', 'kel', 'kota', 'kabupaten', 'kab', 'jalan', 'jl'];
+            const allTerms = rawQ.split(/\s+/).filter(Boolean);
+            const filteredTerms = allTerms.filter(t => !stopWords.includes(t));
+            const terms = filteredTerms.length > 0 ? filteredTerms : allTerms;
+
             const searchableText = [
               kcpItem.kcp,
               kcpItem.alamat,
@@ -788,10 +794,14 @@ document.addEventListener('DOMContentLoaded', () => {
               kcpItem.rawCity,
               kcpItem.cluster,
               kcpItem.area,
-              kcpItem.kodeCabang
+              kcpItem.kodeCabang,
+              (kcpItem.kcp || '').replace(/[\s\-_]+/g, ''),
+              (kcpItem.alamat || '').replace(/[\s\-_]+/g, '')
             ].filter(Boolean).join(' ').toLowerCase();
 
-            const isMatch = terms.every(term => searchableText.includes(term));
+            const isMatch = terms.every(term => searchableText.includes(term)) ||
+                            searchableText.includes(rawQ) ||
+                            searchableText.includes(compactQ);
             if (!isMatch) return;
           }
 
@@ -953,12 +963,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-center / fly to searched item if user entered a search query
     if (searchQuery.trim() !== '') {
       const firstBranch = filteredKcps[0];
-      const firstKec = (allFilteredBlankSpots && allFilteredBlankSpots.length > 0) ? allFilteredBlankSpots[0] : null;
+      const blankSpotResults = getBlankSpotKecamatans();
+      const firstKec = (blankSpotResults && blankSpotResults.length > 0) ? blankSpotResults[0] : null;
 
       if (firstBranch && typeof firstBranch.lat === 'number' && typeof firstBranch.lng === 'number') {
         map.flyTo([firstBranch.lat, firstBranch.lng], 14, { duration: 1.0 });
+        showKcpDetailPanel(firstBranch);
       } else if (firstKec && firstKec.centroid) {
         map.flyTo([firstKec.centroid[0], firstKec.centroid[1]], 13, { duration: 1.0 });
+        showKecBlankSpotDetailPanel(firstKec);
       }
     }
   }
@@ -1030,25 +1043,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const unitCount = getKecUnitCount(kecName, item);
       if (unitCount > 0) return;
 
-      if (searchQuery.trim() !== '') {
-        const terms = searchQuery.toLowerCase().trim().split(/\s+/);
-        const nearestName = nearestUnit ? nearestUnit.kcp : '';
-        const nearestAddr = nearestUnit ? nearestUnit.alamat : '';
-        const nearestCluster = nearestUnit ? nearestUnit.cluster : '';
-        
-        const searchableText = [
-          kecName,
-          fullCityName,
-          cityGroup,
-          nearestName,
-          nearestAddr,
-          nearestCluster
-        ].filter(Boolean).join(' ').toLowerCase();
-
-        const isMatch = terms.every(term => searchableText.includes(term));
-        if (!isMatch) return;
-      }
-
       const centroid = getPolygonCentroid(item.coords);
 
       let minDist = Infinity;
@@ -1077,6 +1071,38 @@ document.addEventListener('DOMContentLoaded', () => {
           const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
           return bKec.includes(normKec) || normKec.includes(bKec);
         });
+      }
+
+      // Robust search filter: handles queries like 'parung panjang', 'parungpanjang', 'alamat parung panjang', etc.
+      if (searchQuery.trim() !== '') {
+        const rawQ = searchQuery.toLowerCase().trim();
+        const compactQ = rawQ.replace(/[\s\-_]+/g, '');
+        const stopWords = ['alamat', 'daerah', 'kawasan', 'kecamatan', 'kec', 'kelurahan', 'kel', 'kota', 'kabupaten', 'kab', 'jalan', 'jl'];
+        const allTerms = rawQ.split(/\s+/).filter(Boolean);
+        const filteredTerms = allTerms.filter(t => !stopWords.includes(t));
+        const terms = filteredTerms.length > 0 ? filteredTerms : allTerms;
+
+        const nearestName = nearestUnit ? nearestUnit.kcp : '';
+        const nearestAddr = nearestUnit ? nearestUnit.alamat : '';
+        const nearestCluster = nearestUnit ? nearestUnit.cluster : '';
+        const umkmText = matchedUMKM ? `${matchedUMKM.namaKawasan || ''} ${matchedUMKM.namaLengkap || ''} ${matchedUMKM.prioritasExpansion || ''}` : '';
+        
+        const searchableText = [
+          kecName,
+          kecName.replace(/[\s\-_]+/g, ''),
+          `kecamatan ${kecName}`,
+          fullCityName,
+          cityGroup,
+          nearestName,
+          nearestAddr,
+          nearestCluster,
+          umkmText
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const isMatch = terms.every(term => searchableText.includes(term)) ||
+                        searchableText.includes(rawQ) ||
+                        searchableText.includes(compactQ);
+        if (!isMatch) return;
       }
 
       blankSpotKecs.push({
@@ -1504,11 +1530,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (liveKcpBranches.length > 0) {
       liveKcpBranches.forEach((kcpItem, idx) => {
-        const match = kcpItem.kcp.toLowerCase().includes(filter) ||
+        const match = !filter ||
+                      kcpItem.kcp.toLowerCase().includes(filter) ||
                       kcpItem.city.toLowerCase().includes(filter) ||
-                      kcpItem.alamat.toLowerCase().includes(filter);
+                      kcpItem.alamat.toLowerCase().includes(filter) ||
+                      (kcpItem.kecamatan && kcpItem.kecamatan.toLowerCase().includes(filter)) ||
+                      (kcpItem.kelurahan && kcpItem.kelurahan.toLowerCase().includes(filter));
 
-        if (filter && !match) return;
+        if (!match) return;
 
         const isMicro = kcpItem.hasMicro !== false;
         const microBadge = isMicro
@@ -1531,6 +1560,35 @@ document.addEventListener('DOMContentLoaded', () => {
             </td>
           </tr>
         `;
+      });
+    }
+
+    // Also include matching blank spots if user enters a search filter (e.g. Parung Panjang)
+    if (filter) {
+      const allBlankSpots = getBlankSpotKecamatans();
+      allBlankSpots.forEach((spot, idx) => {
+        const spotMatch = spot.kecamatan.toLowerCase().includes(filter) ||
+                          spot.name.toLowerCase().includes(filter) ||
+                          spot.fullCity.toLowerCase().includes(filter) ||
+                          (spot.nearestUnit && spot.nearestUnit.kcp.toLowerCase().includes(filter));
+        if (spotMatch) {
+          rowsHtml += `
+            <tr style="background: rgba(254, 242, 242, 0.7);">
+              <td><strong style="color: #DC2626;">BLANK-${idx+1}</strong></td>
+              <td><strong style="color: #DC2626;"><i class="fa-solid fa-triangle-exclamation"></i> Kecamatan ${spot.kecamatan}</strong></td>
+              <td><span style="background: #FEE2E2; color: #991B1B; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">BLANK SPOT (0 CABANG)</span></td>
+              <td>${spot.fullCity}</td>
+              <td>Kawasan Blank Spot (Cabang Terdekat: ${spot.nearestUnit ? spot.nearestUnit.kcp : '-'})</td>
+              <td><code>${spot.centroid[0].toFixed(6)}, ${spot.centroid[1].toFixed(6)}</code></td>
+              <td><span style="color: #DC2626; font-weight: 700;">Blank Spot</span></td>
+              <td>
+                <button class="btn-table-fly-kcp" data-lat="${spot.centroid[0]}" data-lng="${spot.centroid[1]}" style="background: #DC2626; color: white; border: none; padding: 3px 8px; border-radius: 4px; font-size: 11px; cursor: pointer;">
+                  <i class="fa-solid fa-crosshairs"></i> Map
+                </button>
+              </td>
+            </tr>
+          `;
+        }
       });
     }
 
