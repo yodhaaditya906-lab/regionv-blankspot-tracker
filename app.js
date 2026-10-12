@@ -1162,21 +1162,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (totalCount === 0) {
       const isSearching = searchQuery.trim() !== '';
+      let filterModeName = 'Filter Aktif';
+      if (currentMode === 'branch-nonmicro') filterModeName = 'Non-Micro (Reguler)';
+      else if (currentMode === 'branch-micro') filterModeName = 'Micro Banking';
+      else if (currentMode === 'blank') filterModeName = 'Blank Spot';
+
       cardsWrapper.innerHTML = `
         <div style="padding: 24px 16px; text-align: center; color: #64748B;">
           <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; margin-bottom: 8px; color: #94A3B8;"></i>
           <p style="font-size: 13px; font-weight: 700; color: #1E293B;">Tidak ada hasil ditemukan</p>
-          <p style="font-size: 11px; margin-top: 4px; color: #64748B; line-height: 1.4;">
-            ${isSearching ? `Tidak ada cabang / wilayah yang cocok dengan "<strong>${searchQuery}</strong>" pada filter aktif.` : 'Tidak ada data untuk filter ini.'}
+          <p style="font-size: 11.5px; margin-top: 4px; color: #64748B; line-height: 1.4;">
+            ${isSearching
+              ? `Tidak ada cabang / wilayah di kategori <strong>${filterModeName}</strong> yang cocok dengan "<strong>${searchQuery}</strong>".`
+              : 'Tidak ada data untuk filter ini.'}
           </p>
-          ${isSearching && currentMode !== 'all' ? `<button id="btn-reset-mode-search" style="margin-top: 10px; background: #003D79; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;"><i class="fa-solid fa-arrows-rotate"></i> Cari di Semua Filter</button>` : ''}
+          ${isSearching ? `
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 6px;">
+              ${currentMode !== 'all' ? `
+                <button id="btn-reset-mode-search" style="background: #003D79; color: white; border: none; padding: 7px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                  <i class="fa-solid fa-arrows-rotate"></i> Cari "${searchQuery}" di Mode 'Semua'
+                </button>
+              ` : ''}
+              <button id="btn-clear-query-empty" style="background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; padding: 7px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i> Hapus Kata Pencarian ("${searchQuery}")
+              </button>
+            </div>
+          ` : ''}
         </div>
       `;
+
       const btnResetSearch = document.getElementById('btn-reset-mode-search');
       if (btnResetSearch) {
         btnResetSearch.addEventListener('click', () => {
           const btnAll = document.getElementById('btn-mode-all');
           if (btnAll) btnAll.click();
+        });
+      }
+
+      const btnClearQueryEmpty = document.getElementById('btn-clear-query-empty');
+      if (btnClearQueryEmpty) {
+        btnClearQueryEmpty.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          const btnClear = document.getElementById('btn-clear-search-input');
+          if (btnClear) btnClear.style.display = 'none';
+          renderMapLayersAndList();
         });
       }
       return;
@@ -1746,10 +1776,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    const btnClearSearchInput = document.getElementById('btn-clear-search-input');
+
+    function updateClearSearchButton() {
+      if (!btnClearSearchInput) return;
+      if (searchInput && searchInput.value.trim() !== '') {
+        btnClearSearchInput.style.display = 'block';
+      } else {
+        btnClearSearchInput.style.display = 'none';
+      }
+    }
+
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
+        updateClearSearchButton();
         renderMapLayersAndList();
+      });
+    }
+
+    if (btnClearSearchInput) {
+      btnClearSearchInput.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        updateClearSearchButton();
+        renderMapLayersAndList();
+        if (searchInput) searchInput.focus();
       });
     }
 
