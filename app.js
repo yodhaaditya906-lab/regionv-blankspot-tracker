@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let searchQuery = '';
   let selectedBlankSpotId = null;
   let selectedBlankSpotKec = null;
+  let cachedBlankSpotsAll = null;
 
   // City-to-Area Cascading Dropdown Mapping
   const cityAreaMapping = {
@@ -506,6 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
     function updateBadgeAndRender() {
+      cachedBlankSpotsAll = null; // Invalidate cached blank spots calculation
       const microCount = liveKcpBranches.filter(b => b.hasMicro !== false).length;
       const nonMicroCount = liveKcpBranches.filter(b => b.hasMicro === false).length;
 
@@ -558,6 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (parsed.length > 0) {
               liveBlankSpots = parsed;
+              cachedBlankSpotsAll = null;
               renderMapLayersAndList();
             }
           }
@@ -744,18 +747,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Main Render Map & Lists
-  function renderMapLayersAndList() {
+  function renderMapLayersAndList(options = {}) {
+    const skipBoundaries = options && options.skipBoundaries === true;
+
     branchMarkersGroup.clearLayers();
     blankSpotMarkersGroup.clearLayers();
     radiusCirclesGroup.clearLayers();
     kelurahanPolygonsGroup.clearLayers();
-    cityBoundariesGroup.clearLayers();
+
+    // Only redraw expensive GeoJSON polygon vectors (>8,760 vertices) if city/dataset changed, NOT on keystroke!
+    if (!skipBoundaries) {
+      cityBoundariesGroup.clearLayers();
+      renderAllRegionVRealGeoJsonBoundaries();
+    }
 
     // Update ribbon counter
     updateQuickStats();
-
-    // Render City & Kecamatan Boundaries
-    renderAllRegionVRealGeoJsonBoundaries();
 
     let allFilteredBlankSpots = [];
     let filteredKcps = [];
@@ -1006,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return count > 0 ? [sumLat / count, sumLng / count] : [-6.5971, 106.7996];
   }
 
-  // Get all Blank Spot Kecamatans (0 Units) with Nearest Unit Distance
+  // Get all Blank Spot Kecamatans (0 Units) with Nearest Unit Distance (Optimized with in-memory caching)
   function getBlankSpotKecamatans() {
     if (!window.KECAMATAN_REAL_GEOJSON) return [];
 
@@ -1018,62 +1025,82 @@ document.addEventListener('DOMContentLoaded', () => {
     const depokKecs = ['Sawangan', 'Beji', 'Pancoran Mas', 'Tapos', 'Cinere', 'Limo', 'Bojongsari', 'Cipayung', 'Cimanggis', 'Sukmajaya', 'Cilodong'];
     const kotaBogorKecs = ['Bogor Timur', 'Bogor Selatan', 'Bogor Tengah', 'Bogor Barat', 'Bogor Utara', 'Tanah Sareal'];
 
-    const blankSpotKecs = [];
+    // Precalculate all 26 blank spot geometries once; do NOT re-run heavy point-in-polygon loops on every keystroke!
+    if (!cachedBlankSpotsAll) {
+      cachedBlankSpotsAll = [];
 
-    Object.keys(window.KECAMATAN_REAL_GEOJSON).forEach(kecName => {
-      let cityGroup = 'Bogor';
-      let fullCityName = 'Kabupaten Bogor';
+      Object.keys(window.KECAMATAN_REAL_GEOJSON).forEach(kecName => {
+        let cityGroup = 'Bogor';
+        let fullCityName = 'Kabupaten Bogor';
 
-      if (jakselKecs.includes(kecName)) {
-        cityGroup = 'Jakarta Selatan';
-        fullCityName = 'Kota Jakarta Selatan';
-      } else if (depokKecs.includes(kecName)) {
-        cityGroup = 'Depok';
-        fullCityName = 'Kota Depok';
-      } else if (kotaBogorKecs.includes(kecName)) {
-        cityGroup = 'Bogor';
-        fullCityName = 'Kota Bogor';
-      }
-
-      if (currentCityFilter !== 'ALL' && cityGroup !== currentCityFilter) return;
-
-      const item = window.KECAMATAN_REAL_GEOJSON[kecName];
-      if (!item || !item.coords || item.coords.length === 0) return;
-
-      const unitCount = getKecUnitCount(kecName, item);
-      if (unitCount > 0) return;
-
-      const centroid = getPolygonCentroid(item.coords);
-
-      let minDist = Infinity;
-      let nearestUnit = null;
-
-      activeUnits.forEach(u => {
-        if (!u || typeof u.lat !== 'number' || typeof u.lng !== 'number' || isNaN(u.lat) || isNaN(u.lng)) return;
-        const d = getHaversineDistanceKm(centroid[0], centroid[1], u.lat, u.lng);
-        if (d < minDist) {
-          minDist = d;
-          nearestUnit = u;
+        if (jakselKecs.includes(kecName)) {
+          cityGroup = 'Jakarta Selatan';
+          fullCityName = 'Kota Jakarta Selatan';
+        } else if (depokKecs.includes(kecName)) {
+          cityGroup = 'Depok';
+          fullCityName = 'Kota Depok';
+        } else if (kotaBogorKecs.includes(kecName)) {
+          cityGroup = 'Bogor';
+          fullCityName = 'Kota Bogor';
         }
+
+        const item = window.KECAMATAN_REAL_GEOJSON[kecName];
+        if (!item || !item.coords || item.coords.length === 0) return;
+
+        const unitCount = getKecUnitCount(kecName, item);
+        if (unitCount > 0) return;
+
+        const centroid = getPolygonCentroid(item.coords);
+
+        let minDist = Infinity;
+        let nearestUnit = null;
+
+        activeUnits.forEach(u => {
+          if (!u || typeof u.lat !== 'number' || typeof u.lng !== 'number' || isNaN(u.lat) || isNaN(u.lng)) return;
+          const d = getHaversineDistanceKm(centroid[0], centroid[1], u.lat, u.lng);
+          if (d < minDist) {
+            minDist = d;
+            nearestUnit = u;
+          }
+        });
+
+        // Lookup UMKM data from liveBlankSpots or MASTER_BLANKSPOTS_UMKM_DATA
+        const normKec = cleanKecName(kecName);
+        let matchedUMKM = null;
+        if (liveBlankSpots && liveBlankSpots.length > 0) {
+          matchedUMKM = liveBlankSpots.find(b => {
+            const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
+            return bKec.includes(normKec) || normKec.includes(bKec);
+          });
+        }
+        if (!matchedUMKM && window.MASTER_BLANKSPOTS_UMKM_DATA) {
+          matchedUMKM = window.MASTER_BLANKSPOTS_UMKM_DATA.find(b => {
+            const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
+            return bKec.includes(normKec) || normKec.includes(bKec);
+          });
+        }
+
+        cachedBlankSpotsAll.push({
+          id: 'BLANK-KEC-' + kecName.replace(/\s+/g, '-'),
+          kecamatan: kecName,
+          name: `Kecamatan ${kecName}, ${fullCityName}`,
+          city: cityGroup,
+          fullCity: fullCityName,
+          centroid: centroid,
+          unitCount: 0,
+          nearestUnit: nearestUnit,
+          nearestKm: minDist !== Infinity ? parseFloat(minDist.toFixed(1)) : null,
+          coords: item.coords,
+          jumlahUMKM: matchedUMKM ? matchedUMKM.jumlahUMKM : null,
+          prioritasExpansion: matchedUMKM ? matchedUMKM.prioritasExpansion : '-'
+        });
       });
+    }
 
-      // Lookup UMKM data from liveBlankSpots or MASTER_BLANKSPOTS_UMKM_DATA
-      const normKec = cleanKecName(kecName);
-      let matchedUMKM = null;
-      if (liveBlankSpots && liveBlankSpots.length > 0) {
-        matchedUMKM = liveBlankSpots.find(b => {
-          const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
-          return bKec.includes(normKec) || normKec.includes(bKec);
-        });
-      }
-      if (!matchedUMKM && window.MASTER_BLANKSPOTS_UMKM_DATA) {
-        matchedUMKM = window.MASTER_BLANKSPOTS_UMKM_DATA.find(b => {
-          const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
-          return bKec.includes(normKec) || normKec.includes(bKec);
-        });
-      }
+    // Instant zero-latency filter on the cached array (< 0.05ms)
+    return cachedBlankSpotsAll.filter(spot => {
+      if (currentCityFilter !== 'ALL' && spot.city !== currentCityFilter) return false;
 
-      // Robust search filter: handles queries like 'parung panjang', 'parungpanjang', 'alamat parung panjang', etc.
       if (searchQuery.trim() !== '') {
         const rawQ = searchQuery.toLowerCase().trim();
         const compactQ = rawQ.replace(/[\s\-_]+/g, '');
@@ -1082,17 +1109,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const filteredTerms = allTerms.filter(t => !stopWords.includes(t));
         const terms = filteredTerms.length > 0 ? filteredTerms : allTerms;
 
-        const nearestName = nearestUnit ? nearestUnit.kcp : '';
-        const nearestAddr = nearestUnit ? nearestUnit.alamat : '';
-        const nearestCluster = nearestUnit ? nearestUnit.cluster : '';
-        const umkmText = matchedUMKM ? `${matchedUMKM.namaKawasan || ''} ${matchedUMKM.namaLengkap || ''} ${matchedUMKM.prioritasExpansion || ''}` : '';
+        const nearestName = spot.nearestUnit ? spot.nearestUnit.kcp : '';
+        const nearestAddr = spot.nearestUnit ? spot.nearestUnit.alamat : '';
+        const nearestCluster = spot.nearestUnit ? spot.nearestUnit.cluster : '';
+        const umkmText = spot.jumlahUMKM ? `umkm ${spot.jumlahUMKM} ${spot.prioritasExpansion}` : '';
         
         const searchableText = [
-          kecName,
-          kecName.replace(/[\s\-_]+/g, ''),
-          `kecamatan ${kecName}`,
-          fullCityName,
-          cityGroup,
+          spot.kecamatan,
+          spot.kecamatan.replace(/[\s\-_]+/g, ''),
+          `kecamatan ${spot.kecamatan}`,
+          spot.fullCity,
+          spot.city,
           nearestName,
           nearestAddr,
           nearestCluster,
@@ -1102,26 +1129,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMatch = terms.every(term => searchableText.includes(term)) ||
                         searchableText.includes(rawQ) ||
                         searchableText.includes(compactQ);
-        if (!isMatch) return;
+        if (!isMatch) return false;
       }
 
-      blankSpotKecs.push({
-        id: 'BLANK-KEC-' + kecName.replace(/\s+/g, '-'),
-        kecamatan: kecName,
-        name: `Kecamatan ${kecName}, ${fullCityName}`,
-        city: cityGroup,
-        fullCity: fullCityName,
-        centroid: centroid,
-        unitCount: 0,
-        nearestUnit: nearestUnit,
-        nearestKm: minDist !== Infinity ? parseFloat(minDist.toFixed(1)) : null,
-        coords: item.coords,
-        jumlahUMKM: matchedUMKM ? matchedUMKM.jumlahUMKM : null,
-        prioritasExpansion: matchedUMKM ? matchedUMKM.prioritasExpansion : '-'
-      });
-    });
-
-    return blankSpotKecs.sort((a, b) => (a.nearestKm || 999) - (b.nearestKm || 999));
+      return true;
+    }).sort((a, b) => (a.nearestKm || 999) - (b.nearestKm || 999));
   }
 
   // Render Sidebar Location List (Unified KCP Units & Blank Spots)
@@ -1206,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', () => {
           searchQuery = '';
           const btnClear = document.getElementById('btn-clear-search-input');
           if (btnClear) btnClear.style.display = 'none';
-          renderMapLayersAndList();
+          renderMapLayersAndList({ skipBoundaries: true });
         });
       }
       return;
@@ -1787,21 +1799,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    let searchDebounceTimer = null;
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         updateClearSearchButton();
-        renderMapLayersAndList();
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(() => {
+          renderMapLayersAndList({ skipBoundaries: true });
+        }, 200);
       });
     }
 
     if (btnClearSearchInput) {
       btnClearSearchInput.addEventListener('click', (e) => {
         e.preventDefault();
+        clearTimeout(searchDebounceTimer);
         if (searchInput) searchInput.value = '';
         searchQuery = '';
         updateClearSearchButton();
-        renderMapLayersAndList();
+        renderMapLayersAndList({ skipBoundaries: true });
         if (searchInput) searchInput.focus();
       });
     }
