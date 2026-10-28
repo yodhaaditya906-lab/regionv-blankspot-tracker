@@ -385,6 +385,10 @@ body {
   width: 100%;
 }
 
+.multi-select-container.open {
+  z-index: 1200;
+}
+
 .multi-select-trigger {
   width: 100%;
   padding: 7px 11px;
@@ -402,6 +406,7 @@ body {
   outline: none;
   font-family: inherit;
   text-align: left;
+  user-select: none;
 }
 
 .multi-select-trigger:hover {
@@ -424,6 +429,7 @@ body {
   align-items: center;
   gap: 6px;
   flex: 1;
+  pointer-events: none;
 }
 
 .multi-select-badge {
@@ -443,6 +449,7 @@ body {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   margin-left: 6px;
+  pointer-events: none;
 }
 
 .multi-select-container.open .multi-select-arrow {
@@ -465,7 +472,9 @@ body {
   animation: dropdownSlideDown 0.18s ease-out;
 }
 
-.multi-select-container.open .multi-select-dropdown {
+.multi-select-container.open .multi-select-dropdown,
+.multi-select-container[aria-expanded="true"] .multi-select-dropdown,
+.multi-select-dropdown.show {
   display: block;
 }
 

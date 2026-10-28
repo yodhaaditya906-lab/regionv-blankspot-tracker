@@ -200,7 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  let isClusterEventsSetup = false;
   function setupClusterMultiSelectEvents() {
+    if (isClusterEventsSetup) return;
+    isClusterEventsSetup = true;
+
     const container = document.getElementById('clusterMultiSelect');
     const btn = document.getElementById('clusterDropdownBtn');
     const menu = document.getElementById('clusterDropdownMenu');
@@ -209,15 +213,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btn && container) {
       btn.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
         const isOpen = container.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen);
+        container.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (menu) menu.classList.toggle('show', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     }
 
     document.addEventListener('click', (e) => {
       if (container && !container.contains(e.target)) {
         container.classList.remove('open');
+        container.removeAttribute('aria-expanded');
+        if (menu) menu.classList.remove('show');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       }
     });
@@ -225,6 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && container) {
         container.classList.remove('open');
+        container.removeAttribute('aria-expanded');
+        if (menu) menu.classList.remove('show');
         if (btn) btn.setAttribute('aria-expanded', 'false');
       }
     });
@@ -628,7 +639,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateQuickStats();
         renderMapLayersAndList();
         renderDatabaseTable();
-        setupEventListeners();
       })
       .catch(err => {
         console.error(err);
@@ -1934,7 +1944,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Event Listeners Setup
+  let isEventListenersSetup = false;
   function setupEventListeners() {
+    if (isEventListenersSetup) return;
+    isEventListenersSetup = true;
+
     // Map Legend Toggle & Close
     const legendCard = document.getElementById('map-legend');
     const legendCloseBtn = document.getElementById('legend-close-btn');
