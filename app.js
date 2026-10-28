@@ -69,47 +69,213 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
-  // Dynamically populate area dropdown based on selected city
+  const ALL_REGIONAL_CLUSTERS = Object.values(cityAreaMapping).flat();
+  let selectedClusters = new Set(ALL_REGIONAL_CLUSTERS);
+
+  // Dynamically populate area multi-select checklist based on selected city
   function updateAreaSelectDropdown(city) {
-    if (!areaSelect) return;
+    renderClusterChecklist(city);
+  }
+
+  function getCurrentlyVisibleClusters(city) {
+    const c = city || currentCityFilter;
+    if (c === 'ALL' || !cityAreaMapping[c]) {
+      return ALL_REGIONAL_CLUSTERS;
+    }
+    return cityAreaMapping[c] || ALL_REGIONAL_CLUSTERS;
+  }
+
+  function renderClusterChecklist(city = 'ALL') {
+    const listContainer = document.getElementById('clusterChecklistItems');
     const labelArea = document.getElementById('label-filter-area');
+    if (!listContainer) return;
 
-    areaSelect.innerHTML = '';
+    listContainer.innerHTML = '';
 
-    if (city === 'ALL' || !cityAreaMapping[city]) {
-      if (labelArea) labelArea.textContent = 'Micro Cluster Reg V';
+    const groups = (city === 'ALL' || !cityAreaMapping[city])
+      ? Object.keys(cityAreaMapping)
+      : [city];
 
-      const defaultOpt = document.createElement('option');
-      defaultOpt.value = 'ALL';
-      defaultOpt.textContent = 'Semua Micro Cluster';
-      areaSelect.appendChild(defaultOpt);
+    if (labelArea) {
+      if (city === 'ALL' || !cityAreaMapping[city]) {
+        labelArea.textContent = 'Micro Cluster Reg V';
+      } else {
+        const cCount = cityAreaMapping[city].length;
+        labelArea.textContent = `${cCount} Micro Cluster ${city}`;
+      }
+    }
 
-      Object.values(cityAreaMapping).flat().forEach(areaName => {
-        const opt = document.createElement('option');
-        opt.value = areaName;
-        opt.textContent = areaName;
-        areaSelect.appendChild(opt);
+    groups.forEach(cityName => {
+      const clusters = cityAreaMapping[cityName] || [];
+      if (clusters.length === 0) return;
+
+      const groupHeader = document.createElement('div');
+      groupHeader.className = 'multi-select-group-title';
+      groupHeader.textContent = `${cityName} (${clusters.length} Cluster)`;
+      listContainer.appendChild(groupHeader);
+
+      clusters.forEach(clusterName => {
+        const item = document.createElement('div');
+        const isChecked = selectedClusters.has(clusterName);
+        item.className = `multi-select-item ${isChecked ? 'selected' : ''}`;
+        item.dataset.cluster = clusterName;
+
+        item.innerHTML = `
+          <input type="checkbox" class="cluster-chk" id="chk_${clusterName.replace(/\s+/g, '_')}" value="${clusterName}" ${isChecked ? 'checked' : ''}>
+          <span class="cluster-item-text">${clusterName}</span>
+        `;
+
+        item.addEventListener('click', (e) => {
+          if (e.target.tagName !== 'INPUT') {
+            const chk = item.querySelector('.cluster-chk');
+            if (chk) {
+              chk.checked = !chk.checked;
+              handleClusterCheckToggle(clusterName, chk.checked);
+            }
+          }
+        });
+
+        const chkInput = item.querySelector('.cluster-chk');
+        if (chkInput) {
+          chkInput.addEventListener('change', (e) => {
+            handleClusterCheckToggle(clusterName, e.target.checked);
+          });
+        }
+
+        listContainer.appendChild(item);
       });
+    });
+
+    updateClusterDropdownTrigger();
+  }
+
+  function handleClusterCheckToggle(clusterName, isChecked) {
+    if (isChecked) {
+      selectedClusters.add(clusterName);
     } else {
-      const allowedAreas = cityAreaMapping[city];
-      const count = allowedAreas.length;
-      if (labelArea) labelArea.textContent = `${count} Micro Cluster ${city}`;
+      selectedClusters.delete(clusterName);
+    }
 
-      const defaultOpt = document.createElement('option');
-      defaultOpt.value = 'ALL';
-      defaultOpt.textContent = `Semua ${count} Micro Cluster`;
-      areaSelect.appendChild(defaultOpt);
+    const item = document.querySelector(`.multi-select-item[data-cluster="${clusterName}"]`);
+    if (item) {
+      if (isChecked) item.classList.add('selected');
+      else item.classList.remove('selected');
+    }
 
-      allowedAreas.forEach(areaName => {
-        const opt = document.createElement('option');
-        opt.value = areaName;
-        opt.textContent = areaName;
-        areaSelect.appendChild(opt);
+    updateClusterDropdownTrigger();
+    renderMapLayersAndList();
+  }
+
+  function updateClusterDropdownTrigger() {
+    const triggerText = document.getElementById('clusterDropdownText');
+    const chkSelectAll = document.getElementById('chkClusterSelectAll');
+    if (!triggerText) return;
+
+    const visibleClusters = getCurrentlyVisibleClusters(currentCityFilter);
+    const checkedVisible = visibleClusters.filter(c => selectedClusters.has(c));
+
+    if (chkSelectAll) {
+      if (checkedVisible.length === 0) {
+        chkSelectAll.checked = false;
+        chkSelectAll.indeterminate = false;
+      } else if (checkedVisible.length === visibleClusters.length) {
+        chkSelectAll.checked = true;
+        chkSelectAll.indeterminate = false;
+      } else {
+        chkSelectAll.checked = false;
+        chkSelectAll.indeterminate = true;
+      }
+    }
+
+    if (checkedVisible.length === ALL_REGIONAL_CLUSTERS.length) {
+      triggerText.innerHTML = `Semua Micro Cluster`;
+    } else if (checkedVisible.length === 0) {
+      triggerText.innerHTML = `<span style="color: #94A3B8;">0 Cluster Terpilih</span>`;
+    } else if (checkedVisible.length === 1) {
+      triggerText.innerHTML = `<strong>${checkedVisible[0]}</strong>`;
+    } else if (checkedVisible.length <= 2) {
+      triggerText.innerHTML = `<strong>${checkedVisible.join(', ')}</strong>`;
+    } else {
+      triggerText.innerHTML = `<strong>${checkedVisible.length} Cluster</strong> <span class="multi-select-badge">${checkedVisible.length}</span>`;
+    }
+  }
+
+  function setupClusterMultiSelectEvents() {
+    const container = document.getElementById('clusterMultiSelect');
+    const btn = document.getElementById('clusterDropdownBtn');
+    const menu = document.getElementById('clusterDropdownMenu');
+    const chkSelectAll = document.getElementById('chkClusterSelectAll');
+    const btnReset = document.getElementById('btnResetClusters');
+
+    if (btn && container) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = container.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
       });
     }
 
-    currentAreaFilter = 'ALL';
-    areaSelect.value = 'ALL';
+    document.addEventListener('click', (e) => {
+      if (container && !container.contains(e.target)) {
+        container.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && container) {
+        container.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (menu) {
+      menu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    if (chkSelectAll) {
+      chkSelectAll.addEventListener('change', (e) => {
+        const isChecked = e.target.checked;
+        const visibleClusters = getCurrentlyVisibleClusters(currentCityFilter);
+        visibleClusters.forEach(c => {
+          if (isChecked) selectedClusters.add(c);
+          else selectedClusters.delete(c);
+        });
+
+        document.querySelectorAll('.cluster-chk').forEach(input => {
+          const cName = input.value;
+          if (visibleClusters.includes(cName)) {
+            input.checked = isChecked;
+            const parentItem = input.closest('.multi-select-item');
+            if (parentItem) {
+              if (isChecked) parentItem.classList.add('selected');
+              else parentItem.classList.remove('selected');
+            }
+          }
+        });
+
+        updateClusterDropdownTrigger();
+        renderMapLayersAndList();
+      });
+    }
+
+    if (btnReset) {
+      btnReset.addEventListener('click', () => {
+        const visibleClusters = getCurrentlyVisibleClusters(currentCityFilter);
+        visibleClusters.forEach(c => selectedClusters.delete(c));
+
+        document.querySelectorAll('.cluster-chk').forEach(input => {
+          input.checked = false;
+          const parentItem = input.closest('.multi-select-item');
+          if (parentItem) parentItem.classList.remove('selected');
+        });
+
+        updateClusterDropdownTrigger();
+        renderMapLayersAndList();
+      });
+    }
   }
 
   // DOM Elements
@@ -775,7 +941,14 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!kcpItem || typeof kcpItem.lat !== 'number' || typeof kcpItem.lng !== 'number' || isNaN(kcpItem.lat) || isNaN(kcpItem.lng)) return;
 
           if (currentCityFilter !== 'ALL' && kcpItem.city !== currentCityFilter) return;
-          if (currentAreaFilter !== 'ALL' && kcpItem.cluster !== currentAreaFilter && kcpItem.area !== currentAreaFilter) return;
+
+          // Micro Cluster Multi-Select Filter (Matches checked clusters)
+          if (selectedClusters.size < ALL_REGIONAL_CLUSTERS.length) {
+            const itemCluster = (kcpItem.cluster || kcpItem.area || '').toUpperCase().trim();
+            const isMatch = selectedClusters.has(itemCluster) || 
+              (selectedClusters.has('JAKARTA TEBET SUPOMO') && (itemCluster === 'JAKARTA MENARA CYBER 2' || itemCluster.includes('TEBET')));
+            if (!isMatch) return;
+          }
 
           const isMicro = kcpItem.hasMicro !== false;
 
@@ -886,7 +1059,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (regionData) {
         regionData.areas.forEach(area => {
           if (currentCityFilter !== 'ALL' && area.city !== currentCityFilter) return;
-          if (currentAreaFilter !== 'ALL' && area.name !== currentAreaFilter) return;
+
+          // Micro Cluster Multi-Select Filter
+          if (selectedClusters.size < ALL_REGIONAL_CLUSTERS.length) {
+            const aName = (area.name || '').toUpperCase().trim();
+            const isMatch = selectedClusters.has(aName) ||
+              (selectedClusters.has('JAKARTA TEBET SUPOMO') && aName.includes('TEBET'));
+            if (!isMatch) return;
+          }
 
           area.blankSpots.forEach(spot => {
             if (searchQuery.trim() !== '') {
@@ -1775,11 +1955,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (citySelect) {
       citySelect.addEventListener('change', (e) => {
         currentCityFilter = e.target.value;
-        updateAreaSelectDropdown(currentCityFilter);
+        renderClusterChecklist(currentCityFilter);
         renderMapLayersAndList();
         zoomToCityFilter(currentCityFilter);
       });
     }
+
+    // Initialize Multi-Select Checklist Dropdown
+    setupClusterMultiSelectEvents();
+    renderClusterChecklist('ALL');
 
     if (areaSelect) {
       areaSelect.addEventListener('change', (e) => {

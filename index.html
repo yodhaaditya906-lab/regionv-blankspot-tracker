@@ -131,25 +131,35 @@
           </select>
         </div>
 
-        <!-- Area Select Filter -->
+        <!-- Micro Cluster Multi-Select Filter with Checkboxes -->
         <div class="form-field">
-          <label for="filter-area" id="label-filter-area">Micro Cluster Reg V</label>
-          <select id="filter-area" class="select-input">
-            <option value="ALL">Semua Micro Cluster</option>
-            <option value="BOGOR 1">BOGOR 1</option>
-            <option value="BOGOR 2">BOGOR 2</option>
-            <option value="BOGOR YASMIN">BOGOR YASMIN</option>
-            <option value="CIBINONG MAYOR OKING">CIBINONG MAYOR OKING</option>
-            <option value="DEPOK 1">DEPOK 1</option>
-            <option value="DEPOK 2">DEPOK 2</option>
-            <option value="DEPOK GALERIA SAWANGAN">DEPOK GALERIA SAWANGAN</option>
-            <option value="JAKARTA FALATEHAN">JAKARTA FALATEHAN</option>
-            <option value="JAKARTA FATMAWATI">JAKARTA FATMAWATI</option>
-            <option value="JAKARTA PLAZA MANDIRI">JAKARTA PLAZA MANDIRI</option>
-            <option value="JAKARTA PONDOK INDAH">JAKARTA PONDOK INDAH</option>
-            <option value="JAKARTA SUDIRMAN">JAKARTA SUDIRMAN</option>
-            <option value="JAKARTA TEBET SUPOMO">JAKARTA TEBET SUPOMO</option>
-          </select>
+          <label for="clusterDropdownBtn" id="label-filter-area">Micro Cluster Reg V</label>
+          <div class="multi-select-container" id="clusterMultiSelect">
+            <button type="button" class="multi-select-trigger" id="clusterDropdownBtn" aria-haspopup="true" aria-expanded="false">
+              <span class="multi-select-text" id="clusterDropdownText">Semua Micro Cluster</span>
+              <svg class="multi-select-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="multi-select-dropdown" id="clusterDropdownMenu">
+              <div class="multi-select-header">
+                <label class="multi-select-all-label">
+                  <input type="checkbox" id="chkClusterSelectAll" checked>
+                  <span>Semua Micro Cluster</span>
+                </label>
+                <div class="multi-select-actions">
+                  <button type="button" class="btn-select-action" id="btnResetClusters">Reset</button>
+                </div>
+              </div>
+              <div class="multi-select-list" id="clusterChecklistItems">
+                <!-- Checkbox items populated dynamically by app.js -->
+              </div>
+            </div>
+            <!-- Hidden fallback select for backward-compatibility -->
+            <select id="filter-area" class="select-input" style="display: none;">
+              <option value="ALL">Semua Micro Cluster</option>
+            </select>
+          </div>
         </div>
 
         <!-- View Mode Segmented Control -->
