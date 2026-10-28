@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedBlankSpotId = null;
   let selectedBlankSpotKec = null;
   let cachedBlankSpotsAll = null;
+  let isEventListenersSetup = false;
+  let isClusterEventsSetup = false;
 
   // City-to-Area Cascading Dropdown Mapping
   const cityAreaMapping = {
@@ -200,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  let isClusterEventsSetup = false;
   function setupClusterMultiSelectEvents() {
     if (isClusterEventsSetup) return;
     isClusterEventsSetup = true;
@@ -1944,7 +1945,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Event Listeners Setup
-  let isEventListenersSetup = false;
   function setupEventListeners() {
     if (isEventListenersSetup) return;
     isEventListenersSetup = true;
