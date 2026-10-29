@@ -1316,14 +1316,16 @@ document.addEventListener('DOMContentLoaded', () => {
             markerIconColor = unitColor;
             markerBorderWidth = 3.5;
             markerShadow = `0 0 0 4px ${unitRgba}, 0 6px 20px rgba(0,0,0,0.6)`;
-          } else if (showClusterColors) {
-            markerBg = clusterInfo.color; // Warna khas masing-masing micro cluster
+          } else if (showClusterColors && isMicro) {
+            markerBg = clusterInfo.color; // Warna khas micro cluster HANYA untuk 93 unit yang memiliki Micro Banking
             markerBorder = '#FFFFFF';
             markerIconColor = '#FFFFFF';
             markerBorderWidth = 2.5;
             markerShadow = `0 3px 12px ${clusterInfo.color}80, 0 2px 6px rgba(0,0,0,0.4)`;
           } else {
-            markerBg = isMicro ? '#003D79' : '#DC2626'; // Berubah kembali ke biru asli (atau merah) jika fitur nonaktif
+            // 78 Cabang tanpa unit micro (cabang reguler) SELALU TETAP WARNA MERAH (#DC2626)
+            // Dan jika fitur warna cluster tidak aktif, unit micro kembali ke warna biru asli Mandiri (#003D79)
+            markerBg = isMicro ? '#003D79' : '#DC2626';
             markerBorder = isMicro ? '#FFB700' : '#FCA5A5';
             markerIconColor = 'white';
             markerBorderWidth = 2;
@@ -1357,7 +1359,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const marker = L.marker([kcpItem.lat, kcpItem.lng], {
             icon: branchIcon,
-            zIndexOffset: isEpisentrumActive ? 2500 : (showClusterColors ? 500 : 0) // Pastikan pin putih selalu di paling atas
+            zIndexOffset: isEpisentrumActive ? 2500 : (showClusterColors && isMicro ? 500 : 0) // Pastikan pin putih selalu di paling atas
           });
 
           const microBadgeHtml = isMicro
@@ -1366,7 +1368,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const popupHeaderBg = isEpisentrumActive
             ? unitColor
-            : (showClusterColors ? clusterInfo.color : (isMicro ? '#003D79' : '#DC2626'));
+            : ((showClusterColors && isMicro) ? clusterInfo.color : (isMicro ? '#003D79' : '#DC2626'));
 
           marker.bindPopup(`
             <div class="popup-card">
@@ -1377,8 +1379,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="margin-bottom: 4px;">
                   <strong>Cluster / Area:</strong> 
                   <span style="display: inline-flex; align-items: center; gap: 5px;">
-                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${clusterInfo.color}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
-                    <strong>${clusterInfo.name}</strong> ${showClusterColors ? `<span style="font-size: 10.5px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>` : ''}
+                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${isMicro ? clusterInfo.color : '#DC2626'}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
+                    <strong>${clusterInfo.name}</strong> ${(showClusterColors && isMicro) ? `<span style="font-size: 10.5px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>` : (!isMicro ? '<span style="font-size: 10.5px; color: #DC2626; font-weight: 700;">(Non-Micro)</span>' : '')}
                   </span>
                 </p>
                 <p style="margin-bottom: 4px;"><strong>Kecamatan / Kelurahan:</strong> ${kcpItem.kecamatan || ''} (${kcpItem.kelurahan || ''})</p>
@@ -1954,8 +1956,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="detail-section">
         <span class="detail-label">Micro Cluster / Area</span>
         <span class="detail-value" style="display: flex; align-items: center; gap: 6px;">
-          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${clusterInfo.color}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
-          <strong>${clusterInfo.name}</strong> <span style="font-size: 11px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>
+          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${isMicro ? clusterInfo.color : '#DC2626'}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
+          <strong>${clusterInfo.name}</strong> ${isMicro ? `<span style="font-size: 11px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>` : '<span style="font-size: 11px; color: #DC2626; font-weight: 700;">(Non-Micro / Cabang Reguler)</span>'}
         </span>
       </div>
 
