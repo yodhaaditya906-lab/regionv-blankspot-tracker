@@ -29,24 +29,32 @@ const server = http.createServer((req, res) => {
     https.get(sheetUrl, (gRes) => {
       if (gRes.statusCode >= 300 && gRes.statusCode < 400 && gRes.headers.location) {
         https.get(gRes.headers.location, (redirectRes) => {
-          res.writeHead(200, {
-            'Content-Type': 'text/csv; charset=UTF-8',
-            'Access-Control-Allow-Origin': '*'
-          });
+          if (!res.headersSent) {
+            res.writeHead(200, {
+              'Content-Type': 'text/csv; charset=UTF-8',
+              'Access-Control-Allow-Origin': '*'
+            });
+          }
           redirectRes.pipe(res);
         }).on('error', (err) => {
-          res.writeHead(500, { 'Content-Type': 'text/plain' });
+          if (!res.headersSent) {
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+          }
           res.end('Proxy Error: ' + err.message);
         });
         return;
       }
-      res.writeHead(200, {
-        'Content-Type': 'text/csv; charset=UTF-8',
-        'Access-Control-Allow-Origin': '*'
-      });
+      if (!res.headersSent) {
+        res.writeHead(200, {
+          'Content-Type': 'text/csv; charset=UTF-8',
+          'Access-Control-Allow-Origin': '*'
+        });
+      }
       gRes.pipe(res);
     }).on('error', (err) => {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      if (!res.headersSent) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+      }
       res.end('Proxy Error: ' + err.message);
     });
     return;
@@ -75,4 +83,12 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running at http://localhost:${PORT}/ and http://127.0.0.1:${PORT}/`);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Server Uncaught Exception (handled):', err.message);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Server Unhandled Rejection (handled):', reason);
 });

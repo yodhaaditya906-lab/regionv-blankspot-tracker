@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   
   <!-- Custom App Styles -->
-  <link rel="stylesheet" href="styles.css?v=1790000000030">
+  <link rel="stylesheet" href="styles.css?v=1790000000042">
 </head>
 <body>
 
@@ -151,6 +151,14 @@
                   <button type="button" class="btn-select-action" id="btnResetClusters">Reset</button>
                 </div>
               </div>
+              <!-- Toggle Bar: Aktifkan Warna Tiap Cluster -->
+              <div class="cluster-color-toggle-bar" id="clusterColorToggleBar">
+                <label class="cluster-color-toggle-label" for="chkEnableClusterColors">
+                  <input type="checkbox" id="chkEnableClusterColors">
+                  <span>Aktifkan Warna Tiap Cluster</span>
+                </label>
+                <span class="cluster-color-badge-info">13 Warna</span>
+              </div>
               <div class="multi-select-list" id="clusterChecklistItems">
                 <!-- Checkbox items populated dynamically by app.js -->
               </div>
@@ -159,6 +167,33 @@
             <select id="filter-area" class="select-input" style="display: none;">
               <option value="ALL">Semua Micro Cluster</option>
             </select>
+          </div>
+        </div>
+
+        <!-- Titik Episentrum Dropdown -->
+        <div class="form-field">
+          <label for="episentrumDropdownBtn">Titik Episentrum</label>
+          <div class="multi-select-container" id="episentrumMultiSelect">
+            <button type="button" class="multi-select-trigger" id="episentrumDropdownBtn" aria-haspopup="true" aria-expanded="false">
+              <span class="multi-select-text" id="episentrumDropdownText">Pilih Titik Episentrum</span>
+              <svg class="multi-select-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="multi-select-dropdown" id="episentrumDropdownMenu">
+              <div class="multi-select-header">
+                <label class="multi-select-all-label">
+                  <input type="checkbox" id="chkEpisentrumSelectAll">
+                  <span>Pilih Semua</span>
+                </label>
+                <div class="multi-select-actions">
+                  <button type="button" class="btn-select-action" id="btnResetEpisentrum">Reset</button>
+                </div>
+              </div>
+              <div class="multi-select-list" id="episentrumChecklistItems">
+                <!-- Checkbox items populated dynamically by app.js -->
+              </div>
+            </div>
           </div>
         </div>
 
@@ -242,8 +277,12 @@
             <span>Kawasan Blank Spot (Tanpa Outlet)</span>
           </div>
           <div class="legend-item">
-            <span class="legend-dot radius"></span>
-            <span>Radius Jangkauan (2.5 Km)</span>
+            <span class="legend-dot radius" style="background: linear-gradient(135deg, #9333EA, #0891B2, #059669, #C026D3, #4F46E5); border: 1.5px solid #FFFFFF;"></span>
+            <span>Radius Titik Episentrum (5 Warna Khusus)</span>
+          </div>
+          <div class="legend-item" id="legendClusterColorItem" style="display: none;">
+            <span class="legend-dot" style="background: linear-gradient(135deg, #1D4ED8, #059669, #D97706, #7C3AED, #E11D48); border: 1.5px solid #FFFFFF;"></span>
+            <span>Warna Micro Cluster (13 Warna Cluster Aktif)</span>
           </div>
           <div class="legend-item" style="margin-top: 4px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 4px;">
             <span style="display: inline-block; width: 14px; height: 0px; border-top: 2.5px dashed #FFB700; outline: 1px solid white; margin-right: 4px;"></span>
@@ -375,6 +414,6 @@
   <script src="master_blankspots_umkm_data.js?v=1790000000000"></script>
 
   <!-- App JS -->
-  <script src="app.js?v=1790000000031"></script>
+  <script src="app.js?v=1790000000043"></script>
 </body>
 </html>

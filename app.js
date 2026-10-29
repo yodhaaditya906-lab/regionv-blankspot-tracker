@@ -47,6 +47,57 @@ document.addEventListener('DOMContentLoaded', () => {
   let cachedBlankSpotsAll = null;
   let isEventListenersSetup = false;
   let isClusterEventsSetup = false;
+  let isEpisentrumEventsSetup = false;
+
+  // Konfigurasi 5 Titik Episentrum Khusus (Warna Unik per Unit, Tanpa Emotikon)
+  const EPISENTRUM_UNITS = [
+    {
+      id: '13300',
+      name: 'Bogor Juanda 1',
+      radiusKm: 7,
+      radiusM: 7000,
+      color: '#9333EA',      // Ungu / Violet
+      colorName: 'Ungu',
+      rgba: 'rgba(147, 51, 234, 0.45)'
+    },
+    {
+      id: '13384',
+      name: 'Leuwiliang 1',
+      radiusKm: 25,
+      radiusM: 25000,
+      color: '#0891B2',      // Toska / Cyan
+      colorName: 'Toska',
+      rgba: 'rgba(8, 145, 178, 0.45)'
+    },
+    {
+      id: '13392',
+      name: 'Bogor Karadenan 1',
+      radiusKm: 25,
+      radiusM: 25000,
+      color: '#059669',      // Hijau Zamrud / Emerald Green (Bukan Merah / Oranye)
+      colorName: 'Hijau Zamrud',
+      rgba: 'rgba(5, 150, 105, 0.45)'
+    },
+    {
+      id: '13323',
+      name: 'Bogor Grand Nusa Dua 1',
+      radiusKm: 25,
+      radiusM: 25000,
+      color: '#C026D3',      // Magenta / Fuchsia
+      colorName: 'Magenta',
+      rgba: 'rgba(192, 38, 211, 0.45)'
+    },
+    {
+      id: '13325',
+      name: 'Cibinong Mayor Oking 1',
+      radiusKm: 25,
+      radiusM: 25000,
+      color: '#4F46E5',      // Biru Indigo
+      colorName: 'Indigo',
+      rgba: 'rgba(79, 70, 229, 0.45)'
+    }
+  ];
+  let selectedEpisentrums = new Set();
 
   // City-to-Area Cascading Dropdown Mapping
   const cityAreaMapping = {
@@ -73,6 +124,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ALL_REGIONAL_CLUSTERS = Object.values(cityAreaMapping).flat();
   let selectedClusters = new Set(ALL_REGIONAL_CLUSTERS);
+  let showClusterColors = false;
+
+  // Konfigurasi 13 Warna Khas Micro Cluster Region V
+  // (Baru aktif diubah warnanya jika fitur "Aktifkan Warna Tiap Cluster" dicentang di dropdown)
+  const CLUSTER_CONFIG = {
+    'BOGOR 1': { color: '#1D4ED8', colorName: 'Biru Royal', city: 'Bogor' },
+    'BOGOR 2': { color: '#059669', colorName: 'Hijau Zamrud', city: 'Bogor' },
+    'BOGOR YASMIN': { color: '#D97706', colorName: 'Amber Emas', city: 'Bogor' },
+    'CIBINONG MAYOR OKING': { color: '#7C3AED', colorName: 'Ungu Violet', city: 'Bogor' },
+    'DEPOK 1': { color: '#0891B2', colorName: 'Biru Toska', city: 'Depok' },
+    'DEPOK 2': { color: '#E11D48', colorName: 'Merah Mawar', city: 'Depok' },
+    'DEPOK GALERIA SAWANGAN': { color: '#9333EA', colorName: 'Ungu Cerah', city: 'Depok' },
+    'JAKARTA FALATEHAN': { color: '#EA580C', colorName: 'Oranye Jingga', city: 'Jakarta Selatan' },
+    'JAKARTA FATMAWATI': { color: '#0D9488', colorName: 'Hijau Teal', city: 'Jakarta Selatan' },
+    'JAKARTA PLAZA MANDIRI': { color: '#4338CA', colorName: 'Biru Indigo', city: 'Jakarta Selatan' },
+    'JAKARTA PONDOK INDAH': { color: '#DB2777', colorName: 'Merah Muda Fuschia', city: 'Jakarta Selatan' },
+    'JAKARTA SUDIRMAN': { color: '#475569', colorName: 'Abu Slate', city: 'Jakarta Selatan' },
+    'JAKARTA TEBET SUPOMO': { color: '#65A30D', colorName: 'Hijau Lime', city: 'Jakarta Selatan' }
+  };
+
+  function normalizeClusterName(raw) {
+    if (!raw) return 'LAINNYA';
+    const up = String(raw).toUpperCase().trim();
+    if (up.includes('BOGOR 1') || up === 'BOGOR 1') return 'BOGOR 1';
+    if (up.includes('BOGOR 2') || up === 'BOGOR 2') return 'BOGOR 2';
+    if (up.includes('YASMIN')) return 'BOGOR YASMIN';
+    if (up.includes('CIBINONG') || up.includes('MAYOR OKING')) return 'CIBINONG MAYOR OKING';
+    if (up.includes('DEPOK 1') || up === 'DEPOK 1') return 'DEPOK 1';
+    if (up.includes('DEPOK 2') || up === 'DEPOK 2') return 'DEPOK 2';
+    if (up.includes('GALERIA') || up.includes('SAWANGAN')) return 'DEPOK GALERIA SAWANGAN';
+    if (up.includes('FATMAWATI')) return 'JAKARTA FATMAWATI';
+    if (up.includes('PONDOK INDAH')) return 'JAKARTA PONDOK INDAH';
+    if (up.includes('SUDIRMAN')) return 'JAKARTA SUDIRMAN';
+    if (up.includes('PLAZA MANDIRI')) return 'JAKARTA PLAZA MANDIRI';
+    if (up.includes('TEBET') || up.includes('SUPOMO') || up.includes('MENARA CYBER')) return 'JAKARTA TEBET SUPOMO';
+    if (up.includes('FALATEHAN') || up.includes('DANANTARA')) return 'JAKARTA FALATEHAN';
+    return up;
+  }
+
+  function getClusterInfo(raw) {
+    const norm = normalizeClusterName(raw);
+    if (CLUSTER_CONFIG[norm]) {
+      return { name: norm, ...CLUSTER_CONFIG[norm] };
+    }
+    return { name: norm || 'Lainnya', color: '#64748B', colorName: 'Abu-Abu', city: '-' };
+  }
 
   // Dynamically populate area multi-select checklist based on selected city
   function updateAreaSelectDropdown(city) {
@@ -119,11 +216,16 @@ document.addEventListener('DOMContentLoaded', () => {
       clusters.forEach(clusterName => {
         const item = document.createElement('div');
         const isChecked = selectedClusters.has(clusterName);
+        const clusterInfo = getClusterInfo(clusterName);
         item.className = `multi-select-item ${isChecked ? 'selected' : ''}`;
         item.dataset.cluster = clusterName;
 
+        const dotClass = showClusterColors ? 'cluster-color-dot' : 'cluster-color-dot inactive';
+        const dotStyle = `background: ${clusterInfo.color};`;
+
         item.innerHTML = `
           <input type="checkbox" class="cluster-chk" id="chk_${clusterName.replace(/\s+/g, '_')}" value="${clusterName}" ${isChecked ? 'checked' : ''}>
+          <span class="${dotClass}" style="${dotStyle}" title="Warna Cluster: ${clusterInfo.colorName} (${clusterInfo.color})"></span>
           <span class="cluster-item-text">${clusterName}</span>
         `;
 
@@ -147,6 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
         listContainer.appendChild(item);
       });
     });
+
+    const chkColorToggle = document.getElementById('chkEnableClusterColors');
+    const colorBar = document.getElementById('clusterColorToggleBar');
+    if (chkColorToggle) {
+      chkColorToggle.checked = showClusterColors;
+    }
+    if (colorBar) {
+      colorBar.classList.toggle('active', showClusterColors);
+    }
 
     updateClusterDropdownTrigger();
   }
@@ -288,6 +399,179 @@ document.addEventListener('DOMContentLoaded', () => {
         renderMapLayersAndList();
       });
     }
+
+    // Toggle Aktifkan Warna Tiap Cluster
+    const chkEnableColors = document.getElementById('chkEnableClusterColors');
+    const colorToggleBar = document.getElementById('clusterColorToggleBar');
+    const legendClusterItem = document.getElementById('legendClusterColorItem');
+
+    if (chkEnableColors) {
+      chkEnableColors.addEventListener('change', (e) => {
+        showClusterColors = e.target.checked;
+        if (colorToggleBar) {
+          colorToggleBar.classList.toggle('active', showClusterColors);
+        }
+        if (legendClusterItem) {
+          legendClusterItem.style.display = showClusterColors ? 'flex' : 'none';
+        }
+
+        // Toggle tampilan dot warna di checklist
+        document.querySelectorAll('.multi-select-item .cluster-color-dot').forEach(dot => {
+          if (showClusterColors) {
+            dot.classList.remove('inactive');
+          } else {
+            dot.classList.add('inactive');
+          }
+        });
+
+        // Re-render marker cabang pada peta secara real-time
+        renderMapLayersAndList({ skipBoundaries: true });
+      });
+    }
+  }
+
+  // Multi-Select Dropdown untuk Titik Episentrum (Tanpa Emotikon/Emoji)
+  function setupEpisentrumMultiSelectEvents() {
+    if (isEpisentrumEventsSetup) return;
+    isEpisentrumEventsSetup = true;
+
+    const container = document.getElementById('episentrumMultiSelect');
+    const btn = document.getElementById('episentrumDropdownBtn');
+    const menu = document.getElementById('episentrumDropdownMenu');
+    const chkSelectAll = document.getElementById('chkEpisentrumSelectAll');
+    const btnReset = document.getElementById('btnResetEpisentrum');
+    const listContainer = document.getElementById('episentrumChecklistItems');
+    const triggerText = document.getElementById('episentrumDropdownText');
+
+    if (!container || !btn || !listContainer) return;
+
+    // Render 5 titik episentrum dengan dot warna unik
+    listContainer.innerHTML = '';
+    EPISENTRUM_UNITS.forEach(unit => {
+      const label = document.createElement('label');
+      label.className = 'multi-select-item';
+      label.innerHTML = `
+        <input type="checkbox" class="episentrum-chk" value="${unit.id}">
+        <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:${unit.color}; margin-right:4px; flex-shrink:0; box-shadow:0 0 0 1.5px white, 0 0 0 2.5px ${unit.color};"></span>
+        <span class="cluster-item-text">${unit.name}</span>
+        <span class="cluster-unit-pill" style="border-left: 3px solid ${unit.color}; font-weight: 700; color: ${unit.color}; background: ${unit.color}15;">${unit.radiusKm} Km</span>
+      `;
+      listContainer.appendChild(label);
+    });
+
+    function updateEpisentrumTriggerText() {
+      if (!triggerText) return;
+      if (selectedEpisentrums.size === 0) {
+        triggerText.textContent = 'Pilih Titik Episentrum';
+      } else if (selectedEpisentrums.size === 1) {
+        const id = Array.from(selectedEpisentrums)[0];
+        const u = EPISENTRUM_UNITS.find(x => x.id === id);
+        triggerText.textContent = u ? `${u.name} (${u.radiusKm} Km)` : '1 Titik Dipilih';
+      } else if (selectedEpisentrums.size === EPISENTRUM_UNITS.length) {
+        triggerText.textContent = 'Semua Titik Dipilih (5)';
+      } else {
+        triggerText.textContent = `${selectedEpisentrums.size} Titik Dipilih`;
+      }
+      if (chkSelectAll) {
+        chkSelectAll.checked = selectedEpisentrums.size === EPISENTRUM_UNITS.length;
+        chkSelectAll.indeterminate = selectedEpisentrums.size > 0 && selectedEpisentrums.size < EPISENTRUM_UNITS.length;
+      }
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = container.classList.toggle('open');
+      container.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (menu) menu.classList.toggle('show', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (container && !container.contains(e.target)) {
+        container.classList.remove('open');
+        container.removeAttribute('aria-expanded');
+        if (menu) menu.classList.remove('show');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && container) {
+        container.classList.remove('open');
+        container.removeAttribute('aria-expanded');
+        if (menu) menu.classList.remove('show');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (menu) {
+      menu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    listContainer.addEventListener('change', (e) => {
+      if (!e.target.matches('.episentrum-chk')) return;
+      const id = e.target.value;
+      const isChecked = e.target.checked;
+      const itemRow = e.target.closest('.multi-select-item');
+      if (itemRow) itemRow.classList.toggle('selected', isChecked);
+
+      if (isChecked) {
+        selectedEpisentrums.add(id);
+        const found = (liveKcpBranches || []).find(b => {
+          const bCode = b.kodeCabang ? String(b.kodeCabang).trim() : '';
+          return bCode === id;
+        });
+        if (found && typeof found.lat === 'number' && typeof found.lng === 'number' && map) {
+          map.flyTo([found.lat, found.lng], 11, { duration: 0.8 });
+          showKcpDetailPanel(found);
+        }
+      } else {
+        selectedEpisentrums.delete(id);
+      }
+
+      updateEpisentrumTriggerText();
+      renderMapLayersAndList({ skipBoundaries: true });
+    });
+
+    if (chkSelectAll) {
+      chkSelectAll.addEventListener('change', (e) => {
+        const isChecked = e.target.checked;
+        if (isChecked) {
+          EPISENTRUM_UNITS.forEach(u => selectedEpisentrums.add(u.id));
+          if (map) {
+            map.flyTo([-6.5500, 106.7700], 10, { duration: 1.0 });
+          }
+        } else {
+          selectedEpisentrums.clear();
+        }
+        document.querySelectorAll('.episentrum-chk').forEach(input => {
+          input.checked = isChecked;
+          const r = input.closest('.multi-select-item');
+          if (r) r.classList.toggle('selected', isChecked);
+        });
+        updateEpisentrumTriggerText();
+        renderMapLayersAndList({ skipBoundaries: true });
+      });
+    }
+
+    if (btnReset) {
+      btnReset.addEventListener('click', (e) => {
+        e.preventDefault();
+        selectedEpisentrums.clear();
+        document.querySelectorAll('.episentrum-chk').forEach(input => {
+          input.checked = false;
+          const r = input.closest('.multi-select-item');
+          if (r) r.classList.remove('selected');
+        });
+        updateEpisentrumTriggerText();
+        renderMapLayersAndList({ skipBoundaries: true });
+      });
+    }
+
+    updateEpisentrumTriggerText();
   }
 
   // DOM Elements
@@ -951,21 +1235,36 @@ document.addEventListener('DOMContentLoaded', () => {
       liveKcpBranches.forEach(kcpItem => {
           if (!kcpItem || typeof kcpItem.lat !== 'number' || typeof kcpItem.lng !== 'number' || isNaN(kcpItem.lat) || isNaN(kcpItem.lng)) return;
 
-          if (currentCityFilter !== 'ALL' && kcpItem.city !== currentCityFilter) return;
+          // 1. Cek apakah unit ini adalah salah satu dari 5 Titik Episentrum Khusus
+          const kcpCode = kcpItem.kodeCabang ? String(kcpItem.kodeCabang).trim() : '';
+          const kcpCleanName = (kcpItem.kcp || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
-          // Micro Cluster Multi-Select Filter (Matches checked clusters)
-          if (selectedClusters.size < ALL_REGIONAL_CLUSTERS.length) {
-            const itemCluster = (kcpItem.cluster || kcpItem.area || '').toUpperCase().trim();
-            const isMatch = selectedClusters.has(itemCluster) || 
-              (selectedClusters.has('JAKARTA TEBET SUPOMO') && (itemCluster === 'JAKARTA MENARA CYBER 2' || itemCluster.includes('TEBET')));
-            if (!isMatch) return;
+          const episentrumConfig = EPISENTRUM_UNITS.find(u => {
+            return (kcpCode && u.id === kcpCode) ||
+                   (kcpCleanName === u.name.toLowerCase().replace(/[^a-z0-9]/g, ''));
+          });
+
+          // Cek apakah unit ini aktif dipilih di dropdown "Titik Episentrum"
+          const isEpisentrumActive = episentrumConfig && selectedEpisentrums.has(episentrumConfig.id);
+
+          // 2. Jika BUKAN Titik Episentrum aktif, terapkan filter wilayah, cluster, dan mode:
+          // (Jika user meng-close/uncheck semua cluster, Titik Episentrum yang diceklist TETAP MUNCUL di peta)
+          if (!isEpisentrumActive) {
+            if (currentCityFilter !== 'ALL' && kcpItem.city !== currentCityFilter) return;
+
+            // Micro Cluster Multi-Select Filter (Matches checked clusters)
+            if (selectedClusters.size < ALL_REGIONAL_CLUSTERS.length) {
+              const itemCluster = normalizeClusterName(kcpItem.cluster || kcpItem.area || '');
+              if (!selectedClusters.has(itemCluster)) return;
+            }
+
+            const isMicroUnit = kcpItem.hasMicro !== false;
+            if (currentMode === 'branch-micro' && !isMicroUnit) return;
+            if (currentMode === 'branch-nonmicro' && isMicroUnit) return;
+            if (currentMode === 'blank') return;
           }
 
           const isMicro = kcpItem.hasMicro !== false;
-
-          if (currentMode === 'branch-micro' && !isMicro) return;
-          if (currentMode === 'branch-nonmicro' && isMicro) return;
-          if (currentMode === 'blank') return;
 
           // Universal Multi-Field Search Filter (matches search query against name, address, kecamatan, kelurahan, cluster, city, code)
           if (searchQuery.trim() !== '') {
@@ -993,46 +1292,95 @@ document.addEventListener('DOMContentLoaded', () => {
             const isMatch = terms.every(term => searchableText.includes(term)) ||
                             searchableText.includes(rawQ) ||
                             searchableText.includes(compactQ);
-            if (!isMatch) return;
+            if (!isMatch && !isEpisentrumActive) return;
           }
 
           filteredKcps.push(kcpItem);
 
-          const markerBg = isMicro ? '#003D79' : '#DC2626'; // Signature Mandiri Blue for Micro, Red for Non-Micro
-          const markerBorder = isMicro ? '#FFB700' : '#FCA5A5';
+          // Warna khas masing-masing unit episentrum (Juanda: Ungu, Leuwiliang: Toska, Karadenan: Hijau Zamrud, Nusa Dua: Magenta, Mayor Oking: Indigo)
+          const unitColor = episentrumConfig ? episentrumConfig.color : '#9333EA';
+          const unitRgba = episentrumConfig ? episentrumConfig.rgba : 'rgba(147, 51, 234, 0.4)';
+
+          // Info cluster unit
+          const clusterInfo = getClusterInfo(kcpItem.cluster || kcpItem.area);
+
+          // Gaya visual pin:
+          // 1. Jika dipilih sebagai Titik Episentrum: SELALU PUTIH dengan border outline warna khas unit & zIndex tertinggi (2500)
+          // 2. Jika fitur "Aktifkan Warna Tiap Cluster" diaktifkan di dropdown: gunakan warna masing-masing cluster
+          // 3. Mode default (fitur nonaktif): gunakan warna standar (Biru Mandiri #003D79 untuk Micro / Merah #DC2626 untuk Non-Micro)
+          let markerBg, markerBorder, markerIconColor, markerBorderWidth, markerShadow;
+
+          if (isEpisentrumActive) {
+            markerBg = '#FFFFFF'; // Berwarna putih saat dipilih sebagai titik episentrum
+            markerBorder = unitColor; // Outline warna khas masing-masing unit
+            markerIconColor = unitColor;
+            markerBorderWidth = 3.5;
+            markerShadow = `0 0 0 4px ${unitRgba}, 0 6px 20px rgba(0,0,0,0.6)`;
+          } else if (showClusterColors) {
+            markerBg = clusterInfo.color; // Warna khas masing-masing micro cluster
+            markerBorder = '#FFFFFF';
+            markerIconColor = '#FFFFFF';
+            markerBorderWidth = 2.5;
+            markerShadow = `0 3px 12px ${clusterInfo.color}80, 0 2px 6px rgba(0,0,0,0.4)`;
+          } else {
+            markerBg = isMicro ? '#003D79' : '#DC2626'; // Berubah kembali ke biru asli (atau merah) jika fitur nonaktif
+            markerBorder = isMicro ? '#FFB700' : '#FCA5A5';
+            markerIconColor = 'white';
+            markerBorderWidth = 2;
+            markerShadow = '0 4px 14px rgba(0,0,0,0.5)';
+          }
+
+          const markerSize = isEpisentrumActive ? 40 : 34;
+          const markerAnchor = isEpisentrumActive ? 20 : 17;
+          const pulseClass = isEpisentrumActive ? ' episentrum-active-pin' : '';
 
           const branchIcon = L.divIcon({
             className: 'custom-branch-marker',
             html: `
-              <div style="
-                width: 34px; height: 34px;
+              <div class="${pulseClass}" style="
+                width: ${markerSize}px; height: ${markerSize}px;
                 background: ${markerBg};
-                border: 2px solid ${markerBorder};
+                border: ${markerBorderWidth}px solid ${markerBorder};
                 border-radius: 50%;
-                color: white;
+                color: ${markerIconColor};
                 display: flex; align-items: center; justify-content: center;
-                box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-                font-size: 14px;
+                box-shadow: ${markerShadow};
+                font-size: ${isEpisentrumActive ? 17 : 14}px;
+                transition: all 0.25s ease;
               ">
                 <i class="fa-solid fa-building-columns"></i>
               </div>
             `,
-            iconSize: [34, 34],
-            iconAnchor: [17, 17]
+            iconSize: [markerSize, markerSize],
+            iconAnchor: [markerAnchor, markerAnchor]
           });
 
-          const marker = L.marker([kcpItem.lat, kcpItem.lng], { icon: branchIcon });
+          const marker = L.marker([kcpItem.lat, kcpItem.lng], {
+            icon: branchIcon,
+            zIndexOffset: isEpisentrumActive ? 2500 : (showClusterColors ? 500 : 0) // Pastikan pin putih selalu di paling atas
+          });
 
           const microBadgeHtml = isMicro
             ? `<p style="color: #059669; font-weight: 700; margin-top: 4px;"><i class="fa-solid fa-circle-check"></i> Unit Micro Banking: <strong>Ada</strong></p>`
             : `<p style="color: #DC2626; font-weight: 700; margin-top: 4px;"><i class="fa-solid fa-circle-xmark"></i> Unit Micro Banking: <strong>Tidak Ada (Cabang Reguler)</strong></p>`;
 
+          const popupHeaderBg = isEpisentrumActive
+            ? unitColor
+            : (showClusterColors ? clusterInfo.color : (isMicro ? '#003D79' : '#DC2626'));
+
           marker.bindPopup(`
             <div class="popup-card">
-              <div class="popup-header" style="background: ${markerBg}; color: white; padding: 6px 10px; border-radius: 6px 6px 0 0;"><i class="fa-solid fa-building-columns"></i> ${kcpItem.kcp}</div>
+              <div class="popup-header" style="background: ${popupHeaderBg}; color: white; padding: 6px 10px; border-radius: 6px 6px 0 0;"><i class="fa-solid fa-building-columns"></i> ${kcpItem.kcp}${isEpisentrumActive ? ` (Titik Episentrum - ${episentrumConfig.colorName})` : ''}</div>
               <div class="popup-body">
+                ${isEpisentrumActive ? `<p style="margin-bottom: 6px; padding: 3px 8px; background: ${unitColor}15; border-left: 3px solid ${unitColor}; border-radius: 4px; font-weight: 700; color: ${unitColor}; font-size: 11px;">Titik Episentrum (${episentrumConfig.colorName}): Radius ${episentrumConfig.radiusKm} Km</p>` : ''}
                 <p style="margin-bottom: 4px;"><strong>Alamat Kantor:</strong> ${kcpItem.alamat}</p>
-                <p style="margin-bottom: 4px;"><strong>Cluster / Area:</strong> ${kcpItem.cluster || '-'}</p>
+                <p style="margin-bottom: 4px;">
+                  <strong>Cluster / Area:</strong> 
+                  <span style="display: inline-flex; align-items: center; gap: 5px;">
+                    <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${clusterInfo.color}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
+                    <strong>${clusterInfo.name}</strong> ${showClusterColors ? `<span style="font-size: 10.5px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>` : ''}
+                  </span>
+                </p>
                 <p style="margin-bottom: 4px;"><strong>Kecamatan / Kelurahan:</strong> ${kcpItem.kecamatan || ''} (${kcpItem.kelurahan || ''})</p>
                 <p style="margin-bottom: 4px;"><strong>Kab / Kota:</strong> ${kcpItem.city}</p>
                 <p style="margin-bottom: 4px;"><strong>Koordinat GPS:</strong> <code>${kcpItem.lat.toFixed(6)}, ${kcpItem.lng.toFixed(6)}</code></p>
@@ -1049,19 +1397,21 @@ document.addEventListener('DOMContentLoaded', () => {
           visibleBounds.extend([kcpItem.lat, kcpItem.lng]);
           hasPoints = true;
 
-          if (currentBoundaryMode === 'radius' && showRadius && isMicro) {
+          if (showRadius && isEpisentrumActive && episentrumConfig) {
             const circle = L.circle([kcpItem.lat, kcpItem.lng], {
-              radius: 2500, // 2.5 Km Radius
-              color: '#F59E0B', // Warm Golden Yellow
-              weight: 1.5,
-              dashArray: '6, 5',
-              fill: false,
-              fillOpacity: 0.0,
-              opacity: 0.85,
+              radius: episentrumConfig.radiusM,
+              color: episentrumConfig.color, // Warna garis tepi khas masing-masing unit
+              weight: 2.5, // Ditebalkan sedikit agar tegas
+              dashArray: '7, 6',
+              fill: true,
+              fillColor: episentrumConfig.color, // Warna dalam lingkaran senada
+              fillOpacity: 0.18, // Ditingkatkan ke 18% agar warna lebih mencolok dan irisan tumpang-tindih lebih kontras
+              opacity: 0.95,
               interactive: false
             });
             radiusCirclesGroup.addLayer(circle);
           }
+
         });
       }
 
@@ -1586,6 +1936,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? '<i class="fa-solid fa-circle-check" style="color: #059669;"></i> Ada Unit Micro Banking'
       : '<i class="fa-solid fa-circle-xmark" style="color: #DC2626;"></i> Tidak Ada Unit Micro (Cabang Reguler)';
     const statusColor = isMicro ? '#059669' : '#DC2626';
+    const clusterInfo = getClusterInfo(kcpItem.cluster || kcpItem.area);
 
     panelTitle.innerHTML = `<i class="fa-solid fa-building-columns" style="color: ${headerColor};"></i> Detail Cabang KCP`;
     
@@ -1598,6 +1949,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="detail-section">
         <span class="detail-label">Unit Micro Banking</span>
         <span class="detail-value" style="color: ${statusColor}; font-weight: 700;">${statusText}</span>
+      </div>
+
+      <div class="detail-section">
+        <span class="detail-label">Micro Cluster / Area</span>
+        <span class="detail-value" style="display: flex; align-items: center; gap: 6px;">
+          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: ${clusterInfo.color}; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"></span>
+          <strong>${clusterInfo.name}</strong> <span style="font-size: 11px; color: ${clusterInfo.color}; font-weight: 700;">(${clusterInfo.colorName})</span>
+        </span>
       </div>
 
       <div class="detail-section">
@@ -1978,6 +2337,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Multi-Select Checklist Dropdown
     setupClusterMultiSelectEvents();
     renderClusterChecklist('ALL');
+
+    // Initialize Titik Episentrum Dropdown
+    setupEpisentrumMultiSelectEvents();
 
     if (areaSelect) {
       areaSelect.addEventListener('change', (e) => {
