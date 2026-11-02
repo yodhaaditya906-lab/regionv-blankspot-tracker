@@ -21,10 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const BLANKSPOT_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/gviz/tq?tqx=out:csv`;
   const BLANKSPOT_SHEET_EXPORT_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/export?format=csv`;
 
+  // Google Sheet Config (Data Demografi per Kecamatan - Tab "Data Demografi /Kecamatan", GID: 34396531)
+  const DEMOGRAFI_SHEET_GID = '34396531';
+  const DEMOGRAFI_SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/gviz/tq?tqx=out:csv&gid=${DEMOGRAFI_SHEET_GID}`;
+  const DEMOGRAFI_SHEET_EXPORT_URL = `https://docs.google.com/spreadsheets/d/${BLANKSPOT_SHEET_ID}/export?format=csv&gid=${DEMOGRAFI_SHEET_GID}`;
+
   // App State
   let regionData = null;
   let liveKcpBranches = [];
   let liveBlankSpots = (window.MASTER_BLANKSPOTS_UMKM_DATA || []);
+  let liveDemografi = []; // Data Demografi per Kecamatan (tab "Data Demografi /Kecamatan")
   let map = null;
   let branchMarkersGroup = L.layerGroup();
   let blankSpotMarkersGroup = L.layerGroup();
@@ -49,8 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let isClusterEventsSetup = false;
   let isEpisentrumEventsSetup = false;
 
-  // Konfigurasi 5 Titik Episentrum Khusus (Warna Unik per Unit, Tanpa Emotikon)
+  // Konfigurasi 6 Titik Episentrum Khusus (Warna Unik per Unit, Tanpa Emotikon)
   const EPISENTRUM_UNITS = [
+    {
+      id: '13313',
+      name: 'Bogor Pajajaran 1',
+      radiusKm: 20,
+      radiusM: 20000,
+      color: '#2563EB',      // Biru Royal / Sapphire Blue
+      colorName: 'Biru Royal',
+      rgba: 'rgba(37, 99, 235, 0.45)'
+    },
     {
       id: '13300',
       name: 'Bogor Juanda 1',
@@ -61,40 +76,40 @@ document.addEventListener('DOMContentLoaded', () => {
       rgba: 'rgba(147, 51, 234, 0.45)'
     },
     {
-      id: '13384',
-      name: 'Leuwiliang 1',
-      radiusKm: 25,
-      radiusM: 25000,
-      color: '#0891B2',      // Toska / Cyan
-      colorName: 'Toska',
-      rgba: 'rgba(8, 145, 178, 0.45)'
-    },
-    {
-      id: '13392',
-      name: 'Bogor Karadenan 1',
-      radiusKm: 25,
-      radiusM: 25000,
-      color: '#059669',      // Hijau Zamrud / Emerald Green (Bukan Merah / Oranye)
+      id: '13391',
+      name: 'Bogor Kemang 1',
+      radiusKm: 20,
+      radiusM: 20000,
+      color: '#059669',      // Hijau Zamrud / Emerald Green
       colorName: 'Hijau Zamrud',
       rgba: 'rgba(5, 150, 105, 0.45)'
     },
     {
-      id: '13323',
-      name: 'Bogor Grand Nusa Dua 1',
-      radiusKm: 25,
-      radiusM: 25000,
+      id: '13325',
+      name: 'Cibinong Mayor Oking 1',
+      radiusKm: 20,
+      radiusM: 20000,
+      color: '#4F46E5',      // Biru Indigo
+      colorName: 'Indigo',
+      rgba: 'rgba(79, 70, 229, 0.45)'
+    },
+    {
+      id: '13321',
+      name: 'Cileungsi 1',
+      radiusKm: 20,
+      radiusM: 20000,
       color: '#C026D3',      // Magenta / Fuchsia
       colorName: 'Magenta',
       rgba: 'rgba(192, 38, 211, 0.45)'
     },
     {
-      id: '13325',
-      name: 'Cibinong Mayor Oking 1',
-      radiusKm: 25,
-      radiusM: 25000,
-      color: '#4F46E5',      // Biru Indigo
-      colorName: 'Indigo',
-      rgba: 'rgba(79, 70, 229, 0.45)'
+      id: '13318',
+      name: 'Bogor Kampus IPB Dermaga 1',
+      radiusKm: 20,
+      radiusM: 20000,
+      color: '#0891B2',      // Toska / Cyan
+      colorName: 'Toska',
+      rgba: 'rgba(8, 145, 178, 0.45)'
     }
   ];
   let selectedEpisentrums = new Set();
@@ -445,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!container || !btn || !listContainer) return;
 
-    // Render 5 titik episentrum dengan dot warna unik
+    // Render 6 titik episentrum dengan dot warna unik
     listContainer.innerHTML = '';
     EPISENTRUM_UNITS.forEach(unit => {
       const label = document.createElement('label');
@@ -468,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const u = EPISENTRUM_UNITS.find(x => x.id === id);
         triggerText.textContent = u ? `${u.name} (${u.radiusKm} Km)` : '1 Titik Dipilih';
       } else if (selectedEpisentrums.size === EPISENTRUM_UNITS.length) {
-        triggerText.textContent = 'Semua Titik Dipilih (5)';
+        triggerText.textContent = `Semua Titik Dipilih (${EPISENTRUM_UNITS.length})`;
       } else {
         triggerText.textContent = `${selectedEpisentrums.size} Titik Dipilih`;
       }
@@ -522,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedEpisentrums.add(id);
         const found = (liveKcpBranches || []).find(b => {
           const bCode = b.kodeCabang ? String(b.kodeCabang).trim() : '';
-          return bCode === id;
+          return bCode === id || (id === '13318' && b.kcp && b.kcp.toLowerCase().includes('ipb'));
         });
         if (found && typeof found.lat === 'number' && typeof found.lng === 'number' && map) {
           map.flyTo([found.lat, found.lng], 11, { duration: 0.8 });
@@ -542,7 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isChecked) {
           EPISENTRUM_UNITS.forEach(u => selectedEpisentrums.add(u.id));
           if (map) {
-            map.flyTo([-6.5500, 106.7700], 10, { duration: 1.0 });
+            map.flyTo([-6.5300, 106.8300], 10, { duration: 1.0 });
           }
         } else {
           selectedEpisentrums.clear();
@@ -622,6 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchRegionData();
   fetchLiveKcpGoogleSheet();
   fetchLiveBlankSpotGoogleSheet();
+  fetchLiveDemografiGoogleSheet();
 
   // Map Initialization (100% Genuine Google Maps Engine)
   function initMap() {
@@ -803,19 +819,41 @@ document.addEventListener('DOMContentLoaded', () => {
             interactive: true
           });
 
-          // Custom Tooltip with Unit Status & UMKM Potensi
+          // Custom Tooltip with Unit Status, UMKM & Data Demografi (semua kecamatan)
           const normKec = cleanKecName(kecName);
-          const matchedUMKM = (liveBlankSpots || window.MASTER_BLANKSPOTS_UMKM_DATA || []).find(b => {
+
+          // 1. Cari data demografi dari live Google Sheet tab Demografi
+          const demografi = getDemografiForKec(kecName);
+
+          // 2. Fallback: cari UMKM dari liveBlankSpots jika demografi tidak ada
+          const matchedUMKM = demografi ? null : (liveBlankSpots || window.MASTER_BLANKSPOTS_UMKM_DATA || []).find(b => {
             const bKec = cleanKecName(b.namaKawasan || b.namaLengkap || '');
             return bKec.includes(normKec) || normKec.includes(bKec);
           });
-          const umkmBadge = (isBlankSpot && matchedUMKM && matchedUMKM.jumlahUMKM)
-            ? `<br><span style="color:#0284C7; font-weight:700;"><i class="fa-solid fa-store"></i> ${matchedUMKM.jumlahUMKM.toLocaleString('id-ID')} UMKM Terdata</span>`
+
+          // 3. Susun badge UMKM
+          let umkmVal = demografi ? demografi.jumlahUMKM : (matchedUMKM ? matchedUMKM.jumlahUMKM : null);
+          let umkmTahun = demografi ? demografi.dataTahunUMKM : '';
+          const umkmBadge = (umkmVal !== null && umkmVal !== undefined)
+            ? `<br><span style="color:#0284C7; font-weight:700;"><i class="fa-solid fa-store"></i> ${Number(umkmVal).toLocaleString('id-ID')} UMKM Terdata${umkmTahun ? ` <span style="font-weight:400;font-size:10px;color:#64748B">(${umkmTahun})</span>` : ''}</span>`
             : '';
 
+          // 4. Susun badge demografi jika data tersedia
+          let demografiBadge = '';
+          if (demografi) {
+            const fmtNum = (n, decimals = 0) => n !== null && n !== undefined ? Number(n).toLocaleString('id-ID', { maximumFractionDigits: decimals }) : '-';
+            const tahunTag = (t) => t ? ` <span style="font-weight:400;font-size:10px;color:#64748B">(${t})</span>` : '';
+            demografiBadge = [
+              demografi.jumlahPenduduk !== null ? `<br><span style="color:#7C3AED;font-weight:700;"><i class="fa-solid fa-people-group"></i> ${fmtNum(demografi.jumlahPenduduk)} Jiwa${tahunTag(demografi.dataTahunPenduduk)}</span>` : '',
+              demografi.luasWilayah !== null ? `<br><span style="color:#059669;font-weight:700;"><i class="fa-solid fa-map"></i> ${fmtNum(demografi.luasWilayah, 2)} km²${tahunTag(demografi.dataTahunLuas)}</span>` : '',
+              demografi.kepadatanPenduduk !== null ? `<br><span style="color:#D97706;font-weight:700;"><i class="fa-solid fa-chart-simple"></i> ${fmtNum(demografi.kepadatanPenduduk)} jiwa/km²</span>` : ''
+            ].join('');
+          }
+
+          // 5. Status badge (blankspot vs operasional)
           const statusBadge = isBlankSpot
-            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Cabang)</span>${umkmBadge}`
-            : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Cabang Operasional</span>`;
+            ? `<span style="color:#EF4444; font-weight:700;"><i class="fa-solid fa-triangle-exclamation"></i> Blank Spot (0 Cabang)</span>${umkmBadge}${demografiBadge}`
+            : `<span style="color:#10B981; font-weight:600;"><i class="fa-solid fa-building-columns"></i> ${unitCount} Cabang Operasional</span>${umkmBadge}${demografiBadge}`;
 
           kecPoly.bindTooltip(`<strong>Kecamatan ${item.name}</strong><br>${statusBadge}`, {
             sticky: true,
@@ -1032,6 +1070,103 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  // Fetch Live Demografi per Kecamatan (Tab "Data Demografi /Kecamatan", GID: 34396531)
+  function fetchLiveDemografiGoogleSheet() {
+    fetch(DEMOGRAFI_SHEET_EXPORT_URL)
+      .then(res => {
+        if (!res.ok) return fetch(DEMOGRAFI_SHEET_CSV_URL);
+        return res;
+      })
+      .then(res => res.text())
+      .then(csvText => {
+        if (typeof Papa !== 'undefined') {
+          // Gunakan header:false supaya bisa handle kolom duplikat "Data Tahun" via posisi indeks
+          const raw = Papa.parse(csvText, { header: false, skipEmptyLines: true });
+          if (!raw || !raw.data || raw.data.length < 2) return;
+
+          const headers = raw.data[0].map(h => String(h).trim());
+
+          // Cari indeks kolom berdasarkan nama header (exact match dulu, lalu partial)
+          const idxOf = (name) => headers.findIndex(h => h.toLowerCase() === name.toLowerCase());
+          const idxOfPartial = (partial) => headers.findIndex(h => h.toLowerCase().includes(partial.toLowerCase()));
+
+          const iKec         = idxOf('Kecamatan');
+          const iNamaLengkap = idxOf('Nama Lengkap') !== -1 ? idxOf('Nama Lengkap') : idxOfPartial('Kecamatan, Kab');
+          const iKabKota     = idxOf('Kab./Kodya') !== -1 ? idxOf('Kab./Kodya') : idxOf('Kab/Kota');
+          const iStatus      = idxOf('Status Coverage');
+          const iJumUnit     = idxOf('Jumlah Unit');
+          const iJumUMKM     = idxOf('Jumlah UMKM');
+          const iJumPenduduk = idxOf('Jumlah Penduduk');
+          const iLuas        = idxOf('Luas Wilayah');
+          const iKepadatan   = idxOf('Kepadatan Penduduk (/km)') !== -1
+                               ? idxOf('Kepadatan Penduduk (/km)')
+                               : idxOfPartial('Kepadatan');
+
+          // Kolom "Data Tahun" muncul 3x (G=UMKM, I=Penduduk, K=Luas) — ambil semua indeksnya
+          const dataTahunAll = headers.reduce((acc, h, i) => {
+            if (h === 'Data Tahun') acc.push(i);
+            return acc;
+          }, []);
+          const iTahunUMKM     = dataTahunAll[0] !== undefined ? dataTahunAll[0] : -1;
+          const iTahunPenduduk = dataTahunAll[1] !== undefined ? dataTahunAll[1] : -1;
+          const iTahunLuas     = dataTahunAll[2] !== undefined ? dataTahunAll[2] : -1;
+
+          const parseNum = (val) => {
+            if (!val) return null;
+            const n = parseFloat(String(val).replace(/[^0-9.,]/g, '').replace(',', '.'));
+            return isNaN(n) ? null : n;
+          };
+          const parseInt2 = (val) => {
+            if (!val) return null;
+            const n = parseInt(String(val).replace(/[^0-9]/g, ''), 10);
+            return isNaN(n) ? null : n;
+          };
+          const getCol = (row, idx) => idx !== -1 && idx < row.length ? String(row[idx] || '').trim() : '';
+
+          const parsed = [];
+          for (let i = 1; i < raw.data.length; i++) {
+            const row = raw.data[i];
+            const kecamatan = getCol(row, iKec);
+            if (!kecamatan) continue;
+
+            parsed.push({
+              kecamatan:         kecamatan,
+              namaLengkap:       getCol(row, iNamaLengkap),
+              kabKota:           getCol(row, iKabKota),
+              statusCoverage:    getCol(row, iStatus),
+              jumlahUnit:        parseInt2(getCol(row, iJumUnit)),
+              jumlahUMKM:        parseInt2(getCol(row, iJumUMKM)),
+              dataTahunUMKM:     getCol(row, iTahunUMKM),
+              jumlahPenduduk:    parseNum(getCol(row, iJumPenduduk)),
+              dataTahunPenduduk: getCol(row, iTahunPenduduk),
+              luasWilayah:       parseNum(getCol(row, iLuas)),
+              dataTahunLuas:     getCol(row, iTahunLuas),
+              kepadatanPenduduk: parseNum(getCol(row, iKepadatan)),
+            });
+          }
+
+          if (parsed.length > 0) {
+            liveDemografi = parsed;
+            renderMapLayersAndList();
+            console.log(`[Demografi] ✅ ${parsed.length} kecamatan dimuat dari Google Sheet tab Demografi.`);
+          }
+        }
+      })
+      .catch(err => {
+        console.warn('[Demografi] Gagal fetch tab Data Demografi dari Google Sheet:', err);
+      });
+  }
+
+  // Helper: Cari data demografi untuk suatu kecamatan
+  function getDemografiForKec(kecName) {
+    if (!liveDemografi || liveDemografi.length === 0) return null;
+    const normKec = cleanKecName(kecName);
+    return liveDemografi.find(d => {
+      const dKec = cleanKecName(d.kecamatan || '');
+      return dKec === normKec || dKec.includes(normKec) || normKec.includes(dKec);
+    }) || null;
+  }
+
   // Parse Google Sheet CSV dynamically matching column headers (supports Titik Koordinat column seamlessly)
   function parseGoogleSheetCSV(text) {
     const lines = text.split(/\r?\n/).filter(l => l.trim() !== '' && !l.startsWith('Title:') && !l.startsWith('Description:') && !l.startsWith('Source:'));
@@ -1235,13 +1370,14 @@ document.addEventListener('DOMContentLoaded', () => {
       liveKcpBranches.forEach(kcpItem => {
           if (!kcpItem || typeof kcpItem.lat !== 'number' || typeof kcpItem.lng !== 'number' || isNaN(kcpItem.lat) || isNaN(kcpItem.lng)) return;
 
-          // 1. Cek apakah unit ini adalah salah satu dari 5 Titik Episentrum Khusus
+          // 1. Cek apakah unit ini adalah salah satu dari 6 Titik Episentrum Khusus
           const kcpCode = kcpItem.kodeCabang ? String(kcpItem.kodeCabang).trim() : '';
           const kcpCleanName = (kcpItem.kcp || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
           const episentrumConfig = EPISENTRUM_UNITS.find(u => {
             return (kcpCode && u.id === kcpCode) ||
-                   (kcpCleanName === u.name.toLowerCase().replace(/[^a-z0-9]/g, ''));
+                   (kcpCleanName === u.name.toLowerCase().replace(/[^a-z0-9]/g, '')) ||
+                   (u.id === '13318' && kcpCleanName.includes('ipb'));
           });
 
           // Cek apakah unit ini aktif dipilih di dropdown "Titik Episentrum"
