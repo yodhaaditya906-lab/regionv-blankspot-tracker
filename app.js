@@ -1270,6 +1270,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isNaN(parts[0]) && !isNaN(parts[1]) && parts[0] !== 0) {
           baseLat = parts[0];
           baseLng = parts[1];
+          // Auto-correct positive latitude if missing minus sign in Indonesia Region V (e.g. 6.351688 -> -6.351688)
+          if (baseLat > 0 && baseLat < 10) {
+            baseLat = -baseLat;
+          }
         }
       }
 
