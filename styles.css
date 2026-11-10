@@ -1110,9 +1110,9 @@ body {
 
 .modal-window {
   background: var(--neutral-white);
-  width: 100%;
-  max-width: 1100px;
-  max-height: 85vh;
+  width: 95vw;
+  max-width: 1360px;
+  max-height: 88vh;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-popup);
   display: flex;
@@ -1178,17 +1178,19 @@ body {
   background: var(--neutral-100);
   color: var(--neutral-700);
   font-weight: 700;
-  padding: 10px 16px;
+  padding: 10px 14px;
   border-bottom: 2px solid var(--neutral-200);
   position: sticky;
   top: 0;
   z-index: 10;
+  white-space: nowrap;
 }
 
 .db-table td {
-  padding: 10px 16px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--neutral-200);
   color: var(--neutral-800);
+  vertical-align: middle;
 }
 
 .db-table tbody tr:hover {

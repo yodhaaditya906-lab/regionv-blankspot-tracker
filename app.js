@@ -2255,12 +2255,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Compute Top 3 Nearest Branches for a given branch (Deterministic Haversine + 1.25 Road Factor)
+  function getTop3NearestBranches(branch, allBranches) {
+    if (branch._nearestTop3 && branch._nearestTop3PoolSize === (allBranches ? allBranches.length : 0)) {
+      return branch._nearestTop3;
+    }
+    if (!branch || typeof branch.lat !== 'number' || typeof branch.lng !== 'number') return [];
+    const pool = (allBranches && allBranches.length > 0) ? allBranches : liveKcpBranches;
+    const candidates = [];
+
+    pool.forEach(other => {
+      if (!other || other === branch || other.kcp === branch.kcp) return;
+      if (typeof other.lat !== 'number' || typeof other.lng !== 'number') return;
+      const straightDist = getHaversineDistanceKm(branch.lat, branch.lng, other.lat, other.lng);
+      if (straightDist < 0.01) return;
+
+      const roadDist = straightDist * 1.25;
+      const totalMinutes = Math.round((roadDist / 30) * 60);
+      let timeText = '';
+      if (totalMinutes < 60) {
+        timeText = `${totalMinutes} mnt`;
+      } else {
+        const hrs = Math.floor(totalMinutes / 60);
+        const mins = totalMinutes % 60;
+        timeText = mins > 0 ? `${hrs} jam ${mins} mnt` : `${hrs} jam`;
+      }
+
+      candidates.push({
+        kcp: other.kcp,
+        city: other.city || other.rawCity || '',
+        straightDist: straightDist,
+        distKm: straightDist.toFixed(1),
+        timeStr: timeText,
+        lat: other.lat,
+        lng: other.lng
+      });
+    });
+
+    candidates.sort((a, b) => a.straightDist - b.straightDist);
+    const top3 = candidates.slice(0, 3);
+    branch._nearestTop3 = top3;
+    branch._nearestTop3PoolSize = pool.length;
+    return top3;
+  }
+
   // Render Live Database Explorer Table
   function renderDatabaseTable() {
     if (!dbTableBody) return;
 
     const filter = (dbSearchInput ? dbSearchInput.value : '').toLowerCase().trim();
     let rowsHtml = '';
+
+    const formatNearestCell = (item) => {
+      if (!item) return `<span style="color: #94A3B8;">-</span>`;
+      return `<div style="font-weight: 600; color: #0F172A; font-size: 11.5px; line-height: 1.25;">${item.kcp}</div>
+              <div style="font-size: 11px; color: #0284C7; font-weight: 600; margin-top: 2px;">${item.distKm} km (~${item.timeStr})</div>`;
+    };
 
     if (liveKcpBranches.length > 0) {
       liveKcpBranches.forEach((kcpItem, idx) => {
@@ -2278,6 +2328,11 @@ document.addEventListener('DOMContentLoaded', () => {
           ? `<span style="background: #D1FAE5; color: #065F46; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">MICRO</span>`
           : `<span style="background: #FEE2E2; color: #991B1B; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">NON-MICRO</span>`;
 
+        const nearest = getTop3NearestBranches(kcpItem, liveKcpBranches);
+        const cellN1 = formatNearestCell(nearest[0]);
+        const cellN2 = formatNearestCell(nearest[1]);
+        const cellN3 = formatNearestCell(nearest[2]);
+
         rowsHtml += `
           <tr>
             <td><strong style="color: #003D79;">KCP-${idx+1}</strong></td>
@@ -2287,6 +2342,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${kcpItem.alamat}</td>
             <td><code>${kcpItem.lat.toFixed(6)}, ${kcpItem.lng.toFixed(6)}</code></td>
             <td>Operasional</td>
+            <td>${cellN1}</td>
+            <td>${cellN2}</td>
+            <td>${cellN3}</td>
             <td>
               <button class="btn-table-fly-kcp" data-lat="${kcpItem.lat}" data-lng="${kcpItem.lng}">
                 <i class="fa-solid fa-crosshairs"></i> Map
@@ -2315,6 +2373,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <td>Kawasan Blank Spot (Cabang Terdekat: ${spot.nearestUnit ? spot.nearestUnit.kcp : '-'})</td>
               <td><code>${spot.centroid[0].toFixed(6)}, ${spot.centroid[1].toFixed(6)}</code></td>
               <td><span style="color: #DC2626; font-weight: 700;">Blank Spot</span></td>
+              <td style="text-align: center; color: #94A3B8;">-</td>
+              <td style="text-align: center; color: #94A3B8;">-</td>
+              <td style="text-align: center; color: #94A3B8;">-</td>
               <td>
                 <button class="btn-table-fly-kcp" data-lat="${spot.centroid[0]}" data-lng="${spot.centroid[1]}" style="background: #DC2626; color: white; border: none; padding: 3px 8px; border-radius: 4px; font-size: 11px; cursor: pointer;">
                   <i class="fa-solid fa-crosshairs"></i> Map
@@ -2327,7 +2388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!rowsHtml) {
-      dbTableBody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: #64748B; padding: 20px;">Tidak ada data yang sesuai pencarian.</td></tr>`;
+      dbTableBody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: #64748B; padding: 20px;">Tidak ada data yang sesuai pencarian.</td></tr>`;
       return;
     }
 
@@ -2420,6 +2481,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let branchRows = [];
     activeUnits.forEach((b, idx) => {
+      const nearest = getTop3NearestBranches(b, activeUnits);
+      const n1 = nearest[0] ? `${nearest[0].kcp} (${nearest[0].distKm} km, ~${nearest[0].timeStr})` : "-";
+      const n2 = nearest[1] ? `${nearest[1].kcp} (${nearest[1].distKm} km, ~${nearest[1].timeStr})` : "-";
+      const n3 = nearest[2] ? `${nearest[2].kcp} (${nearest[2].distKm} km, ~${nearest[2].timeStr})` : "-";
+
       branchRows.push({
         "No": idx + 1,
         "Kode Cabang": b.kodeCabang || "-",
@@ -2433,6 +2499,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "Provinsi": b.provinsi || "Jawa Barat",
         "Latitude GPS": b.lat,
         "Longitude GPS": b.lng,
+        "Unit Terdekat 1": n1,
+        "Unit Terdekat 2": n2,
+        "Unit Terdekat 3": n3,
         "Status Data": "Live Master Google Sheet (Audited)"
       });
     });
@@ -2805,6 +2874,19 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
+    }
+
+    // Optional automated URL parameter handler for direct database inspection
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('open_db')) {
+      setTimeout(() => {
+        if (btnOpenDb) btnOpenDb.click();
+        const searchVal = urlParams.get('open_db');
+        if (searchVal && searchVal !== '1' && dbSearchInput) {
+          dbSearchInput.value = searchVal;
+          dbSearchInput.dispatchEvent(new Event('input'));
+        }
+      }, 800);
     }
   }
 });
